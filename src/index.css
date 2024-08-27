@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*,::before, ::after {
+  border-color: transparent;
+}
+:root {
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Arimo", sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center; */
+}
+
+.text-shadow {
+  /* text-shadow: 0 13.36px 8.896px #c4b59d,0 5px 5px  */
+}
+html {
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on mobile */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  overflow: auto; /* Ensure it's scrollable */
+  scroll-behavior: smooth;
+}
+
+/* Webkit browsers like Chrome, Safari, and Edge */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.progress {
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+circle {
+  stroke-dashoffset: 0;
+  stroke-width: 2%;
+}
+
+.progress .indicator {
+  stroke: #fe0222;
+}
+
+.img-circle {
+  transition: transform 1s ease 0s;
+}
+figure:hover .img-circle {
+  transform: rotateY(7deg);
+}
+
+.project-slick .slick-slide div{
+  height: 100px;
+}
