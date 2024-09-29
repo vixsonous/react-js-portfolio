@@ -1,87 +1,134 @@
 import { useEffect, useRef } from "react";
-import { Props } from "../constants";
+import { Props, text } from "../constants";
 import { useScroll, motion, useTransform } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Parallax } from "swiper/modules";
+import CardsCarousel from "./CardsCarousel";
+import CreativeSwiper from "./CreativeSwiper";
 
 export default function Experience({curMode} : Props) {
 
-    const container = useRef<HTMLDivElement>(null);
-    const { scrollYProgress} = useScroll({
-        target: container,
-        offset: ["start end", "end end"]
-    });
+    const swiperSlideClass = "py-[100px] px-[30px] lg:py-[100px] lg:px-[60px] min-h-[100vh]"
 
-    const textPos1 = {
-        pos1: useTransform(scrollYProgress, [0, 0.2], [-300,0]),
-        pos2: useTransform(scrollYProgress, [0.1, 0.3], [-300,0]),
-        pos3: useTransform(scrollYProgress, [0.2, 0.4], [-300,0]),
-    }
-
-    const textPos2 = {
-        pos1: useTransform(scrollYProgress, [0.15, 0.35], [-300,0]),
-        pos2: useTransform(scrollYProgress, [0.25, 0.45], [-300,0]),
-        pos3: useTransform(scrollYProgress, [0.35, 0.55], [-300,0]),
-    }
-
-    const textPos3 = {
-        pos1: useTransform(scrollYProgress, [0.4, 0.6], [-300,0]),
-        pos2: useTransform(scrollYProgress, [0.5, 0.7], [-300,0]),
-        pos3: useTransform(scrollYProgress, [0.6, 0.8], [-300,0]),
-    }
-
-    const opacity1 = {
-        text1: useTransform(scrollYProgress, [0, 0.2], [0,1]),
-        text2: useTransform(scrollYProgress, [0.1, 0.3], [0,1]),
-        text3: useTransform(scrollYProgress, [0.2, 0.4], [0,1]),
-    }
-
-    const opacity2 = {
-        text1: useTransform(scrollYProgress, [0.15, 0.35], [0,1]),
-        text2: useTransform(scrollYProgress, [0.25, 0.45], [0,1]),
-        text3: useTransform(scrollYProgress, [0.35, 0.55], [0,1]),
-    }
-
-    const opacity3 = {
-        text1: useTransform(scrollYProgress, [0.4, 0.6], [0,1]),
-        text2: useTransform(scrollYProgress, [0.5, 0.7], [0,1]),
-        text3: useTransform(scrollYProgress, [0.6, 0.8], [0,1]),
-    }
-
-    const lineHeight = useTransform(scrollYProgress, [0,1], ["0%","65%"]);
+    const exp1 = [
+        {text: 'HTML'},
+        {text: 'CSS'},
+        {text: 'JavaScript'},
+        {text: 'Jquery'},
+        {text: 'PHP'},
+        {text: 'MySQL'},
+    ]
+    
+    const exp2 = [
+        {text: 'HTML', color: '#6C88A6', textColor: '#fff'},
+        {text: 'CSS', color: '#A4B8C8', textColor: '#fff'},
+        {text: 'JavaScript', color: '#9DBCC5', textColor: '#fff'},
+        {text: 'Jquery', color: '#D2E0E9', textColor: '#3A3A3A'},
+        {text: 'PHP', color: '#A4B8C8', textColor: '#fff'},
+        {text: 'Laravel', color: '#F1F4F9', textColor: '#3A3A3A'},
+        {text: 'MySQL', color: '#A9C6D9', textColor: '#fff'},
+        {text: 'ReactJS', color: '#D0D9E2', textColor: '#3A3A3A'},
+    ]
 
     return (
-        <main className="mix-blend-difference pt-[100px] relative">
-            <motion.div ref={container} className="min-h-[400vh] flex flex-wrap">
-                <div className="flex-[0_0_0%] sm:flex-[0_0_50%] ">
-                </div>
-                <div className="flex-[1_0_50%] p-[20px] sticky top-0 h-screen">
-                    <div className=" relative before:border-l-[1px] before:h-[100%] before:border-l-[#0000] before:content-[''] before:absolute">
-                    {/* after:w-[15px] after:content-[''] after:h-[40px] after:bg-[#F7F7F7] after:absolute after:top-0 after:left-0 */}
-                        <motion.section  className={` overflow-hidden z-[1] relative 
-                        
-                        p-[30px]`}>
-                            <motion.div style={{opacity: opacity1.text1, translateX: textPos1.pos1}} className="z-[1] w-[15px] rounded-[15px] h-[15px] bg-[#D9D9D9] content-[''] left-[0px] top-[40px] absolute" />
-                            <motion.h1 style={{color: '#fff', translateX: textPos1.pos1, opacity: opacity1.text1}} className="title text-[1.4em]">Intern Full Stack Developer / <span className="text-[1em] font-light">May 2018 - January 2019</span></motion.h1>
-                            <motion.h1 style={{color: '#fff', translateX: textPos1.pos2, opacity: opacity1.text2}} className="company text-[1em] font-light">TIG Designs and Solutions Cebu City </motion.h1>
-                            <motion.h1 style={{color: '#fff', translateX: textPos1.pos3, opacity: opacity1.text3}} className="code text-[.75em] font-light">HTML, CSS, Javascript, JQuery, PHP, MySQL</motion.h1>
-                        </motion.section>
-                        <motion.section  className="overflow-hidden z-[1] relative p-[30px]">
-                            <motion.div style={{opacity: opacity2.text1, translateX: textPos2.pos1}} className="z-[1] w-[15px] rounded-[15px] h-[15px] bg-[#D9D9D9] content-[''] left-[0px] top-[40px] absolute" />
-                            <motion.h1 style={{color: '#fff', translateX: textPos2.pos1, opacity: opacity2.text1}} className="title text-[1.4em]">Freelance Developer / <span className="text-[1em] font-light">July 2021 - December 2022</span></motion.h1>
-                            <motion.h1 style={{color: '#fff', translateX: textPos2.pos2, opacity: opacity2.text2}} className="company text-[1em] font-light">Yazaki Real Estate </motion.h1>
-                            <motion.h1 style={{color: '#fff', translateX: textPos2.pos3, opacity: opacity2.text3}} className="code text-[.75em] font-light">HTML, CSS, Javascript, JQuery, PHP, Laravel, MySQL, React JS</motion.h1>
-                        </motion.section>
-                        <motion.section  className="overflow-hidden z-[1] relative 
-                        p-[30px]">
-                            {/* <motion.div className="w-[15px] content-[''] h-[200px] sm:h-[180px] bg-[#F7F7F7] absolute top-[55px] left-0" /> */}
-                            <motion.div style={{opacity: opacity3.text1, translateX: textPos3.pos1}} className="z-[1] w-[15px] rounded-[15px] h-[15px] bg-[#D9D9D9] content-[''] left-[0px] top-[40px] absolute" />
-                            <motion.h1 style={{color: '#fff', translateX: textPos3.pos1, opacity: opacity3.text1}} className="title text-[1.4em]">Team Leader / Mid-Level Software Engineer / <span className="text-[1em] font-light">September 2021 - Present</span></motion.h1>
-                            <motion.h1 style={{color: '#fff', translateX: textPos3.pos2, opacity: opacity3.text2}} className="company text-[1em] font-light">Seed Tech Philippines </motion.h1>
-                            <motion.h1 style={{color: '#fff', translateX: textPos3.pos3, opacity: opacity3.text3}} className="code text-[.75em] font-light">HTML, CSS, Javascript, JQuery, Java, Oracle</motion.h1>
-                        </motion.section>
-                        <motion.div style={{height: lineHeight}} className="absolute border-l-[2px] border-l-[#D9D9D9] top-[40px] left-[7px] h-full z-[0]"></motion.div>
+        <Swiper
+                speed={600}
+                parallax={true}
+                pagination={{
+                clickable: true,
+                }}
+                navigation={true}
+                modules={[Parallax, Pagination, Navigation]}
+                style={{color: curMode.textColor}}
+                className="flex-[1_0_50%] w-full h-full"
+            >
+                <div
+                slot="container-start"
+                className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center"
+                style={{
+                    backgroundImage: curMode.bg,
+                }}
+                data-swiper-parallax="-23%"
+                ></div>
+                <SwiperSlide className={swiperSlideClass}>
+                    <div className="flex flex-wrap overflow-hidden">
+                        <div className="flex-[1_0_100%] lg:flex-[1_0_50%] flex flex-col gap-[10px] lg:pr-[100px]">
+                            <div style={{fontSize: text.logo}} className="leading-[55px]" data-swiper-parallax="-300">
+                                Intern Full Stack Developer / <br/><span className="text-[.5em] font-light">May 2018 - January 2019</span>
+                            </div>
+                            <div style={{fontSize: text.body}} className="subtitle font-bold" data-swiper-parallax="-200">
+                                TIG Designs and Solutions Cebu City
+                            </div>
+                            <div style={{fontSize: text.small}} className="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex-[1_0_50%]"></div>
+                        <div className="flex-[1_0_100%]">
+                            <CardsCarousel curMode={curMode} items={exp1}/>
+                        </div>
                     </div>
-                </div>
-            </motion.div>
-        </main>
+                </SwiperSlide>
+                <SwiperSlide className={swiperSlideClass}>
+                    <div className="flex flex-wrap">
+                        <div className="flex-[1_0_50%] flex flex-col gap-[10px]">
+                            <div style={{fontSize: text.logo}} className="leading-[55px]" data-swiper-parallax="-300">
+                                Freelance Developer / <br/><span className="text-[.5em] font-light">July 2021 - December 2022</span>
+                            </div>
+                            <div style={{fontSize: text.body}} className="subtitle font-bold" data-swiper-parallax="-200">
+                                Yazaki Real Estate
+                            </div>
+                            <div style={{fontSize: text.small}} className="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex-[1_0_50%]">
+                            <CreativeSwiper items={exp2}/>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide className={swiperSlideClass}>
+                    <div className="flex flex-wrap">
+                        <div className="flex-[1_0_50%] flex flex-col gap-[10px]">
+                            <div style={{fontSize: text.logo}} className="leading-[55px]" data-swiper-parallax="-300">
+                                Mid-Level Software Engineer / <br/><span className="text-[.5em] font-light">September 2021 - Present</span>
+                            </div>
+                            <div style={{fontSize: text.body}} className="subtitle font-bold" data-swiper-parallax="-200">
+                                Seed Tech Philippines
+                            </div>
+                            <div style={{fontSize: text.small}} className="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex-[1_0_50%]">
+                            asd
+                        </div>
+                    </div>
+                </SwiperSlide>
+            </Swiper>
     )
 }

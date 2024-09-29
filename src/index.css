@@ -6,7 +6,7 @@
 }
 :root {
   /* font-family: "Lato", sans-serif; */
-  font-family: "Arimo", sans-serif;
+  font-family: "DM Sans", sans-serif;
   line-height: 1.5;
   font-synthesis: none;
 
@@ -33,6 +33,11 @@ html {
 /* Webkit browsers like Chrome, Safari, and Edge */
 html::-webkit-scrollbar {
   display: none;
+}
+
+.main-body {
+  background: radial-gradient(circle, #EDE8F5 0%, #ADBBDA 90%);
+  background-attachment: fixed;
 }
 
 .progress {
