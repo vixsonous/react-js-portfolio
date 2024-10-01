@@ -1,20 +1,30 @@
 import { Link } from "react-router-dom";
 import { defaultAnim, Props } from "../constants";
 import { motion, useIsPresent } from "framer-motion";
+import { useState } from "react";
 
 export default function Header({curMode}: Props) {
     const isPresent = useIsPresent();
+    const [state, setState] = useState({
+        abt: !window.location.href.includes("/experience") && !window.location.href.includes("/project") ? true : false,
+        exp: window.location.href.includes("/experience") ? true : false,
+        prj: window.location.href.includes("/project") ? true : false
+    })
     return (
         <motion.header 
-        className="flex absolute top-0 left-0 z-[999] justify-between p-[1em] items-center w-full">
-            <div className=" ">
-                <motion.h1 style={{color: curMode.primary, opacity: 0}} className="text-[2em] font-bold" initial="hidden" animate="visible">{".".split("").map((char, idx) => <motion.span key={new Date().getTime() * Math.random()} transition={{ delay:  idx * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.h1>
-            </div>
+        style={{borderBottomColor: curMode.primary}}
+        className="flex absolute top-0 left-0 z-[999] justify-center shadow-sm shadow-[#3D52A0] p-[1em] items-center w-full">
             <div className="">
-                <section style={{color: curMode.bg}}  className="flex gap-[2em] text-[1em] font-light items-center">
-                    <Link to="/"><motion.h1 initial="hidden" animate="visible">{"About".split("").map((char, idx) => <motion.span key={idx} transition={{ delay: .7 + ("About".length - idx - 1) * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.h1></Link>
-                    <Link to="/experience"><motion.h1 initial="hidden" animate="visible">{"Experience".split("").map((char, idx) => <motion.span key={idx} transition={{ delay:  .3 + ("Experience".length - idx - 1) * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.h1></Link>
-                    <Link to="/projects"><motion.h1 initial="hidden" animate="visible">{"Projects".split("").map((char, idx) => <motion.span key={idx} transition={{ delay:  ("Projects".length - idx - 1) * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.h1></Link>
+                <section style={{color: curMode.bg}}  className="flex gap-[1em] text-[1em] font-light items-center">
+                    <Link onClick={() => setState(prev => ({...prev, abt: true, exp: false, prj: false}))} to="/">
+                        <span className={`font-semibold px-[10px] py-[5px] border-[#3D52A0] border-[1px] ${state.abt ? 'active' : 'hover:text-[#3D52A0]'} text-[#8697C4] rounded-2xl transition-all`}>Myself</span>
+                    </Link>
+                    <Link onClick={() => setState(prev => ({...prev, abt: false, exp: true, prj: false}))} to="/experience">
+                        <span className={`font-semibold px-[10px] py-[5px] border-[#3D52A0] border-[1px] ${state.exp ? 'active' : 'hover:text-[#3D52A0]'} hover:border-[#3D52A0] text-[#8697C4] rounded-2xl transition-all`}>Experience</span>
+                    </Link>
+                    <Link onClick={() => setState(prev => ({...prev, abt: false, exp: false, prj: true}))} to="/projects">
+                        <span className={`font-semibold px-[10px] py-[5px] border-[#3D52A0] border-[1px] ${state.prj ? 'active' : 'hover:text-[#3D52A0]'} hover:border-[#3D52A0] text-[#8697C4] rounded-2xl transition-all`}>Projects</span>
+                    </Link>
                 </section>
             </div>
             <motion.div

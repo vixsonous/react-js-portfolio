@@ -1,17 +1,28 @@
 import Slider from 'react-slick';
 import { defaultAnim, delayTime, Props, text } from "../constants";
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-export default function Main({curMode}: Props) {
-
-    const sliderBallClass = " text-[#fff] text-center h-[50px] z-[99] relative before:w-[15px] before:rounded-[15px] before:h-[15px] before:bg-[#D9D9D9] before:content-[''] before:top-[30px] before:left-[45%] before:absolute";
-    
+export default function Main({curMode}: Props) {    
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
     const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
     
     const [isLoaded, setIsLoaded] = useState(false);
     const [isInView, setIsInView] = useState(false);
+    const isPresent = useIsPresent();
+
+    const [displayState, setDisplayState] = useState({
+        webd: true,
+        ui: false
+    });
+
+    useEffect(() => {
+        const to = setTimeout(() => {
+            setDisplayState(prev => ({...prev, webd: !displayState.webd}));
+        },3000);
+
+        return () => clearTimeout(to);
+    },[displayState.webd]);
 
     return (
         <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] max-w-[1160px] ">
@@ -76,10 +87,20 @@ export default function Main({curMode}: Props) {
                         {/* <motion.div initial={{x: 0}} animate={{x: -50}} transition={{delay: ,duration: 150, repeat: Infinity, repeatType: "reverse"}} className="w-[260px] h-[260px] bg-[#000] rounded-[260px] z-[99]" /> */}
                     </motion.div>
                     <motion.h1 initial={{x: 0}} animate={{x: 50}} transition={{duration: 99, repeat: Infinity, repeatType: "reverse"}} style={{color: curMode.primary}} className={` text-[${text.logo}] font-light text-center`}>
-                        <motion.h1 initial="hidden" animate="visible">{"Victor Chiong".split("").map((char, idx) => <motion.span transition={{ delay:  + idx * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.h1>
+                        <motion.span style={{fontSize: text.xl}} initial="hidden" animate="visible">{"Victor Chiong".split("").map((char, idx) => <motion.span key={idx} transition={{ delay:  + idx * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.span>
                     </motion.h1>
                     <motion.h1 initial={{x: 0}} animate={{x: -50}} transition={{duration: 99, repeat: Infinity, repeatType: "reverse"}} style={{color: curMode.primary}} className={`text-[${text.small}] font-light text-shadow`}>
-                        <motion.h1 initial="hidden" animate="visible">{"Web Developer".split("").map((char, idx) => <motion.span transition={{ delay:  + .5 + idx * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.h1>
+                        <AnimatePresence>
+                            { displayState.webd && <motion.span exit={{opacity: 0}} style={{fontSize: text.subtitle}} initial="hidden" animate="visible">{"Web Developer".split("").map((char, idx) => <motion.span key={idx} transition={{ delay:  + .5 + idx * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.span>}
+                            { displayState.ui && <motion.span exit={{opacity: 0}} style={{fontSize: text.subtitle}} initial="hidden" animate="visible">{"UI".split("").map((char, idx) => <motion.span key={idx} transition={{ delay:  + .5 + idx * 0.05 }} variants={defaultAnim}>{char}</motion.span>)}</motion.span>}
+                            <motion.div
+                                initial={{ scaleX: 1 }}
+                                animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut" } }}
+                                exit={{ scaleX: 1, transition: { duration: 1, ease: "circIn" } }}
+                                style={{ originX: isPresent ? 0 : 1 , background: curMode.primary}}
+                                className="fixed top-0 left-0 right-0 bottom-0 z-[2]"
+                            />
+                        </AnimatePresence>
                     </motion.h1>
                 </div>
             </section>

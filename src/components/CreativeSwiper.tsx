@@ -2,16 +2,13 @@ import { EffectCreative, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { text } from "../constants";
 
-export default function CreativeSwiper({items} : {items: Array<{text: string, color: string, textColor: string}>}) {
+export default function CreativeSwiper({items} : {items: Array<{text: string, color: string, textColor: string, svg: React.ReactNode}>}) {
     return (
         <>
         <Swiper
             grabCursor={true}
             effect={'creative'}
-            pagination={{
-                clickable: true,
-                dynamicBullets: true,
-            }}
+            loop
             creativeEffect={{
             prev: {
                 shadow: true,
@@ -26,12 +23,15 @@ export default function CreativeSwiper({items} : {items: Array<{text: string, co
             },
             }}
             modules={[EffectCreative, Pagination]}
-            className="mySwiper6 m-[100px_auto] w-[80vw] lg:w-[520px] h-[290px]"
+            className="mySwiper6 m-[100px_auto] w-[80vw] lg:w-[520px] h-[290px] rounded-lg"
         >
             {
                 items.map( (itm, idx) => {
                     return (
-                        <SwiperSlide style={{fontSize: text.logo, backgroundColor: itm.color, color: itm.textColor}} className="flex items-center justify-center text-white relative top-[-50px] pt-[50px]">{itm.text}</SwiperSlide>
+                        <SwiperSlide style={{fontSize: text.logo, backgroundColor: itm.color, color: itm.textColor}} className="flex items-center justify-center gap-[10px] text-white relative top-[-50px] pt-[50px]">
+                            <span>{itm.text}</span>
+                            <span>{itm.svg}</span>
+                        </SwiperSlide>
                     )
                 })
             }

@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Projects from './components/Projects'
 import Experience from './components/Experience'
 import { useLocation, useRoutes } from 'react-router-dom';
+import SmoothScroll from './components/SmoothScroll';
 
 const lightMode = {
   bg: 'radial-gradient(circle, #F1F4F9 0%, #ADBBDA 90%)',
@@ -70,7 +71,7 @@ function App() {
 
   return (
     <AnimatePresence mode="wait">
-      {React.cloneElement(element, {key: location.pathname})}
+        {React.cloneElement(element, {key: location.pathname})}
     </AnimatePresence>
   )
 }

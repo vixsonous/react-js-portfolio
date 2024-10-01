@@ -2,43 +2,55 @@ import { useEffect, useRef } from "react";
 import { Props, text } from "../constants";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Parallax } from "swiper/modules";
+import { Mousewheel, Navigation, Pagination, Parallax } from "swiper/modules";
 import CardsCarousel from "./CardsCarousel";
 import CreativeSwiper from "./CreativeSwiper";
+import HTMLSVG from "./svg/HTMLSVG";
+import CSS3SVG from "./svg/CSS3SVG";
+import JSSVG from "./svg/JSSVG";
+import JquerySVG from "./svg/JquerySVG";
+import PHPSVG from "./svg/PHPSVG";
+import MySQLSVG from "./svg/MySQLSVG";
+import ReactJSSVG from "./svg/ReactJSSVG";
 
 export default function Experience({curMode} : Props) {
 
     const swiperSlideClass = "py-[100px] px-[30px] lg:py-[100px] lg:px-[60px] min-h-[100vh]"
 
     const exp1 = [
-        {text: 'HTML'},
-        {text: 'CSS'},
-        {text: 'JavaScript'},
-        {text: 'Jquery'},
-        {text: 'PHP'},
-        {text: 'MySQL'},
+        {text: 'JavaScript', svg: <JSSVG width={30} height={30}/>},
+        {text: 'CSS', svg: <CSS3SVG width={30} height={30}/>},
+        {text: 'HTML', svg: <HTMLSVG width={30} height={30} />},
+        {text: 'Jquery', svg: <JquerySVG width={30} height={30}/>},
+        {text: 'PHP', svg: <PHPSVG width={30} height={30}/>},
+        {text: 'MySQL', svg: <MySQLSVG width={30} height={30}/>},
     ]
     
     const exp2 = [
-        {text: 'HTML', color: '#6C88A6', textColor: '#fff'},
-        {text: 'CSS', color: '#A4B8C8', textColor: '#fff'},
-        {text: 'JavaScript', color: '#9DBCC5', textColor: '#fff'},
-        {text: 'Jquery', color: '#D2E0E9', textColor: '#3A3A3A'},
-        {text: 'PHP', color: '#A4B8C8', textColor: '#fff'},
-        {text: 'Laravel', color: '#F1F4F9', textColor: '#3A3A3A'},
-        {text: 'MySQL', color: '#A9C6D9', textColor: '#fff'},
-        {text: 'ReactJS', color: '#D0D9E2', textColor: '#3A3A3A'},
+        {text: 'HTML', color: '#6C88A6', textColor: '#fff', svg: <HTMLSVG width={50} height={50} />},
+        {text: 'CSS', color: '#A4B8C8', textColor: '#fff', svg: <CSS3SVG width={50} height={50} />},
+        {text: 'JavaScript', color: '#9DBCC5', textColor: '#fff', svg: <JSSVG width={50} height={50} />},
+        {text: 'Jquery', color: '#D2E0E9', textColor: '#3A3A3A', svg: <JquerySVG width={50} height={50} />},
+        {text: 'PHP', color: '#A4B8C8', textColor: '#fff', svg: <PHPSVG width={50} height={50} />},
+        {text: 'Laravel', color: '#F1F4F9', textColor: '#3A3A3A', svg: <HTMLSVG width={50} height={50} />},
+        {text: 'MySQL', color: '#A9C6D9', textColor: '#fff', svg: <MySQLSVG width={50} height={50} />},
+        {text: 'ReactJS', color: '#D0D9E2', textColor: '#3A3A3A', svg: <ReactJSSVG width={50} height={50} />},
     ]
+
+    useEffect(() => {
+        window.dispatchEvent(new Event('resize'))
+    },[]);
 
     return (
         <Swiper
                 speed={600}
                 parallax={true}
+                mousewheel
                 pagination={{
                 clickable: true,
                 }}
                 navigation={true}
-                modules={[Parallax, Pagination, Navigation]}
+                modules={[Parallax, Pagination, Navigation, Mousewheel]}
                 style={{color: curMode.textColor}}
                 className="flex-[1_0_50%] w-full h-full"
             >

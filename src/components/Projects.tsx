@@ -1,36 +1,46 @@
-import Slider from "react-slick";
-import { delayTime, Props, text } from "../constants";
+import { Props, text } from "../constants";
 import {motion, useAnimationControls, useInView} from 'framer-motion';
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faExternalLink, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
+import SmoothScroll from "./SmoothScroll";
 
 export default function Projects({curMode}: Props) {
-
-    const sliderBallClass = " text-left text-[#fff] text-center h-[50px] z-[9] relative lg:top-[20px] before:w-[15px] before:rounded-[15px] before:h-[15px] before:bg-[#D9D9D9] before:content-[''] lg:before:top-[5px] before:top-[30px] lg:before:left-[30px] before:left-[45%] before:absolute";
 
     const ref = useRef<SwiperRef>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
-        if(videoRef.current) videoRef.current.play();
+        if(videoRef.current) {
+            videoRef.current.play();
+        }
     },[videoRef]);
 
     return (
-        <main className=" min-h-[100vh] w-full relative">
+        <SmoothScroll>
+            <main className=" min-h-[100vh] w-full relative">
             <div className="flex flex-wrap justify-center">
                 <div  className="project-slick flex-[1_0_100%] relative z-[9] w-[100vw] lg:max-w-[500px] box-border">
-
+                
                 </div>
-                <div className="">
+                <div className="flex-[1_0_100%]">
                     <Swiper
                         ref={ref}
+                        breakpoints={{
+                            0: {
+                              slidesPerView: 1,
+                              spaceBetween: 10,
+                            },
+                            768: {
+                              slidesPerView: 2,
+                              spaceBetween: 40,
+                            },
+                        }}
                         effect={'coverflow'}
                         grabCursor={true}
                         centeredSlides={true}
@@ -44,14 +54,14 @@ export default function Projects({curMode}: Props) {
                             modifier: 1,
                             slideShadows: false,
                         }}
-                        pagination={{clickable: true}}
                         loop
-                        modules={[EffectCoverflow, Pagination]}
+                        modules={[EffectCoverflow]}
                         className="mySwiper py-[100px] w-[80vw]"
                     >
                         <SwiperSlide className="w-[400px] h-[400px]">
                             {({isActive}) => (
-                                <motion.div initial={{y: 100, opacity: 0}} transition={{duration: .8,delay: .0, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative overflow-hidden rounded-md">
+                                <>
+                                <motion.div initial={{y: 50, opacity: 0}} transition={{duration: .8,delay: .0, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative overflow-hidden rounded-md">
                                     <motion.img className={`rounded-md h-[400px] ${isActive ? 'p-[5px]' : 'p-[5px]'} bg-transparent w-[100%] object-cover transition-all`} src={'/cards/rakutech-card.png'}  alt="website banner" />
                                     <div 
                                         style={{
@@ -63,25 +73,6 @@ export default function Projects({curMode}: Props) {
                                         }} 
                                         className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black`}
                                     ></div>
-                                    <motion.div 
-                                        initial={{
-                                            width: '0%',
-                                        }}
-                                        animate={{
-                                            width: isActive ? '100%' : '0%',
-                                        }}
-                                        transition={{
-                                            duration: .5,
-                                            ease: 'linear',
-                                            delay: 0,
-                                        }}
-                                        style={{
-                                            boxSizing: 'border-box',
-                                            backgroundImage: 'conic-gradient(#e84e7b, #9f61e8, #e84e7b)'
-                                        }} 
-                                        className={` absolute top-[0] left-[0] z-[-1] h-full rounded-md`}
-                                    ></motion.div>
-
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
                                             <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>RAKUTECH</h1>
@@ -91,6 +82,7 @@ export default function Projects({curMode}: Props) {
                                         </div>
                                     </div>
                                 </motion.div>
+                                </>
                             )}
                         </SwiperSlide>
                         <SwiperSlide className="w-[400px] h-[400px]">
@@ -107,24 +99,6 @@ export default function Projects({curMode}: Props) {
                                         }} 
                                         className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black`}
                                     ></div>
-                                    <motion.div 
-                                        initial={{
-                                            width: '0%',
-                                        }}
-                                        animate={{
-                                            width: isActive ? '100%' : '0%',
-                                        }}
-                                        transition={{
-                                            duration: .5,
-                                            ease: 'linear',
-                                            delay: 0,
-                                        }}
-                                        style={{
-                                            boxSizing: 'border-box',
-                                            backgroundImage: 'conic-gradient(#ef4c00, #f48548, #232227, #4a3639, #ef4c00)'
-                                        }} 
-                                        className={` absolute top-[0] left-[0] z-[-1] h-full rounded-md`}
-                                    ></motion.div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
                                             <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Rakuten Fresh</h1>
@@ -140,7 +114,7 @@ export default function Projects({curMode}: Props) {
                             {({isActive}) => (
                                 <div className="relative overflow-hidden">
                                     {/* <motion.img viewport={{once:true}} src={'/cards/web5d-card.png'} className={`rounded-md h-[400px] ${isActive ? 'p-[5px]' : 'p-[5px]'} bg-transparent w-[100%] object-cover transition-all`}  alt="website banner" /> */}
-                                    <video ref={videoRef} autoPlay src="/web5d.webm"  className={`rounded-md h-[400px] ${isActive ? 'p-[5px]' : 'p-[5px]'} w-[100%] object-cover transition-all`}>
+                                    <video ref={videoRef} muted loop autoPlay controls playsInline src="/web5d.webm"  className={`rounded-md h-[400px] ${isActive ? 'p-[5px]' : 'p-[5px]'} w-[100%] object-cover transition-all`}>
                                     </video>
                                     <div 
                                         style={{
@@ -152,24 +126,6 @@ export default function Projects({curMode}: Props) {
                                         }} 
                                         className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black`}
                                     ></div>
-                                    <motion.div 
-                                        initial={{
-                                            width: '0%',
-                                        }}
-                                        animate={{
-                                            width: isActive ? '100%' : '0%',
-                                        }}
-                                        transition={{
-                                            duration: .5,
-                                            ease: 'linear',
-                                            delay: 0,
-                                        }}
-                                        style={{
-                                            boxSizing: 'border-box',
-                                            backgroundImage: 'conic-gradient(#f26b14, #fbdb73, #c54209, #180e07, #180e07, #fab462, #fbfacb,#fab462, #fab462, #f26b14)'
-                                        }} 
-                                        className={` absolute top-[0] left-[0] z-[-1] h-full rounded-md`}
-                                    ></motion.div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
                                             <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Web5D</h1>
@@ -195,24 +151,6 @@ export default function Projects({curMode}: Props) {
                                         }} 
                                         className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black`}
                                     ></div>
-                                    <motion.div 
-                                        initial={{
-                                            width: '0%',
-                                        }}
-                                        animate={{
-                                            width: isActive ? '100%' : '0%',
-                                        }}
-                                        transition={{
-                                            duration: .5,
-                                            ease: 'linear',
-                                            delay: 0,
-                                        }}
-                                        style={{
-                                            boxSizing: 'border-box',
-                                            backgroundImage: 'conic-gradient(#fbeacb, #fbfbec, #7c563c, #caae8e, #fbeacb)'
-                                        }} 
-                                        className={` absolute top-[0] left-[0] z-[-1] h-full rounded-md`}
-                                    ></motion.div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
                                             <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Wangohan</h1>
@@ -227,9 +165,10 @@ export default function Projects({curMode}: Props) {
                         </SwiperSlide>
                         <SwiperSlide className="w-[400px] h-[400px]">
                             {({isActive}) => (
+                                <>
                                 <div className="relative">
-                                    <motion.img viewport={{once:true}} src={'/cards/gvo-card.png'} style={{border:`5px solid ${curMode.accentColor}`}} className={`rounded-md h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
-                                    <div style={{border: `5px solid ${curMode.accentColor}`}} className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black w-full h-full`}></div>
+                                    <motion.img viewport={{once:true}} src={'/cards/gvo-card.png'} className={`rounded-md h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
+                                    <div className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black w-full h-full`}></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
                                             <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>GVO / Good Vibes Only</h1>
@@ -238,13 +177,14 @@ export default function Projects({curMode}: Props) {
                                         </div>
                                     </div>
                                 </div>
+                                </>
                             )}
                         </SwiperSlide>
                         <SwiperSlide className="w-[400px] h-[400px]">
                              {({isActive}) => (
-                                <motion.div initial={{y: 100, opacity: 0}} transition={{duration: .8,delay: .6, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative">
-                                    <motion.img style={{border:`5px solid ${curMode.accentColor}`}} src={'/cards/jtb-card.png'} className={`rounded-md h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
-                                    <div style={{border: `5px solid ${curMode.accentColor}`}} className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black w-full h-full`}></div>
+                                <motion.div initial={{y: 150, opacity: 0}} transition={{duration: .8,delay: .6, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative">
+                                    <motion.img src={'/cards/jtb-card.png'} className={`rounded-md h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
+                                    <div className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black w-full h-full`}></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
                                             <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>
@@ -263,10 +203,12 @@ export default function Projects({curMode}: Props) {
                         </SwiperSlide>
                     </Swiper>
                 </div>
-                <div style={{color: curMode.bg}} className="flex-[1_0_50%] lg:absolute h-full w-full flex justify-center items-center">
-                    
+                
+                <div style={{color: curMode.bg}} className="flex-[1_0_100%] min-h-[100vh] w-full flex justify-center items-center">
+                    asdasd
                 </div>
             </div>
         </main>
+        </SmoothScroll>
     )
 }

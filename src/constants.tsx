@@ -22,8 +22,11 @@ export const delayTime = {
 }
 
 export const text = {
+    xl2: '10em',
+    xl: '5em',
     logo: '3em',
     title: '2em',
+    subtitle: '1.5em',
     body: '1.125em',
     small: '0.875em'
 }
