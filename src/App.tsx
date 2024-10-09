@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Main from './components/Main'
-import { AnimatePresence, motion, useAnimate, useInView } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Projects from './components/Projects'
 import Experience from './components/Experience'
 import { useLocation, useRoutes } from 'react-router-dom';
-import SmoothScroll from './components/SmoothScroll';
 import { useDispatch } from 'react-redux';
 import { setTheme } from './slice/theme';
 

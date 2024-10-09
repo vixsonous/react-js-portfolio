@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from "react";
-import { CurrentMode, lg, md, sm, text, xl, xl2 } from "../constants";
+import {  lg, md, sm, text, xl, xl2 } from "../constants";
 import { motion } from "framer-motion";
 import { getTheme } from "./hooks/theme";
 

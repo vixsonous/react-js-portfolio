@@ -1,8 +1,8 @@
-import { Props, text } from "../constants";
-import {motion, useAnimationControls, useInView} from 'framer-motion';
+import {  text } from "../constants";
+import {motion} from 'framer-motion';
 import { useEffect, useRef } from "react";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -14,7 +14,7 @@ import { getTheme } from "./hooks/theme";
 export default function Projects() {
 
     const theme = getTheme();
-    
+
     const ref = useRef<SwiperRef>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
 
