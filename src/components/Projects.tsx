@@ -9,9 +9,12 @@ import 'swiper/css/pagination';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 import SmoothScroll from "./SmoothScroll";
+import { getTheme } from "./hooks/theme";
 
-export default function Projects({curMode}: Props) {
+export default function Projects() {
 
+    const theme = getTheme();
+    
     const ref = useRef<SwiperRef>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -75,7 +78,7 @@ export default function Projects({curMode}: Props) {
                                     ></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
-                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>RAKUTECH</h1>
+                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: theme.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>RAKUTECH</h1>
                                             <h1 className="font-light transition-all duration-700" style={{fontSize: text.small, color: 'white', transform: isActive ? 'translateX(0%)':'translateX(-150%)'}} >A project served as our final frontend project on our bootcamp. This project uses HTML, CSS, JS and SCSS.
                                                 It takes on the challenges of session storage utilization, management of session, event listeners, and DOM manipulation. 
                                             </h1>
@@ -101,7 +104,7 @@ export default function Projects({curMode}: Props) {
                                     ></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
-                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Rakuten Fresh</h1>
+                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: theme.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Rakuten Fresh</h1>
                                             <h1 className="font-light transition-all duration-700" style={{fontSize: text.small, color: 'white', transform: isActive ? 'translateX(0%)':'translateX(-150%)'}} >A project served as our final frontend project on our bootcamp. This project uses HTML, CSS, JS and SCSS.
                                                 It takes on the challenges of session storage utilization, management of session, event listeners, and DOM manipulation. 
                                             </h1>
@@ -128,7 +131,7 @@ export default function Projects({curMode}: Props) {
                                     ></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
-                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Web5D</h1>
+                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: theme.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Web5D</h1>
                                             <h1 className="font-light transition-all duration-700" style={{fontSize: text.small, color: 'white', transform: isActive ? 'translateX(0%)':'translateX(-150%)'}} >Personal project to learn about 3D in web applications. This project utilizies the three.js library to animate 3d objects into a canvas.
                                                 As I was interested in outer space, animating the solar system came into my mind. This project is also used as a portfolio of upcoming personal projects.
                                             </h1>
@@ -153,7 +156,7 @@ export default function Projects({curMode}: Props) {
                                     ></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
-                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Wangohan</h1>
+                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: theme.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>Wangohan</h1>
                                             <h1 className="font-light transition-all duration-700" style={{fontSize: text.small, color: 'white', transform: isActive ? 'translateX(0%)':'translateX(-150%)'}} >A project planned to turn into a big social media for pet lovers and those who loves to cook.
                                                 It is an intermediately complex project using the technologies Next JS, Postgres, Kysely, and other Javascript libraries. This project also tackles on the challenge of secure authentication of the users, along with Google OAuth, hashing and salting, JWTs, etc.
                                                 Very ambitious project to take on.
@@ -171,7 +174,7 @@ export default function Projects({curMode}: Props) {
                                     <div className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black w-full h-full`}></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
-                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>GVO / Good Vibes Only</h1>
+                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: theme.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>GVO / Good Vibes Only</h1>
                                             <h1 className="font-light transition-all duration-700" style={{fontSize: text.small, color: 'white', transform: isActive ? 'translateX(0%)':'translateX(-150%)'}} >Previous work that my team and I finished, the GVO corporate site. I learned utilizing CSS animations on this website and honed my JavaScript CSS skills.
                                             </h1>
                                         </div>
@@ -187,7 +190,7 @@ export default function Projects({curMode}: Props) {
                                     <div className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black w-full h-full`}></div>
                                     <div className="absolute top-0 w-full h-full overflow-hidden">
                                         <div className="absolute bottom-0 p-[20px]">
-                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: curMode.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>
+                                            <h1 className="transition-all duration-1000" style={{fontSize: text.title, color: theme.linkHoverColor, transform: isActive ? 'translateX(0%)':'translateX(-100%)'}}>
                                                 <FontAwesomeIcon onClick={() => {
                                                     window.open('https://www.jtbtravel.com.au/', '_blank');
                                                 }} icon={faExternalLink} className="text-[20px] hover:pointer" size={'xs'}/>
@@ -204,7 +207,7 @@ export default function Projects({curMode}: Props) {
                     </Swiper>
                 </div>
                 
-                <div style={{color: curMode.bg}} className="flex-[1_0_100%] min-h-[100vh] w-full flex justify-center items-center">
+                <div style={{color: theme.bg}} className="flex-[1_0_100%] min-h-[100vh] w-full flex justify-center items-center">
                     asdasd
                 </div>
             </div>

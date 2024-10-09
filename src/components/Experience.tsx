@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Props, text } from "../constants";
-import { useScroll, motion, useTransform } from "framer-motion";
+import { text } from "../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation, Pagination, Parallax } from "swiper/modules";
 import CardsCarousel from "./CardsCarousel";
@@ -12,8 +11,11 @@ import JquerySVG from "./svg/JquerySVG";
 import PHPSVG from "./svg/PHPSVG";
 import MySQLSVG from "./svg/MySQLSVG";
 import ReactJSSVG from "./svg/ReactJSSVG";
+import { getTheme } from "./hooks/theme";
 
-export default function Experience({curMode} : Props) {
+export default function Experience() {
+
+    const theme = getTheme();
 
     const swiperSlideClass = "py-[100px] px-[30px] lg:py-[100px] lg:px-[60px] min-h-[100vh]"
 
@@ -51,14 +53,14 @@ export default function Experience({curMode} : Props) {
                 }}
                 navigation={true}
                 modules={[Parallax, Pagination, Navigation, Mousewheel]}
-                style={{color: curMode.textColor}}
+                style={{color: theme.textColor}}
                 className="flex-[1_0_50%] w-full h-full"
             >
                 <div
                 slot="container-start"
                 className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center"
                 style={{
-                    backgroundImage: curMode.bg,
+                    backgroundImage: theme.bg,
                 }}
                 data-swiper-parallax="-23%"
                 ></div>
@@ -85,7 +87,7 @@ export default function Experience({curMode} : Props) {
                         </div>
                         <div className="flex-[1_0_50%]"></div>
                         <div className="flex-[1_0_100%]">
-                            <CardsCarousel curMode={curMode} items={exp1}/>
+                            <CardsCarousel items={exp1}/>
                         </div>
                     </div>
                 </SwiperSlide>

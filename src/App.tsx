@@ -9,6 +9,8 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import { useLocation, useRoutes } from 'react-router-dom';
 import SmoothScroll from './components/SmoothScroll';
+import { useDispatch } from 'react-redux';
+import { setTheme } from './slice/theme';
 
 const lightMode = {
   bg: 'radial-gradient(circle, #F1F4F9 0%, #ADBBDA 90%)',
@@ -38,29 +40,31 @@ const mixBlend = {
 }
 
 function App() {
-  const [curMode, setCurMode] = useState(lightMode);
+  const dispatch = useDispatch();
+  dispatch(setTheme(lightMode));
+  
   const divRef = useRef<HTMLDivElement>(null);
 
   const element = useRoutes([
     {
       path: '/',
       element: <div ref={divRef} className='main-body min-h-[100vh] flex flex-col items-center relative'>
-        <Header curMode={curMode} />
-        <Main curMode={curMode} />
+        <Header />
+        <Main />
       </div>
     },
     {
       path: '/experience',
       element: <div ref={divRef} className='main-body min-h-[100vh] flex flex-col items-center relative'>
-      <Header curMode={curMode} />
-      <Experience curMode={curMode} />
+      <Header />
+      <Experience/>
     </div>
     },
     {
       path: '/projects',
       element: <div ref={divRef} className='main-body min-h-[100vh] flex flex-col items-center relative'>
-      <Header curMode={curMode} />
-      <Projects curMode={curMode} />
+      <Header />
+      <Projects />
     </div>
     }
   ]);

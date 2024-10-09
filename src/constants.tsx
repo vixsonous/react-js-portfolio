@@ -12,8 +12,9 @@ export interface Props {
 }
 
 export const defaultAnim = {
-    visible: { opacity: 1 , y: 0},
+    visible: { opacity: 1 , y: -100},
     hidden: { opacity: 0, y: 0 },
+    exit: {opacity: 0, y: -100}
 }
 
 export const delayTime = {

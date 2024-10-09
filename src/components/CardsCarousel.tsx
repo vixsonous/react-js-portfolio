@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useRef, useState } from "react";
-import { CurrentMode, defaultAnim, lg, md, sm, text, xl, xl2 } from "../constants";
+import { CurrentMode, lg, md, sm, text, xl, xl2 } from "../constants";
 import { motion } from "framer-motion";
+import { getTheme } from "./hooks/theme";
 
 const defineScreenMode = () => {
     return sm(window.innerWidth) ? 0 :
@@ -22,10 +23,11 @@ const anim = {
     }
 };
 
-export default function CardsCarousel({curMode, items}: { curMode: CurrentMode, items: Array<{ text: string, svg: React.ReactNode}>}) {
+export default function CardsCarousel({items}: { items: Array<{ text: string, svg: React.ReactNode}>}) {
 
     // 3 or more zoom is enabled
     const scMode = defineScreenMode();
+    const theme = getTheme();
     const refArr = useRef<HTMLDivElement[]>([]);
     const [transZ, setTransZ] = useState(scMode < 3 ? scMode === 0 ? '150px' : '250px' : '750px');
     const [fontSize, setFontSize] = useState(
@@ -83,7 +85,7 @@ export default function CardsCarousel({curMode, items}: { curMode: CurrentMode, 
                         return (
                             <motion.div ref={el => refArr.current[x] = el as HTMLDivElement} key={x} style={{transform: `rotateY(${degrees.current[x]}deg) translateZ(${transZ})`}} 
                                 className="transition-all duration-1000 item absolute text-center rounded-md p-[10px] flex items-center gap-[10px]">
-                                    <motion.h1 className="text-white transition-all" style={{color: curMode.primary, fontSize: fontSize}} initial="hidden" animate="visible">{itm.text.split("").map((char, idx) => <motion.span key={idx} transition={{ delay:  (.3 * x) + idx * 0.05 }} variants={anim}>{char}</motion.span>)}</motion.h1>
+                                    <motion.h1 className="text-white transition-all" style={{color: theme.primary, fontSize: fontSize}} initial="hidden" animate="visible">{itm.text.split("").map((char, idx) => <motion.span key={idx} transition={{ delay:  (.3 * x) + idx * 0.05 }} variants={anim}>{char}</motion.span>)}</motion.h1>
                                     <motion.div initial="hidden" animate="visible" transition={{ delay:  (.3 * x) + itm.text.length * 0.05 }} variants={anim} className="">{itm.svg}</motion.div>
                                 </motion.div>
                         )
