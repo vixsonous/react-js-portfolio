@@ -14,7 +14,7 @@ export default function Header() {
     return (
         <motion.header 
         style={{borderBottomColor: theme.primary}}
-        className="flex absolute top-0 left-0 z-[999] justify-center shadow-sm shadow-[#3D52A0] p-[1em] items-center w-full">
+        className="flex absolute top-0 left-0 z-[999] justify-center p-[1em] items-center w-full">
             <div className="">
                 <section style={{color: theme.bg}}  className="flex gap-[1em] text-[1em] font-light items-center">
                     <Link onClick={() => setState(prev => ({...prev, abt: true, exp: false, prj: false}))} to="/">

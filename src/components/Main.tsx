@@ -49,7 +49,7 @@ export default function Main() {
     },[displayState]);
 
     return (
-        <SmoothScroll>
+        // <SmoothScroll>
             <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] max-w-[1160px] ">
                 <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%]">
                     <motion.h1 
@@ -58,7 +58,7 @@ export default function Main() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <CoverAnimSubtitleText show={isPresent} dispText='Hello!' textColor={theme.primary}/>
+                        <CoverAnimSubtitleText show={isPresent} dispText='hello!' textColor={theme.primary}/>
                     </motion.h1>
                     <TypingText tx={"I am "} delay={.4}/>
                     <motion.h1 
@@ -86,7 +86,7 @@ export default function Main() {
                     </motion.h1>
                 </section>
                 <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex justify-between flex-col items-center">
-                    <div className="flex justify-start flex-col gap-[30px] items-center">
+                    <div className="flex justify-start flex-col gap-[15px] items-center">
                         <motion.div
                             initial={{ opacity: 0}} 
                             animate={{ opacity: 1}} 
@@ -151,6 +151,6 @@ export default function Main() {
                     <Skills />
                 </section>
             </main>
-        </SmoothScroll>
+        // </SmoothScroll>
     )
 }   

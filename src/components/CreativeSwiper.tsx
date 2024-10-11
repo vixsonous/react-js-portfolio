@@ -28,7 +28,7 @@ export default function CreativeSwiper({items} : {items: Array<{text: string, co
             {
                 items.map( (itm, idx) => {
                     return (
-                        <SwiperSlide style={{fontSize: text.logo, backgroundColor: itm.color, color: itm.textColor}} className="flex items-center justify-center gap-[10px] text-white relative top-[-50px] pt-[50px]">
+                        <SwiperSlide key={idx} style={{fontSize: text.logo, backgroundColor: itm.color, color: itm.textColor}} className="flex items-center justify-center gap-[10px] text-white relative top-[-50px] pt-[50px]">
                             <span>{itm.text}</span>
                             <span>{itm.svg}</span>
                         </SwiperSlide>
