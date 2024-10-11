@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useIsPresent } from "framer-motion";
-import { defaultAnim, text } from "../../constants";
+import { AnimatePresence, motion } from "framer-motion";
+import { defaultAnim } from "../../constants";
 import SlidingCover from "../SlidingCover";
 
 export default function CoverAnimSubtitleText({dispText, show, textSize='1em', textColor, delay = 0}:{dispText:string, show:boolean, textSize?: string, textColor: string, delay?: number}) {
