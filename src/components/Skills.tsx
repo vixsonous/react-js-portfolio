@@ -59,7 +59,7 @@ export default function Skills() {
                     </h1>
                 </section>
                 <section className="flex flex-[1_0_100%] h-full">
-                    <div className="flex h-full gap-[5%] w-full flex-wrap">
+                    <div className="flex h-full gap-[1em] w-full flex-wrap">
                         <motion.div 
                             initial={{opacity: 0}} 
                             animate={{opacity: inView ? 1 : 0}} 
@@ -107,7 +107,7 @@ export default function Skills() {
                             state.skills.map( (el, idx) => {
                                 return (
                                     <SwiperSlide key={idx} style={{fontSize: text.logo}} className="flex items-center justify-center gap-[10px] text-white relative">
-                                        <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} className="transition-all hover:scale-150 shadow-md p-[5px] rounded-md">
+                                        <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} style={{background: theme.card}} className="transition-all hover:scale-150 shadow-md p-[10px] rounded-full">
                                             {el}
                                         </motion.div>
                                     </SwiperSlide>

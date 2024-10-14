@@ -7,6 +7,7 @@ import { useAppSelector } from '../store';
 import SmoothScroll from "./SmoothScroll";
 import Skills from "./Skills";
 import TypingText from "./text/TypingText";
+import ExperienceMain from "./ExperienceMain";
 
 export default function Main() {    
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
@@ -14,7 +15,6 @@ export default function Main() {
     const theme = useAppSelector(state => state.theme.theme);
 
     const [isLoaded, setIsLoaded] = useState(false);
-    const [isInView, setIsInView] = useState(false);
     const isPresent = useIsPresent();
 
     const [displayState, setDisplayState] = useState([
@@ -70,6 +70,7 @@ export default function Main() {
                     <CoverAnimSubtitleText show={isPresent} dispText="Victor Chiong" textSize={text.logo} textColor={theme.primary} delay={.5}/>
                     </motion.h1>
                     <motion.h1 
+                        style={{color: theme.textColor}}
                         className={`text-[${text.body}] w-[100%] flex flex-wrap`}
                     >
                         {`Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat.`
@@ -114,7 +115,6 @@ export default function Main() {
                                             }
                                             transition={{ duration: 1, delay:  + 2 }}
                                             viewport={{once: true}}
-                                            onViewportEnter={() => setIsInView(true)}
                                             className='relative w-[100px] h-[100px]'
                                             >
                                                 <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
@@ -130,7 +130,7 @@ export default function Main() {
                                         fill="transparent"
                                         strokeWidth="1"
                                         pathLength="0"
-                                        style={{stroke: theme.accentColor}}
+                                        style={{stroke: theme.primary}}
                                         initial={{pathLength: 0}}
                                         animate={{pathLength: 1.1}}
                                         transition={{
@@ -145,6 +145,12 @@ export default function Main() {
                 </section>
                 <section className="flex-[1_0_100%] min-h-[100vh]">
                     <Skills />
+                </section>
+                <section className="flex-[1_0_100%] min-h-[400vh]">
+                    <ExperienceMain />
+                </section>
+                <section>
+                    End
                 </section>
             </main>
         // </SmoothScroll>

@@ -10,6 +10,7 @@ import Experience from './components/Experience'
 import { useLocation, useRoutes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setTheme } from './slice/theme';
+import { useAppSelector } from './store';
 
 const lightMode = {
   bg: 'radial-gradient(circle, #F1F4F9 0%, #ADBBDA 90%)',
@@ -22,12 +23,13 @@ const lightMode = {
 }
 
 const darkMode = {
-  bg: '#1A1A1A',
-  primary: '#FFFFFF',
-  secondary: '#B3B3B3',
-  accentColor: '#3B82F6',
-  linkHoverColor: '#1D4ED8',
-  textColor: '#FFFFFF'
+  bg: 'radial-gradient(circle, #121212 0%, #1F1F1F 90%)',
+  card: '#1E272E',
+  primary: '#4B6584',
+  secondary: '#2C3A47',
+  accentColor: '#F9C74F',
+  linkHoverColor: '#FF6F61',
+  textColor: '#EAEAEA'
 }
 
 const mixBlend = {
@@ -41,28 +43,30 @@ const mixBlend = {
 
 function App() {
   const dispatch = useDispatch();
-  dispatch(setTheme(lightMode));
+  dispatch(setTheme(darkMode));
+
+  const theme = useAppSelector(state => state.theme.theme);
   
   const divRef = useRef<HTMLDivElement>(null);
 
   const element = useRoutes([
     {
       path: '/',
-      element: <div ref={divRef} className='main-body min-h-[100vh] flex flex-col items-center relative'>
+      element: <div ref={divRef} style={{background: theme.bg}} className='bg-fixed min-h-[100vh] flex flex-col items-center relative'>
         <Header />
         <Main />
       </div>
     },
     {
       path: '/experience',
-      element: <div ref={divRef} className='main-body min-h-[100vh] flex flex-col items-center relative'>
+      element: <div ref={divRef} style={{background: theme.bg}} className='bg-fixed min-h-[100vh] flex flex-col items-center relative'>
       <Header />
       <Experience/>
     </div>
     },
     {
       path: '/projects',
-      element: <div ref={divRef} className='main-body min-h-[100vh] flex flex-col items-center relative'>
+      element: <div ref={divRef} style={{background: theme.bg}} className='bg-fixed min-h-[100vh] flex flex-col items-center relative'>
       <Header />
       <Projects />
     </div>
