@@ -9,7 +9,6 @@
   font-family: "DM Sans", sans-serif;
   line-height: 1.5;
   font-synthesis: none;
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -64,9 +63,4 @@ figure:hover .img-circle {
 
 .project-slick .slick-slide div{
   height: 100px;
-}
-
-.active {
-  color: #fff;
-  background-color: #3D52A0;
 }

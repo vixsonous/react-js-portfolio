@@ -108,7 +108,7 @@ export default function Main() {
                                         <motion.div
                                             initial={false}
                                             animate={
-                                                isLoaded && isInView
+                                                isLoaded && isPresent
                                                 ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
                                                 : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
                                             }
@@ -140,11 +140,7 @@ export default function Main() {
                                 </svg>
                             </figure>
                         </motion.div>
-                        {displayState.map( (el, idx) => {
-                            return (
-                                <CoverAnimSubtitleText key={idx} show={el.show} dispText={el.text} textSize={text.logo} textColor={theme.primary}/>
-                            )
-                        })}
+                        <CoverAnimSubtitleText show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} textSize={text.logo} textColor={theme.primary}/>
                     </div>
                 </section>
                 <section className="flex-[1_0_100%] min-h-[100vh]">

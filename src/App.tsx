@@ -13,6 +13,7 @@ import { setTheme } from './slice/theme';
 
 const lightMode = {
   bg: 'radial-gradient(circle, #F1F4F9 0%, #ADBBDA 90%)',
+  card: '#F5F5F5',
   primary: '#3D52A0',
   secondary: '#7091E6',
   accentColor: '#8697C4',

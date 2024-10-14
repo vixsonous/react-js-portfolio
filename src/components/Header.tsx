@@ -17,14 +17,17 @@ export default function Header() {
         className="flex absolute top-0 left-0 z-[999] justify-center p-[1em] items-center w-full">
             <div className="">
                 <section style={{color: theme.bg}}  className="flex gap-[1em] text-[1em] font-light items-center">
-                    <Link onClick={() => setState(prev => ({...prev, abt: true, exp: false, prj: false}))} to="/">
-                        <span className={`font-semibold px-[10px] py-[5px] border-[#3D52A0] border-[1px] ${state.abt ? 'active' : 'hover:text-[#3D52A0]'} text-[#8697C4] rounded-2xl transition-all`}>Myself</span>
+                    <Link className="relative group" onClick={() => setState(prev => ({...prev, abt: true, exp: false, prj: false}))} to="/">
+                        <span style={{color: theme.primary}} className={`px-[10px] py-[5px] transition-all`}>Myself</span>
+                        <div style={{background: theme.primary}} className={`absolute transition-all ${state.abt ? 'w-full' : 'w-0'} group-hover:w-full h-[2px] bottom-[-8px]`}></div>
                     </Link>
-                    <Link onClick={() => setState(prev => ({...prev, abt: false, exp: true, prj: false}))} to="/experience">
-                        <span className={`font-semibold px-[10px] py-[5px] border-[#3D52A0] border-[1px] ${state.exp ? 'active' : 'hover:text-[#3D52A0]'} hover:border-[#3D52A0] text-[#8697C4] rounded-2xl transition-all`}>Experience</span>
+                    <Link className="relative group" onClick={() => setState(prev => ({...prev, abt: false, exp: true, prj: false}))} to="/experience">
+                        <span style={{color: theme.primary}} className={` px-[10px] py-[5px] transition-all`}>Experience</span>
+                        <div style={{background: theme.primary}} className={`absolute transition-all ${state.exp ? 'w-full' : 'w-0'} group-hover:w-full h-[2px] bottom-[-8px]`}></div>
                     </Link>
-                    <Link onClick={() => setState(prev => ({...prev, abt: false, exp: false, prj: true}))} to="/projects">
-                        <span className={`font-semibold px-[10px] py-[5px] border-[#3D52A0] border-[1px] ${state.prj ? 'active' : 'hover:text-[#3D52A0]'} hover:border-[#3D52A0] text-[#8697C4] rounded-2xl transition-all`}>Projects</span>
+                    <Link className="relative group" onClick={() => setState(prev => ({...prev, abt: false, exp: false, prj: true}))} to="/projects">
+                        <span style={{color: theme.primary}} className={` px-[10px] py-[5px] transition-all`}>Projects</span>
+                        <div style={{background: theme.primary}} className={`absolute transition-all ${state.prj ? 'w-full' : 'w-0'} group-hover:w-full h-[2px] bottom-[-8px]`}></div>
                     </Link>
                 </section>
             </div>
