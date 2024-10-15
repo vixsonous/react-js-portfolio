@@ -10,6 +10,7 @@ export const theme = createSlice({
             accentColor: '#3B82F6',
             linkHoverColor: '#1D4ED8',
             card: '#E0E0E0',
+            cardText: '#2E2E2E',
             textColor: '#FFFFFF'
         }
     },

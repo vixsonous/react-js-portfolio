@@ -58,20 +58,20 @@ export default function Main() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <CoverAnimSubtitleText show={isPresent} dispText='hello!' textColor={theme.primary}/>
+                        <CoverAnimSubtitleText show={isPresent} dispText='hello!' fontSizeClass="text-2xl" textColor={theme.primary}/>
                     </motion.h1>
-                    <TypingText tx={"I am "} delay={.4}/>
+                    <TypingText fontSizeClass="text-lg" tx={"I am "} delay={.4}/>
                     <motion.h1 
-                        style={{color: theme.primary, fontSize: '1em'}} 
-                        className={`w-[100%] lg:w-[70%] flex gap-[5px] overflow-hidden relative`} 
+                        style={{color: theme.primary}} 
+                        className={`flex gap-[5px] relative text-xl`} 
                         initial="hidden"
                         animate="visible"
                     >
-                    <CoverAnimSubtitleText show={isPresent} dispText="Victor Chiong" textSize={text.logo} textColor={theme.primary} delay={.5}/>
+                    <CoverAnimSubtitleText show={isPresent} dispText="Victor Chiong" fontSizeClass="text-2xl" textColor={theme.primary} delay={.5}/>
                     </motion.h1>
                     <motion.h1 
                         style={{color: theme.textColor}}
-                        className={`text-[${text.body}] w-[100%] flex flex-wrap`}
+                        className={`text-lg w-[100%] flex flex-wrap`}
                     >
                         {`Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat.`
                         .split("")
@@ -146,7 +146,7 @@ export default function Main() {
                 <section className="flex-[1_0_100%] min-h-[100vh]">
                     <Skills />
                 </section>
-                <section className="flex-[1_0_100%] min-h-[400vh]">
+                <section className="flex-[1_0_100%] min-h-[100vh]">
                     <ExperienceMain />
                 </section>
                 <section>

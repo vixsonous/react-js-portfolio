@@ -47,9 +47,6 @@ export default function Skills() {
     const ref = useRef<HTMLElement>(null);
     const inView = useInView(ref, { once: true});
 
-    useEffect(() => {
-        console.log(inView);
-    },[inView]);
     return (
         <main className="relative flex flex-col gap-[10vh]">
             <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
@@ -65,33 +62,33 @@ export default function Skills() {
                             animate={{opacity: inView ? 1 : 0}} 
                             transition={{delay: .5}} 
                             style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col rounded-md shadow-md"
+                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px', color: theme.primary}} src={svg} alt="My Happy SVG"/>
                             <CoverAnimSubtitleText delay={.5} show={inView} textSize={text.title} dispText='UI/UX Design.' textColor={theme.primary}/>
-                            <span style={{color: theme.textColor}} className="mt-[15px]">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
+                            <span style={{color: theme.cardText}} className="mt-[15px]">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                         </motion.div>
                         <motion.div 
                             initial={{opacity: 0}} 
                             animate={{opacity: inView ? 1 : 0}} 
                             transition={{delay: 1}} 
                             style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col rounded-md shadow-md"
+                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG"/>
                             <CoverAnimSubtitleText delay={1} show={inView} textSize={text.title} dispText='Latest Technology.' textColor={theme.primary}/>
-                            <span style={{color: theme.textColor}} className="mt-[15px]">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
+                            <span style={{color: theme.cardText}} className="mt-[15px]">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
                         </motion.div>
                         <motion.div 
                             initial={{opacity: 0}} 
                             animate={{opacity: inView ? 1 : 0}} 
                             transition={{delay: 1.5}} 
                             style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col rounded-md shadow-md"
+                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px'}} src={trend} alt="My Happy SVG"/>
                             <CoverAnimSubtitleText delay={1.5} show={inView} textSize={text.title} dispText='Trend.' textColor={theme.primary}/>
-                            <span style={{color: theme.textColor}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
+                            <span style={{color: theme.cardText}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
                         </motion.div>
                     </div>
                 </section>

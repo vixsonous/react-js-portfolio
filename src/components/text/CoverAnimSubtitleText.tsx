@@ -4,7 +4,21 @@ import { AnimatePresence, motion } from "framer-motion";
 import { defaultAnim } from "../../constants";
 import SlidingCover from "../SlidingCover";
 
-export default function CoverAnimSubtitleText({dispText, show, textSize='1em', textColor, delay = 0}:{dispText:string, show:boolean, textSize?: string, textColor: string, delay?: number}) {
+export default function CoverAnimSubtitleText({
+    dispText, 
+    show, 
+    textSize='', 
+    textColor, 
+    delay = 0, 
+    fontSizeClass=''
+}:{
+    dispText:string, 
+    show:boolean, 
+    textSize?: string, 
+    textColor: string, 
+    delay?: number, 
+    fontSizeClass?: string
+}) {
 
     return (
         <div className="relative overflow-hidden max-w-max">
@@ -15,6 +29,7 @@ export default function CoverAnimSubtitleText({dispText, show, textSize='1em', t
                         {dispText.split("").map((char, idx) => 
                         <motion.span 
                             key={idx} 
+                            className={`${fontSizeClass}`}
                             initial="hidden" 
                             animate="visible" 
                             exit={{opacity: 0, transition: {delay:  + .1 + (dispText.length - idx) * 0.06}}} 

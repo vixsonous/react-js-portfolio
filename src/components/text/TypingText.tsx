@@ -2,13 +2,13 @@ import {motion} from 'framer-motion';
 import { text } from '../../constants';
 import { useAppSelector } from '../../store';
 
-export default function TypingText({tx, delay = 0} : {tx: string, delay?: number}) {
+export default function TypingText({tx, delay = 0, fontSizeClass=""} : {tx: string, delay?: number, fontSizeClass?: string}) {
 
     const theme = useAppSelector(state => state.theme.theme);
-    
+
     return (
         <motion.h1 
-            className={`text-[${text.body}] w-[100%] flex flex-wrap`}
+            className={`${fontSizeClass} w-[100%] flex flex-wrap`}
         >
             {tx.split("").map((char, idx) => 
                 <motion.span 
