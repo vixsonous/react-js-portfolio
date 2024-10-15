@@ -8,6 +8,7 @@ import SmoothScroll from "./SmoothScroll";
 import Skills from "./Skills";
 import TypingText from "./text/TypingText";
 import ExperienceMain from "./ExperienceMain";
+import Certifications from "./Certifications";
 
 export default function Main() {    
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
@@ -51,23 +52,24 @@ export default function Main() {
     return (
         // <SmoothScroll>
             <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] max-w-[1160px] ">
-                <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%]">
+                <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex flex-col">
                     <motion.h1 
-                        style={{color: theme.primary, fontSize: '10em'}} 
+                        style={{color: theme.primary}} 
                         className={`w-[100%] lg:w-[70%] flex gap-[5px] overflow-hidden relative`} 
                         initial="hidden"
                         animate="visible"
                     >
-                        <CoverAnimSubtitleText show={isPresent} dispText='hello!' fontSizeClass="text-2xl" textColor={theme.primary}/>
+                        <CoverAnimSubtitleText show={isPresent} dispText='hello!' fontSizeClass="text-9xl" textColor={theme.primary}/>
                     </motion.h1>
                     <TypingText fontSizeClass="text-lg" tx={"I am "} delay={.4}/>
-                    <motion.h1 
-                        style={{color: theme.primary}} 
-                        className={`flex gap-[5px] relative text-xl`} 
+                    <motion.h1
+                        style={{color: theme.primary}}
+                        className={`flex gap-[5px] relative text-xl`}
                         initial="hidden"
                         animate="visible"
                     >
-                    <CoverAnimSubtitleText show={isPresent} dispText="Victor Chiong" fontSizeClass="text-2xl" textColor={theme.primary} delay={.5}/>
+                    <CoverAnimSubtitleText show={isPresent} dispText="Victor Chiong" fontSizeClass="text-4xl" textColor={theme.primary} delay={.5}/>
+                    <CoverAnimSubtitleText className="ml-4" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} textSize={text.logo} textColor={theme.primary}/>
                     </motion.h1>
                     <motion.h1 
                         style={{color: theme.textColor}}
@@ -89,11 +91,10 @@ export default function Main() {
                 <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex justify-between flex-col items-center">
                     <div className="flex justify-start flex-col gap-[15px] items-center">
                         <motion.div
-                            initial={{ opacity: 0}} 
-                            animate={{ opacity: 1}} 
-                            transition={{duration: 2}} 
+                            initial={{ opacity: 0}}
+                            animate={{ opacity: 1}}
+                            transition={{duration: 2}}
                         >
-                            
                             <figure className="progress relative">
                                 <svg className='w-[260px] h-[260px] rounded-[260px] z-[99]' id="progress" width="260px" height="260px" viewBox="0 0 100 100">
                                     <defs>
@@ -140,7 +141,6 @@ export default function Main() {
                                 </svg>
                             </figure>
                         </motion.div>
-                        <CoverAnimSubtitleText show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} textSize={text.logo} textColor={theme.primary}/>
                     </div>
                 </section>
                 <section className="flex-[1_0_100%] min-h-[100vh]">
@@ -149,8 +149,8 @@ export default function Main() {
                 <section className="flex-[1_0_100%] min-h-[100vh]">
                     <ExperienceMain />
                 </section>
-                <section>
-                    End
+                <section className="flex-[1_0_100%] min-h-[100vh]">
+                    <Certifications />
                 </section>
             </main>
         // </SmoothScroll>

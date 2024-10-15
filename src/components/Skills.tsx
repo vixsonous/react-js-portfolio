@@ -1,7 +1,7 @@
 import { useInView, motion } from "framer-motion";
 import { useAppSelector } from "../store";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { text } from "../constants";
 import svg from './svg/ui-ux.svg';
 import tech from './svg/tech.svg';
@@ -52,15 +52,15 @@ export default function Skills() {
             <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
                 <section>
                     <h1 className="self-center flex flex-col">
-                        <CoverAnimSubtitleText show={ inView} textSize={text.logo} dispText='Design and Innovation.' textColor={theme.primary}/>
+                        <CoverAnimSubtitleText show={ inView} fontSizeClass="text-5xl" dispText='Design and Innovation.' textColor={theme.primary}/>
                     </h1>
                 </section>
                 <section className="flex flex-[1_0_100%] h-full">
                     <div className="flex h-full gap-[1em] w-full flex-wrap">
-                        <motion.div 
-                            initial={{opacity: 0}} 
-                            animate={{opacity: inView ? 1 : 0}} 
-                            transition={{delay: .5}} 
+                        <motion.div
+                            initial={{opacity: 0}}
+                            animate={{opacity: inView ? 1 : 0}}
+                            transition={{delay: .5}}
                             style={{background: theme.card}}
                             className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
@@ -68,10 +68,10 @@ export default function Skills() {
                             <CoverAnimSubtitleText delay={.5} show={inView} textSize={text.title} dispText='UI/UX Design.' textColor={theme.primary}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                         </motion.div>
-                        <motion.div 
-                            initial={{opacity: 0}} 
-                            animate={{opacity: inView ? 1 : 0}} 
-                            transition={{delay: 1}} 
+                        <motion.div
+                            initial={{opacity: 0}}
+                            animate={{opacity: inView ? 1 : 0}}
+                            transition={{delay: 1}}
                             style={{background: theme.card}}
                             className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
@@ -79,7 +79,7 @@ export default function Skills() {
                             <CoverAnimSubtitleText delay={1} show={inView} textSize={text.title} dispText='Latest Technology.' textColor={theme.primary}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                             initial={{opacity: 0}} 
                             animate={{opacity: inView ? 1 : 0}} 
                             transition={{delay: 1.5}} 

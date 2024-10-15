@@ -1,5 +1,4 @@
 import {motion} from 'framer-motion';
-import { text } from '../../constants';
 import { useAppSelector } from '../../store';
 
 export default function TypingText({tx, delay = 0, fontSizeClass=""} : {tx: string, delay?: number, fontSizeClass?: string}) {
