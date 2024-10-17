@@ -55,11 +55,12 @@ export default function Main() {
                 <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex flex-col">
                     <motion.h1 
                         style={{color: theme.primary}} 
-                        className={`w-[100%] lg:w-[70%] flex gap-[5px] overflow-hidden relative`} 
+                        className={`w-[100%] flex gap-[5px] relative flex-col`} 
                         initial="hidden"
                         animate="visible"
                     >
-                        <CoverAnimSubtitleText show={isPresent} dispText='Victor Chiong' fontSizeClass="text-9xl" textColor={theme.primary}/>
+                        <TypingText tx="Victor" className="text-9xl" style={{color: theme.primary}}/>
+                        <TypingText tx="Chiong" className="text-9xl" style={{color: theme.primary}}/>
                     </motion.h1>
                     
                     <motion.h1
@@ -129,13 +130,13 @@ export default function Main() {
                         </motion.div>
                     </div>
                 </section>
-                <section className="flex-[1_0_100%] min-h-[100vh]">
+                <section className="flex-[1_0_100%] min-h-[150vh]">
                     <Skills />
                 </section>
-                <section className="flex-[1_0_100%] min-h-[100vh]">
+                <section className="flex-[1_0_100%] min-h-[150vh]">
                     <ExperienceMain />
                 </section>
-                <section className="flex-[1_0_100%] min-h-[100vh]">
+                <section className="flex-[1_0_100%] min-h-[150vh]">
                     <Certifications />
                 </section>
             </main>

@@ -21,6 +21,7 @@ import docker from './svg/docker.svg';
 import aws from './svg/aws.svg';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import TypingText from "./text/TypingText";
 
 export default function Skills() {
 
@@ -52,7 +53,8 @@ export default function Skills() {
             <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
                 <section>
                     <h1 className="self-center flex flex-col">
-                        <CoverAnimSubtitleText show={ inView} fontSizeClass="text-9xl" dispText='Design and Innovation.' textColor={theme.primary}/>
+                        <CoverAnimSubtitleText show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Design and' textColor={theme.primary}/>
+                        <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Innovation.' textColor={theme.primary}/>
                     </h1>
                 </section>
                 <section className="flex flex-[1_0_100%] h-full">
@@ -65,7 +67,7 @@ export default function Skills() {
                             className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px', color: theme.primary}} src={svg} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-2xl" dispText='UI/UX Design.' textColor={theme.primary}/>
+                            <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-2xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                         </motion.div>
                         <motion.div
@@ -73,10 +75,10 @@ export default function Skills() {
                             animate={{opacity: inView ? 1 : 0}}
                             transition={{delay: 1}}
                             style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
+                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md relative lg:top-12"
                         >
                             <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-2xl" dispText='Latest Technology.' textColor={theme.primary}/>
+                            <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-4xl" dispText='Latest Technology.' textColor={theme.cardText}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
                         </motion.div>
                         <motion.div
@@ -87,7 +89,7 @@ export default function Skills() {
                             className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px'}} src={trend} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.primary}/>
+                            <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.cardText}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
                         </motion.div>
                     </div>
@@ -104,7 +106,7 @@ export default function Skills() {
                             state.skills.map( (el, idx) => {
                                 return (
                                     <SwiperSlide key={idx} style={{fontSize: text.logo}} className="flex items-center justify-center gap-[10px] text-white relative">
-                                        <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} style={{background: theme.card}} className="transition-all hover:scale-150 shadow-md p-[10px] rounded-full">
+                                        <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} style={{background: theme.accentColor}} className="transition-all hover:scale-150 shadow-md p-[10px] rounded-full">
                                             {el}
                                         </motion.div>
                                     </SwiperSlide>

@@ -14,8 +14,8 @@ import { useAppSelector } from './store';
 
 const lightMode = {
   bg: '#EEF0F2',
-  card: '#C6C7C4',
-  cardText: '#353B3C',
+  card: '#353B3C',
+  cardText: '#EEF0F2',
   primary: '#353B3C',
   secondary: '#846A6A',
   accentColor: '#A2999E',

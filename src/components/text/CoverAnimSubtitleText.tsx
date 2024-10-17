@@ -12,6 +12,7 @@ export default function CoverAnimSubtitleText({
     delay = 0, 
     fontSizeClass='',
     className='',
+    cover=true
 }:{
     dispText:string, 
     show:boolean, 
@@ -19,11 +20,12 @@ export default function CoverAnimSubtitleText({
     textColor: string, 
     delay?: number, 
     fontSizeClass?: string,
-    className?: string
+    className?: string,
+    cover?: boolean
 }) {
 
     return (
-        <div className={`relative overflow-hidden max-w-max ${className}`}>
+        <div className={`relative ${cover ? 'overflow-hidden' : ''} max-w-max ${className}`}>
             <AnimatePresence mode="wait">
                 { show && (
                     <>
@@ -39,7 +41,7 @@ export default function CoverAnimSubtitleText({
                             variants={defaultAnim}>
                             {char}
                         </motion.span>)}
-                        <SlidingCover delay={delay}/>
+                        {cover && <SlidingCover delay={delay}/>}
                     </motion.span>
                     </>
                 )}

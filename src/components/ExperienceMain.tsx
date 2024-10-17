@@ -116,17 +116,17 @@ export default function ExperienceMain() {
                                             initial={{opacity: 0}} 
                                             animate={{opacity: 1}} 
                                             exit={{opacity: 0}}
-                                            style={{background: theme.card}}
+                                            style={{color: theme.primary}}
                                             className="flex-[0_1_100%] lg:flex-[0_1_50%] flex p-8 flex-col shadow-lg"
                                         >
-                                            <CoverAnimSubtitleText delay={.5} show={el.show} fontSizeClass="text-3xl" dispText={el.title} textColor={theme.primary}/>
-                                            <TypingText tx={el.sub} className="text-lg flex flex-nowrap"/>
+                                            <TypingText className="text-3xl" tx={el.title} style={{color: theme.primary}}/>
+                                            <span className="text-lg flex flex-nowrap" style={{color: theme.primary}} >{el.sub}</span>
                                             <div className="flex gap-4">
                                             {
                                                 el.logos.map( (logo, idx) => {
                                                     return (
                                                         <div key={idx} className="flex justify-center items-center">
-                                                            <img className="max-w-32 h-auto pt-6"  src={logo}/>
+                                                            <img className="max-w-32 h-auto pt-6" src={logo}/>
                                                         </div>
                                                     )
                                                 })
@@ -136,9 +136,10 @@ export default function ExperienceMain() {
                                                 {
                                                     el.tasks.map( (t, idx) => {
                                                         return (
-                                                            <li style={{color: theme.cardText}} className="list-disc text-base" key={idx}>
-                                                                <TypingText tx={t} className="text-base flex flex-wrap"/>
-                                                            </li>
+                                                            <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: idx * .1}} className="list-disc text-base" key={idx}>
+                                                                {/* <TypingText delay={(idx * .5)} tx={`- ${t}`} className="text-base"/> */}
+                                                                <span>{t}</span>
+                                                            </motion.li>
                                                         )
                                                     })
                                                 }
