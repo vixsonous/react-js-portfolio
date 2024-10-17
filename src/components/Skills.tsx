@@ -52,7 +52,7 @@ export default function Skills() {
             <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
                 <section>
                     <h1 className="self-center flex flex-col">
-                        <CoverAnimSubtitleText show={ inView} fontSizeClass="text-5xl" dispText='Design and Innovation.' textColor={theme.primary}/>
+                        <CoverAnimSubtitleText show={ inView} fontSizeClass="text-9xl" dispText='Design and Innovation.' textColor={theme.primary}/>
                     </h1>
                 </section>
                 <section className="flex flex-[1_0_100%] h-full">
@@ -65,7 +65,7 @@ export default function Skills() {
                             className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px', color: theme.primary}} src={svg} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={.5} show={inView} textSize={text.title} dispText='UI/UX Design.' textColor={theme.primary}/>
+                            <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-2xl" dispText='UI/UX Design.' textColor={theme.primary}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                         </motion.div>
                         <motion.div
@@ -76,7 +76,7 @@ export default function Skills() {
                             className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={1} show={inView} textSize={text.title} dispText='Latest Technology.' textColor={theme.primary}/>
+                            <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-2xl" dispText='Latest Technology.' textColor={theme.primary}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
                         </motion.div>
                         <motion.div
@@ -87,7 +87,7 @@ export default function Skills() {
                             className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
                         >
                             <img style={{width: '40px',height: '40px'}} src={trend} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={1.5} show={inView} textSize={text.title} dispText='Trend.' textColor={theme.primary}/>
+                            <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.primary}/>
                             <span style={{color: theme.cardText}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
                         </motion.div>
                     </div>

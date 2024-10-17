@@ -6,3 +6,17 @@
 .no-scroll::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+
+.img-shine { 
+    transform: perspective(800px) rotate3d(1, -1, 0, 5deg);
+    mask: 
+        linear-gradient(135deg, #000c 40%, #000, #000c 60%) 
+        100% 100%/
+        240% 240%;
+    transition: all .5s;
+}
+
+.img-shine:hover { 
+    transform: perspective(800px) rotate3d(1, -1, 0, -5deg);
+    mask-position: 0 0;
+}

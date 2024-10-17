@@ -59,34 +59,20 @@ export default function Main() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <CoverAnimSubtitleText show={isPresent} dispText='hello!' fontSizeClass="text-9xl" textColor={theme.primary}/>
+                        <CoverAnimSubtitleText show={isPresent} dispText='Victor Chiong' fontSizeClass="text-9xl" textColor={theme.primary}/>
                     </motion.h1>
-                    <TypingText fontSizeClass="text-lg" tx={"I am "} delay={.4}/>
+                    
                     <motion.h1
                         style={{color: theme.primary}}
                         className={`flex gap-[5px] relative text-xl`}
                         initial="hidden"
                         animate="visible"
                     >
-                    <CoverAnimSubtitleText show={isPresent} dispText="Victor Chiong" fontSizeClass="text-4xl" textColor={theme.primary} delay={.5}/>
-                    <CoverAnimSubtitleText className="ml-4" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} textSize={text.logo} textColor={theme.primary}/>
+                        <TypingText className="text-base" tx={"I am "} delay={.4}/>
+                        <CoverAnimSubtitleText className="" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} fontSizeClass="text-base" textColor={theme.primary}/>
                     </motion.h1>
-                    <motion.h1 
-                        style={{color: theme.textColor}}
-                        className={`text-lg w-[100%] flex flex-wrap`}
-                    >
-                        {`Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat.`
-                        .split("")
-                        .map((char, idx) => 
-                        <motion.span 
-                            className='relative' 
-                            transition={{ delay:  + .5 + idx * 0.005 }} 
-                            key={idx} 
-                            initial={{opacity: 0, y: 5}} 
-                            animate={{opacity: 1, y: 0}}>
-                                {char === " " ? <span>&nbsp;</span> : char}
-                        </motion.span>)}
-                    </motion.h1>
+
+                    <TypingText className="text-base w-[100%] flex flex-wrap" tx={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} delay={.4}/>
                 </section>
                 <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex justify-between flex-col items-center">
                     <div className="flex justify-start flex-col gap-[15px] items-center">

@@ -6,6 +6,7 @@ import { getTheme } from "./hooks/theme";
 import rakuten from '../assets/rakuten.png';
 import tig from '../assets/tig.png';
 import seedtech from '../assets/seedtech.png';
+import TypingText from "./text/TypingText";
 
 export default function ExperienceMain() {
 
@@ -99,12 +100,12 @@ export default function ExperienceMain() {
                 <div className="min-h-[100vh] py-[20px] flex flex-col gap-20">
                     <section ref={ref}>
                         <h1 className="self-center flex flex-col">
-                            <CoverAnimSubtitleText show={ inView} fontSizeClass="text-5xl" dispText='Experience.' textColor={theme.primary}/>
+                            <CoverAnimSubtitleText show={ inView} fontSizeClass="text-9xl" dispText='Experience.' textColor={theme.primary}/>
                         </h1>
                     </section>
                     <div className="w-full relative">
-                        <motion.div style={{background: theme.accentColor, width: vWidth}} className="h-[1px] w-full relative top-[-12px]"></motion.div>
-                        <section className="flex items-start h-full gap-4 w-full">
+                        <motion.div style={{background: theme.accentColor, width: vWidth}} className="h-[2px] w-full relative top-[-12px]"></motion.div>
+                        <section className="flex flex-wrap lg:flex-nowrap items-start h-full gap-4 w-full">
                             <AnimatePresence mode="popLayout">
                             {
                                 state.elements.map( (el, idx) => {
@@ -112,14 +113,14 @@ export default function ExperienceMain() {
                                         <motion.div 
                                             key={idx}
                                             layout
-                                            initial={{scale: 0}} 
-                                            animate={{scale: 1}} 
-                                            exit={{scale: 0}}
+                                            initial={{opacity: 0}} 
+                                            animate={{opacity: 1}} 
+                                            exit={{opacity: 0}}
                                             style={{background: theme.card}}
-                                            className="flex-[0_1_50%] flex p-8 flex-col shadow-lg"
+                                            className="flex-[0_1_100%] lg:flex-[0_1_50%] flex p-8 flex-col shadow-lg"
                                         >
-                                            <CoverAnimSubtitleText delay={.5} show={el.show} textSize={text.title} dispText={el.title} textColor={theme.primary}/>
-                                            <span style={{color: theme.cardText}} className="text-lg">{el.sub}</span>
+                                            <CoverAnimSubtitleText delay={.5} show={el.show} fontSizeClass="text-3xl" dispText={el.title} textColor={theme.primary}/>
+                                            <TypingText tx={el.sub} className="text-lg flex flex-nowrap"/>
                                             <div className="flex gap-4">
                                             {
                                                 el.logos.map( (logo, idx) => {
@@ -135,7 +136,9 @@ export default function ExperienceMain() {
                                                 {
                                                     el.tasks.map( (t, idx) => {
                                                         return (
-                                                            <li style={{color: theme.cardText}} className="list-disc text-base" key={idx}>{t}</li>
+                                                            <li style={{color: theme.cardText}} className="list-disc text-base" key={idx}>
+                                                                <TypingText tx={t} className="text-base flex flex-wrap"/>
+                                                            </li>
                                                         )
                                                     })
                                                 }

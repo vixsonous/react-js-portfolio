@@ -13,14 +13,14 @@ import { setTheme } from './slice/theme';
 import { useAppSelector } from './store';
 
 const lightMode = {
-  bg: 'radial-gradient(circle, #F1F4F9 0%, #ADBBDA 90%)',
-  card: '#F5F5F5',
-  cardText: '#2E2E2E',
-  primary: '#3D52A0',
-  secondary: '#7091E6',
-  accentColor: '#8697C4',
+  bg: '#EEF0F2',
+  card: '#C6C7C4',
+  cardText: '#353B3C',
+  primary: '#353B3C',
+  secondary: '#846A6A',
+  accentColor: '#A2999E',
   linkHoverColor: '#ADBBDA',
-  textColor: '#303030'
+  textColor: '#353B3C'
 }
 
 const darkMode = {
@@ -47,7 +47,7 @@ const darkMode2 = {
 
 function App() {
   const dispatch = useDispatch();
-  dispatch(setTheme(darkMode2));
+  dispatch(setTheme(lightMode));
 
   const theme = useAppSelector(state => state.theme.theme);
   
