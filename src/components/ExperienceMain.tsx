@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
 import { useInView, motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { text } from "../constants";
@@ -25,6 +25,7 @@ export default function ExperienceMain() {
         elements: [
             {
                 show: false, 
+                hover: false,
                 title: 'Intern Full Stack Developer.', 
                 sub: 'TIG Designs and Solutions Cebu City / May 2018 – January 2019',
                 logos: [
@@ -40,6 +41,7 @@ export default function ExperienceMain() {
             },
             {
                 show: false, 
+                hover: false,
                 title: 'Freelance Developer.', 
                 sub: 'Yazaki Real Estate / July 2021 – December 2022',
                 logos: [],
@@ -53,6 +55,7 @@ export default function ExperienceMain() {
             },
             {
                 show: false, 
+                hover: false,
                 title: 'Mid-Level Software Engineer.', 
                 sub: 'Seed Tech Philippines / Rakuten / September 2021 – Present',
                 logos: [
@@ -72,7 +75,21 @@ export default function ExperienceMain() {
             }
         ],
         scrollY: 0
-    })
+    });
+
+    const cardMouseOverEvent = (e:React.MouseEvent) => {
+        e.preventDefault();
+
+        const id = e.currentTarget.id.split("-")[1];
+        changeHoverFunc(id);
+    }
+
+    const changeHoverFunc = (id: String) => {
+        const temp = [...state.elements];
+        temp[Number(id)].hover = !temp[Number(id)].hover;
+
+        setState(prev => ({...prev, elements: [...temp]}));
+    }
 
     useMotionValueEvent(dVar, "change", (latest) => {
         setState(prev => ({...prev, scrollY: latest}));
@@ -80,12 +97,15 @@ export default function ExperienceMain() {
 
     useEffect(() => {
         for(let i = 0; i < state.elements.length; i++) {
-            const lowLimit = (i * (100 / state.elements.length)) + 1;
-            const highLimit = ((i + 2) * (100 / state.elements.length));
+            const lowLimit = Math.floor((i * (100 / state.elements.length)) + 1);
+            const highLimit = Math.floor(((i + 2) * (100 / state.elements.length)));
+
+            const val = Math.floor(dVar.get());
 
             const tmp = [...state.elements];
-            if(dVar.get() >= lowLimit && dVar.get() <= highLimit ) {
+            if(val >= lowLimit && val <= highLimit ) {
                 tmp[i].show = true;
+                tmp[i].hover = false;
             } else {
                 tmp[i].show = false;
             }
@@ -95,55 +115,84 @@ export default function ExperienceMain() {
     },[state.scrollY]);
 
     return (
-        <section ref={loadingRef} className="min-h-[400vh] relative">
+        <section ref={loadingRef} className="min-h-[400vh] relative ">
             <main className="flex flex-col gap-4 sticky top-0">
                 <div className="min-h-[100vh] py-[20px] flex flex-col gap-20">
-                    <section ref={ref}>
-                        <h1 className="self-center flex flex-col">
-                            <CoverAnimSubtitleText show={ inView} fontSizeClass="text-9xl" dispText='Experience.' textColor={theme.primary}/>
+                    <section ref={ref} className="relative">
+                        <h1 className="self-center flex justify-center">
+                            <CoverAnimSubtitleText show={ inView} cover={false} className="mix-blend-difference" fontSizeClass="text-8xl" dispText='Exp' textColor={theme.secondary}/>
+                            <CoverAnimSubtitleText show={ inView} delay={.1} className="z-50" cover={false} fontSizeClass="text-8xl" dispText='erience.' textColor={theme.primary}/>
                         </h1>
+                        <motion.div style={{background: theme.secondary, width: vWidth}} className="h-full w-full absolute top-2 mix-blend-screen"></motion.div>
                     </section>
-                    <div className="w-full relative">
-                        <motion.div style={{background: theme.accentColor, width: vWidth}} className="h-[2px] w-full relative top-[-12px]"></motion.div>
-                        <section className="flex flex-wrap lg:flex-nowrap items-start h-full gap-4 w-full">
+                    <div className="w-full relative p-4">
+                        <section className="flex flex-wrap lg:flex-nowrap items-start justify-around h-full gap-4 w-full">
                             <AnimatePresence mode="popLayout">
                             {
                                 state.elements.map( (el, idx) => {
+
+                                    const delay = .4;
                                     return el.show && (
                                         <motion.div 
+                                            id={`card-` + idx}
                                             key={idx}
                                             layout
                                             initial={{opacity: 0}} 
-                                            animate={{opacity: 1}} 
+                                            animate={{opacity: 1}}
                                             exit={{opacity: 0}}
-                                            style={{color: theme.primary}}
-                                            className="flex-[0_1_100%] lg:flex-[0_1_50%] flex p-8 flex-col shadow-lg"
+                                            onClick={cardMouseOverEvent}
+                                            style={{color: theme.cardText, background: theme.card}}
+                                            className={`relative flex-[0_1_100%] lg:flex-[0_1_50%] flex p-4 flex-col shadow-lg ${el.hover ? 'max-w-none' : 'max-w-max'}`}
                                         >
-                                            <TypingText className="text-3xl" tx={el.title} style={{color: theme.primary}}/>
-                                            <span className="text-lg flex flex-nowrap" style={{color: theme.primary}} >{el.sub}</span>
-                                            <div className="flex gap-4">
+                                            {/* <motion.div style={{background: theme.secondary}} className="h-[4px] w-full absolute top-0 left-0 mix-blend-screen"></motion.div> */}
+                                            {!el.hover && <>
+                                                <motion.span 
+                                                    initial={{opacity: 0}} 
+                                                    animate={{opacity: 1}} 
+                                                    exit={{opacity: 0}} 
+                                                    transition={{delay: .2}} 
+                                                    style={{color: theme.secondary}}
+                                                    className="text-xl font-normal flex flex-nowrap absolute top-[-1.1em]" 
+                                                >
+                                                    {el.title}
+                                                    <div className="absolute"></div>
+                                                </motion.span>
+                                                <motion.span 
+                                                    initial={{opacity: 0}} 
+                                                    animate={{opacity: 1}} 
+                                                    exit={{opacity: 0}} 
+                                                    transition={{delay: .4}} 
+                                                    className="text-xs flex flex-nowrap" 
+                                                >{el.sub}</motion.span>
+                                            </>}
                                             {
-                                                el.logos.map( (logo, idx) => {
-                                                    return (
-                                                        <div key={idx} className="flex justify-center items-center">
-                                                            <img className="max-w-32 h-auto pt-6" src={logo}/>
-                                                        </div>
-                                                    )
-                                                })
+                                                el.hover && <>
+                                                <TypingText delay={delay} style={{color: theme.secondary}} className={`text-2xl absolute top-[-1.1em]`} tx={el.title}/>
+                                                <motion.span initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .2}} className="text-lg flex flex-nowrap" >{el.sub}</motion.span>
+                                                    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .4}} className="flex gap-4">
+                                                    {
+                                                        el.logos.map( (logo, idx) => {
+                                                            return (
+                                                                <div key={idx} className="flex justify-center items-center">
+                                                                    <img className="max-w-32 h-auto pt-6" src={logo}/>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                    </motion.div>
+                                                    <motion.ul initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .6}} className="list-inside pt-6">
+                                                        {
+                                                            el.tasks.map( (t, idx) => {
+                                                                return (
+                                                                    <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: delay + idx * .03}} className="list-disc text-sm" key={idx}>
+                                                                        <span>{t}</span>
+                                                                    </motion.li>
+                                                                )
+                                                            })
+                                                        }
+                                                    </motion.ul>
+                                                </>
                                             }
-                                            </div>
-                                            <ul className="list-inside pt-6">
-                                                {
-                                                    el.tasks.map( (t, idx) => {
-                                                        return (
-                                                            <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: idx * .1}} className="list-disc text-base" key={idx}>
-                                                                {/* <TypingText delay={(idx * .5)} tx={`- ${t}`} className="text-base"/> */}
-                                                                <span>{t}</span>
-                                                            </motion.li>
-                                                        )
-                                                    })
-                                                }
-                                            </ul>
                                         </motion.div>
                                     )
                                 })

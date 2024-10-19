@@ -52,41 +52,44 @@ export default function Skills() {
         <main className="relative flex flex-col gap-[10vh]">
             <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
                 <section>
-                    <h1 className="self-center flex flex-col">
-                        <CoverAnimSubtitleText show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Design and' textColor={theme.primary}/>
-                        <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Innovation.' textColor={theme.primary}/>
+                    <h1 className="self-center flex flex-col top-36 lg:absolute left-64 z-50">
+                        <CoverAnimSubtitleText show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Design and' textColor={theme.secondary}/>
+                        <div className="flex">
+                            <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='In' textColor={theme.secondary}/>
+                            <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='novation.' textColor={theme.primary}/>
+                        </div>
                     </h1>
                 </section>
-                <section className="flex flex-[1_0_100%] h-full">
-                    <div className="flex h-full gap-[1em] w-full flex-wrap">
+                <section className="flex flex-[1_0_100%] h-full pt-32">
+                    <div className="flex h-full gap-[1em] w-full flex-wrap justify-between">
                         <motion.div
-                            initial={{opacity: 0}}
-                            animate={{opacity: inView ? 1 : 0}}
-                            transition={{delay: .5}}
+                            initial={{opacity: 0, y: 50}}
+                            animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
+                            transition={{delay: .5, ease: 'easeOut'}}
                             style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
+                            className="flex-[1_0_30%] flex p-4 flex-col shadow-lg max-w-[350px]"
                         >
                             <img style={{width: '40px',height: '40px', color: theme.primary}} src={svg} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-2xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
-                            <span style={{color: theme.cardText}} className="mt-[15px]">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
+                            <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
+                            <span style={{color: theme.cardText}} className="mt-8 text-sm">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                         </motion.div>
                         <motion.div
-                            initial={{opacity: 0}}
-                            animate={{opacity: inView ? 1 : 0}}
-                            transition={{delay: 1}}
+                            initial={{opacity: 0, y: 50}}
+                            animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
+                            transition={{delay: 1, ease: 'easeOut'}}
                             style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md relative lg:top-12"
+                            className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:top-24 max-w-[350px]"
                         >
-                            <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-4xl" dispText='Latest Technology.' textColor={theme.cardText}/>
-                            <span style={{color: theme.cardText}} className="mt-[15px]">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
+                            <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG" className="mb-2"/>
+                            <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-2xl" dispText='Latest Technology.' textColor={theme.cardText}/>
+                            <span style={{color: theme.cardText}} className="mt-4 text-sm">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
                         </motion.div>
                         <motion.div
-                            initial={{opacity: 0}} 
-                            animate={{opacity: inView ? 1 : 0}} 
-                            transition={{delay: 1.5}} 
+                            initial={{opacity: 0, y: 50}}
+                            animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
+                            transition={{delay: 1.5, ease: 'easeOut'}}
                             style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md"
+                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md relative lg:bottom-24 max-w-[350px]"
                         >
                             <img style={{width: '40px',height: '40px'}} src={trend} alt="My Happy SVG"/>
                             <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.cardText}/>
@@ -106,7 +109,7 @@ export default function Skills() {
                             state.skills.map( (el, idx) => {
                                 return (
                                     <SwiperSlide key={idx} style={{fontSize: text.logo}} className="flex items-center justify-center gap-[10px] text-white relative">
-                                        <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} style={{background: theme.accentColor}} className="transition-all hover:scale-150 shadow-md p-[10px] rounded-full">
+                                        <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} style={{background: theme.secondary}} className="transition-all hover:scale-150 shadow-md p-[10px] rounded-full">
                                             {el}
                                         </motion.div>
                                     </SwiperSlide>

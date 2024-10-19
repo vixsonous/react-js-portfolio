@@ -6,7 +6,7 @@ import SlidingCover from "../SlidingCover";
 
 export default function CoverAnimSubtitleText({
     dispText, 
-    show, 
+    show=true, 
     textSize='', 
     textColor, 
     delay = 0, 
@@ -15,7 +15,7 @@ export default function CoverAnimSubtitleText({
     cover=true
 }:{
     dispText:string, 
-    show:boolean, 
+    show?:boolean, 
     textSize?: string, 
     textColor: string, 
     delay?: number, 

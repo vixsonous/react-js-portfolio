@@ -51,92 +51,95 @@ export default function Main() {
 
     return (
         // <SmoothScroll>
-            <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] max-w-[1160px] ">
-                <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex flex-col">
-                    <motion.h1 
-                        style={{color: theme.primary}} 
-                        className={`w-[100%] flex gap-[5px] relative flex-col`} 
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <TypingText tx="Victor" className="text-9xl" style={{color: theme.primary}}/>
-                        <TypingText tx="Chiong" className="text-9xl" style={{color: theme.primary}}/>
-                    </motion.h1>
-                    
-                    <motion.h1
-                        style={{color: theme.primary}}
-                        className={`flex gap-[5px] relative text-xl`}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <TypingText className="text-base" tx={"I am "} delay={.4}/>
-                        <CoverAnimSubtitleText className="" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} fontSizeClass="text-base" textColor={theme.primary}/>
-                    </motion.h1>
-
-                    <TypingText className="text-base w-[100%] flex flex-wrap" tx={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} delay={.4}/>
-                </section>
-                <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex justify-between flex-col items-center">
-                    <div className="flex justify-start flex-col gap-[15px] items-center">
-                        <motion.div
-                            initial={{ opacity: 0}}
-                            animate={{ opacity: 1}}
-                            transition={{duration: 2}}
+            <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
+                <section className="flex flex-wrap max-w-[1160px] min-h-[100vh]">
+                    <section className="pt-[100px] flex-[1_0_50%] flex flex-col  ">
+                        <motion.h1 
+                            style={{color: theme.primary}} 
+                            className={`w-[100%] flex gap-[5px] relative flex-col`} 
+                            initial="hidden"
+                            animate="visible"
                         >
-                            <figure className="progress relative">
-                                <svg className='w-[260px] h-[260px] rounded-[260px] z-[99]' id="progress" width="260px" height="260px" viewBox="0 0 100 100">
-                                    <defs>
-                                        <clipPath id="circleClip">
-                                            <circle cx="50" cy="50" r="49" />
-                                        </clipPath>
-                                    </defs>
-                                    <foreignObject width="100%"
-                                        height="100%"
-                                        clipPath="url(#circleClip)"
-                                        className='relative'
-                                        >
-                                        <motion.div
-                                            initial={false}
-                                            animate={
-                                                isLoaded && isPresent
-                                                ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
-                                                : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
-                                            }
-                                            transition={{ duration: 1, delay:  + 2 }}
-                                            viewport={{once: true}}
-                                            className='relative w-[100px] h-[100px]'
+                            <CoverAnimSubtitleText className="font-light" cover={false} dispText={"Victor"} fontSizeClass="text-9xl" textColor={theme.primary}/>
+                            <CoverAnimSubtitleText className="font-light" delay={.4} cover={false} dispText={"Chiong"} fontSizeClass="text-9xl" textColor={theme.primary}/>
+                        </motion.h1>
+                        
+                        <motion.h1
+                            style={{color: theme.primary}}
+                            className={`flex gap-[5px] relative text-xl`}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <CoverAnimSubtitleText className="" delay={.6} cover={false} dispText={"I am "} fontSizeClass="text-base" textColor={theme.primary}/>
+                            <CoverAnimSubtitleText className="" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} fontSizeClass="text-base" textColor={theme.primary}/>
+                        </motion.h1>
+
+                        <CoverAnimSubtitleText className="" delay={.8} cover={false} dispText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} fontSizeClass="text-base" textColor={theme.primary}/>
+
+                    </section>
+                    <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex justify-between flex-col items-center">
+                        <div className="flex justify-start flex-col gap-[15px] items-center">
+                            <motion.div
+                                initial={{ opacity: 0}}
+                                animate={{ opacity: 1}}
+                                transition={{duration: 2}}
+                            >
+                                <figure className="progress relative">
+                                    <svg className='w-[260px] h-[260px] rounded-[260px] z-[99]' id="progress" width="260px" height="260px" viewBox="0 0 100 100">
+                                        <defs>
+                                            <clipPath id="circleClip">
+                                                <circle cx="50" cy="50" r="49" />
+                                            </clipPath>
+                                        </defs>
+                                        <foreignObject width="100%"
+                                            height="100%"
+                                            clipPath="url(#circleClip)"
+                                            className='relative'
                                             >
-                                                <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
-                                                    className={`img-circle absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover`}
-                                                    onLoad={() => setIsLoaded(true)}
-                                                />
-                                        </motion.div>
-                                    </foreignObject>
-                                    <motion.circle
-                                        cx="50"
-                                        cy="50"
-                                        r="49"
-                                        fill="transparent"
-                                        strokeWidth="1"
-                                        pathLength="0"
-                                        style={{stroke: theme.primary}}
-                                        initial={{pathLength: 0}}
-                                        animate={{pathLength: 1.1}}
-                                        transition={{
-                                            duration: 2,
-                                        }}
-                                    />
-                                </svg>
-                            </figure>
-                        </motion.div>
-                    </div>
+                                            <motion.div
+                                                initial={false}
+                                                animate={
+                                                    isLoaded && isPresent
+                                                    ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
+                                                    : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
+                                                }
+                                                transition={{ duration: 1, delay:  + 2 }}
+                                                viewport={{once: true}}
+                                                className='relative w-[100px] h-[100px]'
+                                                >
+                                                    <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
+                                                        className={`img-circle absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover`}
+                                                        onLoad={() => setIsLoaded(true)}
+                                                    />
+                                            </motion.div>
+                                        </foreignObject>
+                                        <motion.circle
+                                            cx="50"
+                                            cy="50"
+                                            r="49"
+                                            fill="transparent"
+                                            strokeWidth="1"
+                                            pathLength="0"
+                                            style={{stroke: theme.primary}}
+                                            initial={{pathLength: 0}}
+                                            animate={{pathLength: 1.1}}
+                                            transition={{
+                                                duration: 2,
+                                            }}
+                                        />
+                                    </svg>
+                                </figure>
+                            </motion.div>
+                        </div>
+                    </section>
                 </section>
-                <section className="flex-[1_0_100%] min-h-[150vh]">
+                <section className="flex-[1_0_100%] min-h-[150vh] p-4">
                     <Skills />
                 </section>
                 <section className="flex-[1_0_100%] min-h-[150vh]">
                     <ExperienceMain />
                 </section>
-                <section className="flex-[1_0_100%] min-h-[150vh]">
+                <section className="flex-[1_0_100%] min-h-[150vh] p-4">
                     <Certifications />
                 </section>
             </main>

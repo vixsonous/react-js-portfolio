@@ -5,7 +5,7 @@ export default function TypingText({show=true, tx, delay = 0, className="", styl
 
     return (
         <motion.h1 
-            className={`${className} flex flex-wrap`}
+            className={`${className} flex flex-wrap transition-all`}
             style={style}
         >
             {tx.split("").map((char, idx) => 
