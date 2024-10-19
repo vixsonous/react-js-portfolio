@@ -37,7 +37,11 @@ export default function ExperienceMain() {
                     'Designed, discussed and implemented a react clone based on an already existing project.',
                     'Provide solutions to the problems on the existing project.',
                     'Developed and implemented additional improvement features on the existing project.'
-                ]
+                ],
+                position: {
+                    top: '1em',
+                    left: '1em'
+                }
             },
             {
                 show: false, 
@@ -51,7 +55,11 @@ export default function ExperienceMain() {
                     'Designed, discussed and implemented a react clone based on an already existing project.',
                     'Provide solutions to the problems on the existing project.',
                     'Developed and implemented additional improvement features on the existing project.'
-                ]
+                ],
+                position: {
+                    top: '2em',
+                    left: '1em'
+                }
             },
             {
                 show: false, 
@@ -71,7 +79,11 @@ export default function ExperienceMain() {
                     'Provide solutions to the problems on the existing project.',
                     'Provide solutions to the problems on the existing project.',
                     'Developed and implemented additional improvement features on the existing project.'
-                ]
+                ],
+                position: {
+                    top: '-50px',
+                    left: '1em'
+                }
             }
         ],
         scrollY: 0
@@ -105,7 +117,6 @@ export default function ExperienceMain() {
             const tmp = [...state.elements];
             if(val >= lowLimit && val <= highLimit ) {
                 tmp[i].show = true;
-                tmp[i].hover = false;
             } else {
                 tmp[i].show = false;
             }
@@ -141,8 +152,8 @@ export default function ExperienceMain() {
                                             animate={{opacity: 1}}
                                             exit={{opacity: 0}}
                                             onClick={cardMouseOverEvent}
-                                            style={{color: theme.cardText, background: theme.card}}
-                                            className={`relative flex-[0_1_100%] lg:flex-[0_1_50%] flex p-4 flex-col shadow-lg ${el.hover ? 'max-w-none' : 'max-w-max'}`}
+                                            style={{color: theme.cardText, background: theme.card, top: el.position.top, left: el.position.left}}
+                                            className={`relative flex-[0_1_100%] lg:flex-[0_1_50%] top-0 left-0 flex p-4 flex-col shadow-lg ${el.hover ? 'max-w-none' : 'max-w-max'}`}
                                         >
                                             {/* <motion.div style={{background: theme.secondary}} className="h-[4px] w-full absolute top-0 left-0 mix-blend-screen"></motion.div> */}
                                             {!el.hover && <>

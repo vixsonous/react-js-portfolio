@@ -1,7 +1,7 @@
-import { useInView, motion } from "framer-motion";
+import { useInView, motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useAppSelector } from "../store";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { text } from "../constants";
 import svg from './svg/ui-ux.svg';
 import tech from './svg/tech.svg';
@@ -42,17 +42,27 @@ export default function Skills() {
             <img style={{width: '40px',height: '40px'}} src={git} alt="git svg"/>,
             <img style={{width: '40px',height: '40px'}} src={docker} alt="docker svg"/>,
             <img style={{width: '40px',height: '40px'}} src={aws} alt="aws svg"/>
-        ]
+        ],
+        x: 0,
     })
 
     const ref = useRef<HTMLElement>(null);
+    const scrollRef = useRef<HTMLElement>(null);
     const inView = useInView(ref, { once: true});
 
+    const { scrollYProgress } = useScroll({target: scrollRef});
+
+    const x = useTransform(scrollYProgress, [0, 1], [0, 20]);
+
+    useMotionValueEvent(x, "change", (latest) => {
+        setState(prev => ({...prev, x: latest}));
+    });
+
     return (
-        <main className="relative flex flex-col gap-[10vh]">
+        <main ref={scrollRef} className="relative flex flex-col gap-[10vh] pt-[50vh]">
             <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
                 <section>
-                    <h1 className="self-center flex flex-col top-36 lg:absolute left-64 z-50">
+                    <h1 className="self-center flex flex-col top-36 lg:absolute left-64 z-50 pt-[50vh]">
                         <CoverAnimSubtitleText show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Design and' textColor={theme.secondary}/>
                         <div className="flex">
                             <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='In' textColor={theme.secondary}/>
@@ -62,38 +72,44 @@ export default function Skills() {
                 </section>
                 <section className="flex flex-[1_0_100%] h-full pt-32">
                     <div className="flex h-full gap-[1em] w-full flex-wrap justify-between">
-                        <motion.div
-                            initial={{opacity: 0, y: 50}}
-                            animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
-                            transition={{delay: .5, ease: 'easeOut'}}
-                            style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-4 flex-col shadow-lg max-w-[350px]"
-                        >
-                            <img style={{width: '40px',height: '40px', color: theme.primary}} src={svg} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
-                            <span style={{color: theme.cardText}} className="mt-8 text-sm">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
+                        <motion.div animate={{y: (state.x) * -1}} transition={{duration: 1}}>
+                            <motion.div
+                                initial={{opacity: 0, y: 50}}
+                                animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
+                                transition={{delay: .5, ease: 'easeOut'}}
+                                style={{background: theme.card}}
+                                className="flex-[1_0_30%] flex p-4 flex-col shadow-lg max-w-[350px]"
+                            >
+                                <img style={{width: '40px',height: '40px', color: theme.primary}} src={svg} alt="My Happy SVG"/>
+                                <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
+                                <span style={{color: theme.cardText}} className="mt-8 text-sm">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
+                            </motion.div>
                         </motion.div>
-                        <motion.div
-                            initial={{opacity: 0, y: 50}}
-                            animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
-                            transition={{delay: 1, ease: 'easeOut'}}
-                            style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:top-24 max-w-[350px]"
-                        >
-                            <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG" className="mb-2"/>
-                            <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-2xl" dispText='Latest Technology.' textColor={theme.cardText}/>
-                            <span style={{color: theme.cardText}} className="mt-4 text-sm">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
+                        <motion.div animate={{x: state.x * -1}} transition={{duration: 1}}>
+                            <motion.div
+                                initial={{opacity: 0, y: 50}}
+                                animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
+                                transition={{delay: 1, ease: 'easeOut'}}
+                                style={{background: theme.card}}
+                                className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:top-24 max-w-[350px]"
+                            >
+                                <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG" className="mb-2"/>
+                                <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-2xl" dispText='Latest Technology.' textColor={theme.cardText}/>
+                                <span style={{color: theme.cardText}} className="mt-4 text-sm">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
+                            </motion.div>
                         </motion.div>
-                        <motion.div
-                            initial={{opacity: 0, y: 50}}
-                            animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
-                            transition={{delay: 1.5, ease: 'easeOut'}}
-                            style={{background: theme.card}}
-                            className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md relative lg:bottom-24 max-w-[350px]"
-                        >
-                            <img style={{width: '40px',height: '40px'}} src={trend} alt="My Happy SVG"/>
-                            <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.cardText}/>
-                            <span style={{color: theme.cardText}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
+                        <motion.div animate={{y: state.x}} transition={{duration: 1}}>
+                            <motion.div
+                                initial={{opacity: 0, y: 50}}
+                                animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
+                                transition={{delay: 1.5, ease: 'easeOut'}}
+                                style={{background: theme.card}}
+                                className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md relative lg:bottom-24 max-w-[350px]"
+                            >
+                                <img style={{width: '40px',height: '40px'}} src={trend} alt="My Happy SVG"/>
+                                <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.cardText}/>
+                                <span style={{color: theme.cardText}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </section>
@@ -103,7 +119,7 @@ export default function Skills() {
                         loop
                         slidesPerView={8}
                         modules={[Autoplay]}
-                        className="mySwiper6 m-[100px_auto] w-[80vw] lg:w-[100vw] max-w-[1160px] h-[150px] rounded-lg"
+                        className="mySwiper6 m-[100px_auto] w-[80vw] lg:w-[100vw] max-w-screen-2xl h-[150px] rounded-lg"
                     >
                         {
                             state.skills.map( (el, idx) => {

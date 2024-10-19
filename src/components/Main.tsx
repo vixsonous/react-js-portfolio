@@ -52,7 +52,7 @@ export default function Main() {
     return (
         // <SmoothScroll>
             <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
-                <section className="flex flex-wrap max-w-[1160px] min-h-[100vh]">
+                <section className="flex flex-wrap max-w-[1160px]">
                     <section className="pt-[100px] flex-[1_0_50%] flex flex-col  ">
                         <motion.h1 
                             style={{color: theme.primary}} 
@@ -77,7 +77,7 @@ export default function Main() {
                         <CoverAnimSubtitleText className="" delay={.8} cover={false} dispText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} fontSizeClass="text-base" textColor={theme.primary}/>
 
                     </section>
-                    <section className="pt-[100px] min-h-[100vh] flex-[1_0_50%] flex justify-between flex-col items-center">
+                    <section className="pt-[100px] flex-[1_0_50%] flex justify-between flex-col items-center">
                         <div className="flex justify-start flex-col gap-[15px] items-center">
                             <motion.div
                                 initial={{ opacity: 0}}
