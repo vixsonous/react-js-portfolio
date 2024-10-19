@@ -60,7 +60,7 @@ export default function Main() {
                             initial="hidden"
                             animate="visible"
                         >
-                            <CoverAnimSubtitleText className="font-light" cover={false} dispText={"Victor"} fontSizeClass="text-9xl" textColor={theme.primary}/>
+                            <CoverAnimSubtitleText className="font-light" cover={false} dispText={"Victor"} fontSizeClass="text-9xl" textColor={theme.secondary}/>
                             <CoverAnimSubtitleText className="font-light" delay={.4} cover={false} dispText={"Chiong"} fontSizeClass="text-9xl" textColor={theme.primary}/>
                         </motion.h1>
                         
@@ -108,7 +108,7 @@ export default function Main() {
                                                 className='relative w-[100px] h-[100px]'
                                                 >
                                                     <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
-                                                        className={`img-circle absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover`}
+                                                        className={`img-circle absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover mask-image`}
                                                         onLoad={() => setIsLoaded(true)}
                                                     />
                                             </motion.div>

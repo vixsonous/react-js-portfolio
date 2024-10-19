@@ -21,6 +21,8 @@ export default function ExperienceMain() {
     });
     const vWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
     const dVar = useTransform(scrollYProgress, [0, 1], [0, 100]);
+    const mm = useTransform(scrollYProgress, [0,1], [0,20]);
+
     const [state, setState] = useState({
         elements: [
             {
@@ -41,7 +43,8 @@ export default function ExperienceMain() {
                 position: {
                     top: '1em',
                     left: '1em'
-                }
+                },
+                movement: 1.5
             },
             {
                 show: false, 
@@ -59,7 +62,8 @@ export default function ExperienceMain() {
                 position: {
                     top: '2em',
                     left: '1em'
-                }
+                },
+                movement: -1.5
             },
             {
                 show: false, 
@@ -83,7 +87,8 @@ export default function ExperienceMain() {
                 position: {
                     top: '-50px',
                     left: '1em'
-                }
+                },
+                movement: 1
             }
         ],
         scrollY: 0
@@ -129,12 +134,12 @@ export default function ExperienceMain() {
         <section ref={loadingRef} className="min-h-[400vh] relative ">
             <main className="flex flex-col gap-4 sticky top-0">
                 <div className="min-h-[100vh] flex flex-col gap-20">
-                    <section ref={ref} className="relative mb-20">
-                        <h1 className="self-center flex justify-center">
+                    <section ref={ref} className="relative mb-12">
+                        <motion.h1 animate={{x: mm.get()}} className="self-center flex justify-center">
                             <CoverAnimSubtitleText show={ inView} cover={false} className="" fontSizeClass="text-8xl" dispText='Exp' textColor={theme.secondary}/>
                             <CoverAnimSubtitleText show={ inView} delay={.1} className="z-50" cover={false} fontSizeClass="text-8xl" dispText='erience.' textColor={theme.primary}/>
-                        </h1>
-                        <motion.div style={{background: theme.secondary, width: vWidth}} className="h-2 w-full absolute bottom-4 mix-blend-screen"></motion.div>
+                        </motion.h1>
+                        <motion.div style={{background: theme.secondary, width: vWidth}} className="h-2 w-full absolute bottom-1 mix-blend-screen"></motion.div>
                     </section>
                     <div className="w-full relative p-4">
                         <section className="flex flex-wrap lg:flex-nowrap items-start justify-around h-full gap-4 w-full">
@@ -149,7 +154,7 @@ export default function ExperienceMain() {
                                                 id={`card-` + idx}
                                                 layout
                                                 initial={{opacity: 0}} 
-                                                animate={{opacity: 1}}
+                                                animate={{opacity: 1, y: mm.get() * el.movement}}
                                                 exit={{opacity: 0}}
                                                 onClick={cardMouseOverEvent}
                                                 style={{color: theme.cardText, background: theme.card}}
@@ -218,7 +223,7 @@ export default function ExperienceMain() {
                                             <motion.div 
                                                 layout
                                                 initial={{opacity: 0}} 
-                                                animate={{opacity: 1}}
+                                                animate={{opacity: 1, y: mm.get() * el.movement}}
                                                 exit={{opacity: 0}} 
                                                 style={{background: theme.secondary}} 
                                                 className="h-full z-0 w-full absolute top-4 left-4"/>

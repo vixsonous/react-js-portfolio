@@ -48,20 +48,6 @@ export default function Header() {
                 className="privacy-screen fixed top-0 left-0 right-0 bottom-0 z-[2]"
             />
         </motion.header>
-        {/* <AnimatePresence mode="wait">
-        {
-            !isInView && (
-                <motion.header layout initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="fixed bottom-16 right-2 z-50 self-end">
-                    <div className="relative">
-                        <span className="absolute">Hamburger</span>
-                        <div className="slider-container-global w-full transform rotate-90 origin-right">
-                            <input type="range" className="ts-range scroll-range w-[50vh]" min="0" max="100" value={state.scroll}/>
-                        </div>
-                    </div>
-                </motion.header>
-            )
-        }
-        </AnimatePresence> */}
         </>
     )
 }
