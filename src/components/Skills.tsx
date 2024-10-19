@@ -62,7 +62,7 @@ export default function Skills() {
         <main ref={scrollRef} className="relative flex flex-col gap-[10vh] pt-[50vh]">
             <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
                 <section>
-                    <h1 className="self-center flex flex-col top-36 lg:absolute left-64 z-50 pt-[50vh]">
+                    <h1 className="self-center flex flex-col top-36 lg:absolute left-72 z-50 pt-[50vh]">
                         <CoverAnimSubtitleText show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Design and' textColor={theme.secondary}/>
                         <div className="flex">
                             <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='In' textColor={theme.secondary}/>
@@ -71,7 +71,7 @@ export default function Skills() {
                     </h1>
                 </section>
                 <section className="flex flex-[1_0_100%] h-full pt-32">
-                    <div className="flex h-full gap-[1em] w-full flex-wrap justify-between">
+                    <div className="flex h-full gap-[1em] w-full flex-wrap justify-between px-6">
                         <motion.div animate={{y: (state.x) * -1}} transition={{duration: 1}}>
                             <motion.div
                                 initial={{opacity: 0, y: 50}}

@@ -133,13 +133,13 @@ export default function Main() {
                         </div>
                     </section>
                 </section>
-                <section className="flex-[1_0_100%] min-h-[150vh] p-4">
+                <section className="flex-[1_0_100%] min-h-[150vh]">
                     <Skills />
                 </section>
                 <section className="flex-[1_0_100%] min-h-[150vh]">
                     <ExperienceMain />
                 </section>
-                <section className="flex-[1_0_100%] min-h-[150vh] p-4">
+                <section className="flex-[1_0_100%] min-h-[150vh]">
                     <Certifications />
                 </section>
             </main>

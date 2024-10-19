@@ -16,7 +16,7 @@ export default function Certifications() {
     const loadingRef = useRef<HTMLDivElement>(null);
 
     return (
-        <section className="min-h-[100vh] relative pt-96">
+        <section className="min-h-[100vh] relative pt-96 px-8">
             <main className="flex flex-col gap-4 sticky top-0">
                 <div className="min-h-[100vh] py-[20px] flex flex-col gap-20">
                     <div className="w-full relative flex flex-col gap-64 pb-64">
