@@ -45,10 +45,10 @@ export default function Skills() {
 
     return (
         <React.Fragment>
-            <main ref={scrollRef} className="relative flex flex-col gap-[10vh] pt-[50vh]">
+            <main ref={scrollRef} className="relative flex flex-col gap-[10vh] pt-64">
                 <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
                     <section>
-                        <h1 className="self-center flex flex-col top-36 lg:absolute left-72 z-50 pt-[50vh]">
+                        <h1 className="self-center flex flex-col top-36 lg:absolute left-72 z-50 pt-64">
                             <CoverAnimSubtitleText show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Design and' textColor={theme.secondary}/>
                             <div className="flex">
                                 <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='In' textColor={theme.secondary}/>
@@ -66,7 +66,7 @@ export default function Skills() {
                                     style={{background: theme.card}}
                                     className="flex-[1_0_30%] flex p-4 flex-col shadow-lg max-w-[350px]"
                                 >
-                                    <SVG key={1} width={40} height={40} viewBox="0 0 2050 2050">{uiux.svg}</SVG>
+                                    <SVG key={1} width={30} height={30} viewBox="0 0 2050 2050">{uiux.svg}</SVG>
                                     <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
                                     <span style={{color: theme.cardText}} className="mt-8 text-sm">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                                 </motion.div>
@@ -79,9 +79,9 @@ export default function Skills() {
                                     style={{background: theme.card}}
                                     className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:top-24 max-w-[350px]"
                                 >
-                                    <SVG key={1} width={40} height={40} viewBox="0 0 1069 1069">{tech.svg}</SVG>
-                                    <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-2xl" dispText='Latest Technology.' textColor={theme.cardText}/>
-                                    <span style={{color: theme.cardText}} className="mt-4 text-sm">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
+                                    <SVG key={1} width={30} height={30} viewBox="0 0 1069 1069">{tech.svg}</SVG>
+                                    <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-xl" dispText='Latest Technology.' textColor={theme.cardText}/>
+                                    <span style={{color: theme.cardText}} className="mt-8 text-sm">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
                                 </motion.div>
                             </motion.div>
                             <motion.div animate={{y: state.x}} transition={{duration: 1}}>
@@ -90,11 +90,11 @@ export default function Skills() {
                                     animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
                                     transition={{delay: 1.5, ease: 'easeOut'}}
                                     style={{background: theme.card}}
-                                    className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md relative lg:bottom-24 max-w-[350px]"
+                                    className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:bottom-24 max-w-[350px]"
                                 >
-                                    <SVG key={1} width={40} height={40} viewBox={trend.viewBox}>{trend.svg}</SVG>
-                                    <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.cardText}/>
-                                    <span style={{color: theme.cardText}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
+                                    <SVG key={1} width={30} height={30} viewBox={trend.viewBox}>{trend.svg}</SVG>
+                                    <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-xl" dispText='Trend.' textColor={theme.cardText}/>
+                                    <span style={{color: theme.cardText}} className="mt-8">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
                                 </motion.div>
                             </motion.div>
                         </div>

@@ -5,8 +5,8 @@ import CoverAnimSubtitleText from './text/CoverAnimSubtitleText';
 import { useAppSelector } from '../store';
 import Skills from "./Skills";
 import ExperienceMain from "./ExperienceMain";
-import Certifications from "./Certifications";
 import MovingText from './text/MovingText';
+import ProjectsMain from './ProjectsMain';
 
 export default function Main() {    
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
@@ -62,8 +62,8 @@ export default function Main() {
 
     return (
             <React.Fragment>
-                <main  className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
-                    <section ref={mainRef} className="flex flex-wrap max-w-[1160px]">
+                <main  className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
+                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl">
                         <section className="pt-[100px] flex-[1_0_50%] flex flex-col  ">
                             <motion.h1 
                                 style={{color: theme.primary}} 
@@ -101,7 +101,7 @@ export default function Main() {
                         </section>
                         <section className="pt-[100px] flex-[1_0_50%] flex justify-between flex-col items-center">
                             <div className="flex justify-start flex-col gap-[15px] items-center">
-                                <motion.div
+                                {/* <motion.div
                                     initial={{ opacity: 0}}
                                     animate={{ opacity: 1}}
                                     transition={{duration: 2}}
@@ -151,6 +151,22 @@ export default function Main() {
                                             />
                                         </svg>
                                     </figure>
+                                </motion.div> */}
+                                <motion.div
+                                    initial={false}
+                                    animate={
+                                        isLoaded && isPresent
+                                        ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
+                                        : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
+                                    }
+                                    transition={{ duration: 1, delay:  + 2 }}
+                                    viewport={{once: true}}
+                                    className='relative w-[100px] h-[100px]'
+                                    >
+                                        <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
+                                            className={`img-circle absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover mask-image`}
+                                            onLoad={() => setIsLoaded(true)}
+                                        />
                                 </motion.div>
                             </div>
                         </section>
@@ -161,8 +177,8 @@ export default function Main() {
                     <section className="flex-[1_0_100%] min-h-[150vh]">
                         <ExperienceMain />
                     </section>
-                    <section className="flex-[1_0_100%] min-h-[150vh]">
-                        <Certifications />
+                    <section className='flex-[1_0_100%] min-h-[100vh]'>
+                        <ProjectsMain />
                     </section>
                 </main>
             </React.Fragment>

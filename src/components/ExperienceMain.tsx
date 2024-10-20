@@ -135,8 +135,8 @@ export default function ExperienceMain() {
     return (
         <section ref={loadingRef} className="min-h-[400vh] relative ">
             <main className="flex flex-col gap-4 sticky top-0">
-                <div className="min-h-[100vh] flex flex-col gap-20">
-                    <section ref={ref} className="relative mb-12">
+                <div className="min-h-screen flex flex-col gap-20">
+                    <section ref={ref} className="relative mb-12 overflow-hidden">
                         <motion.h1 animate={{x: mm.get()}} className="self-center flex justify-center">
                             <CoverAnimSubtitleText show={ inView} cover={false} className="" fontSizeClass="text-8xl" dispText='Exp' textColor={theme.secondary}/>
                             <CoverAnimSubtitleText show={ inView} delay={.1} className="z-50" cover={false} fontSizeClass="text-8xl" dispText='erience.' textColor={theme.primary}/>
