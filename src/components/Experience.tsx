@@ -4,14 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation, Pagination, Parallax } from "swiper/modules";
 import CardsCarousel from "./CardsCarousel";
 import CreativeSwiper from "./CreativeSwiper";
-import HTMLSVG from "./svg/HTMLSVG";
-import CSS3SVG from "./svg/CSS3SVG";
-import JSSVG from "./svg/JSSVG";
-import JquerySVG from "./svg/JquerySVG";
-import PHPSVG from "./svg/PHPSVG";
-import MySQLSVG from "./svg/MySQLSVG";
-import ReactJSSVG from "./svg/ReactJSSVG";
 import { getTheme } from "./hooks/theme";
+import { css3, html, jquery, js, mysql, php, react } from "./svg/svg.paths";
+import SVG from "./svg/SVG";
 
 export default function Experience() {
 
@@ -20,23 +15,23 @@ export default function Experience() {
     const swiperSlideClass = "py-[100px] px-[30px] lg:py-[100px] lg:px-[60px] min-h-[100vh]"
 
     const exp1 = [
-        {text: 'JavaScript', svg: <JSSVG width={30} height={30}/>},
-        {text: 'CSS', svg: <CSS3SVG width={30} height={30}/>},
-        {text: 'HTML', svg: <HTMLSVG width={30} height={30} />},
-        {text: 'Jquery', svg: <JquerySVG width={30} height={30}/>},
-        {text: 'PHP', svg: <PHPSVG width={30} height={30}/>},
-        {text: 'MySQL', svg: <MySQLSVG width={30} height={30}/>},
+        {text: 'JavaScript', svg: <SVG key={4} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG>},
+        {text: 'CSS', svg: <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>},
+        {text: 'HTML', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
+        {text: 'Jquery', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>},
+        {text: 'PHP', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{php.svg}</SVG>},
+        {text: 'MySQL', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{mysql.svg}</SVG>},
     ]
     
     const exp2 = [
-        {text: 'HTML', color: '#6C88A6', textColor: '#fff', svg: <HTMLSVG width={50} height={50} />},
-        {text: 'CSS', color: '#A4B8C8', textColor: '#fff', svg: <CSS3SVG width={50} height={50} />},
-        {text: 'JavaScript', color: '#9DBCC5', textColor: '#fff', svg: <JSSVG width={50} height={50} />},
-        {text: 'Jquery', color: '#D2E0E9', textColor: '#3A3A3A', svg: <JquerySVG width={50} height={50} />},
-        {text: 'PHP', color: '#A4B8C8', textColor: '#fff', svg: <PHPSVG width={50} height={50} />},
-        {text: 'Laravel', color: '#F1F4F9', textColor: '#3A3A3A', svg: <HTMLSVG width={50} height={50} />},
-        {text: 'MySQL', color: '#A9C6D9', textColor: '#fff', svg: <MySQLSVG width={50} height={50} />},
-        {text: 'ReactJS', color: '#D0D9E2', textColor: '#3A3A3A', svg: <ReactJSSVG width={50} height={50} />},
+        {text: 'HTML', color: '#6C88A6', textColor: '#fff', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
+        {text: 'CSS', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>},
+        {text: 'JavaScript', color: '#9DBCC5', textColor: '#fff', svg: <SVG key={4} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG>},
+        {text: 'Jquery', color: '#D2E0E9', textColor: '#3A3A3A', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>},
+        {text: 'PHP', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={3} width={30} height={30} viewBox={php.viewBox} preserveAspectRatio={php.preserveAspectRatio}>{php.svg}</SVG>},
+        {text: 'Laravel', color: '#F1F4F9', textColor: '#3A3A3A', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
+        {text: 'MySQL', color: '#A9C6D9', textColor: '#fff', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{mysql.svg}</SVG>},
+        {text: 'ReactJS', color: '#D0D9E2', textColor: '#3A3A3A', svg: <SVG key={5} width={40} height={40} viewBox="0 0 100 100">{react.svg}</SVG>},
     ]
 
     useEffect(() => {

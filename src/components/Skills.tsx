@@ -3,24 +3,10 @@ import { useAppSelector } from "../store";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
 import React, { useRef, useState } from "react";
 import { text } from "../constants";
-import svg from './svg/ui-ux.svg';
-import tech from './svg/tech.svg';
-import trend from './svg/trend.svg';
-import scss from './svg/scss.svg';
-import HTMLSVG from "./svg/HTMLSVG";
-import CSS3SVG from "./svg/CSS3SVG";
-import JquerySVG from "./svg/JquerySVG";
-import JSSVG from "./svg/JSSVG";
-import ReactJSSVG from "./svg/ReactJSSVG";
-import BootStrapSVG from "./svg/BootstrapSVG";
-import nextjs from './svg/next-js.svg';
-import nodejs from './svg/node-js.svg';
-import laravel from './svg/laravel.svg';
-import git from './svg/git.svg';
-import docker from './svg/docker.svg';
-import aws from './svg/aws.svg';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import {git, docker, aws, nextjs, nodejs, laravel, scss, bootstrap, html, css3, jquery, js, react, tech, trend, uiux} from "./svg/svg.paths";
+import SVG from "./svg/SVG";
 
 export default function Skills() {
 
@@ -28,19 +14,19 @@ export default function Skills() {
 
     const [state, setState] = useState({
         skills: [
-            <HTMLSVG key={1} width={40} height={40} />,
-            <CSS3SVG key={2} width={40} height={40} />,
-            <JquerySVG key={3} width={40} height={40} />,
-            <JSSVG key={4} width={40} height={40} />,
-            <ReactJSSVG key={5} width={40} height={40} />,
-            <BootStrapSVG key={6} width={40} height={40} />,
-            <img key={7} style={{width: '40px',height: '40px'}} src={scss} alt="scss svg"/>,
-            <img key={8} style={{width: '40px',height: '40px'}} src={nextjs} alt="next js svg"/>,
-            <img key={9} style={{width: '40px',height: '40px'}} src={nodejs} alt="nodejs svg"/>,
-            <img key={10} style={{width: '40px',height: '40px'}} src={laravel} alt="laravel svg"/>,
-            <img key={11} style={{width: '40px',height: '40px'}} src={git} alt="git svg"/>,
-            <img key={12} style={{width: '40px',height: '40px'}} src={docker} alt="docker svg"/>,
-            <img key={13} style={{width: '40px',height: '40px'}} src={aws} alt="aws svg"/>
+            <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+            <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>,
+            <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>,
+            <SVG key={4} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG>,
+            <SVG key={5} width={40} height={40} viewBox="0 0 100 100">{react.svg}</SVG>,
+            <SVG key={6} width={40} height={40} viewBox="0 0 48 48">{bootstrap.svg}</SVG>,
+            <SVG key={7} width={40} height={40} viewBox="0 0 32 32">{scss.svg}</SVG>,
+            <SVG key={8} width={40} height={40} viewBox="0 0 394.00000000000006 79.433">{nextjs.svg}</SVG>,
+            <SVG key={9} width={40} height={40} viewBox="0 0 256 282">{nodejs.svg}</SVG>,
+            <SVG key={10} width={40} height={40} viewBox="0 -.11376601 49.74245785 51.31690859">{laravel.svg}</SVG>,
+            <SVG key={11} width={40} height={40} viewBox="0 0 256 108">{git.svg}</SVG>,
+            <SVG key={12} width={40} height={40} viewBox="-.557 117.607 598.543 423.631">{docker.svg}</SVG>,
+            <SVG key={13} width={40} height={40} viewBox="-.1 1.1 304.9 179.8">{aws.svg}</SVG>,
         ],
         x: 0,
     })
@@ -80,7 +66,7 @@ export default function Skills() {
                                     style={{background: theme.card}}
                                     className="flex-[1_0_30%] flex p-4 flex-col shadow-lg max-w-[350px]"
                                 >
-                                    <img style={{width: '40px',height: '40px', color: theme.primary}} src={svg} alt="My Happy SVG"/>
+                                    <SVG key={1} width={40} height={40} viewBox="0 0 2050 2050">{uiux.svg}</SVG>
                                     <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
                                     <span style={{color: theme.cardText}} className="mt-8 text-sm">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                                 </motion.div>
@@ -93,7 +79,7 @@ export default function Skills() {
                                     style={{background: theme.card}}
                                     className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:top-24 max-w-[350px]"
                                 >
-                                    <img style={{width: '40px',height: '40px'}} src={tech} alt="My Happy SVG" className="mb-2"/>
+                                    <SVG key={1} width={40} height={40} viewBox="0 0 1069 1069">{tech.svg}</SVG>
                                     <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-2xl" dispText='Latest Technology.' textColor={theme.cardText}/>
                                     <span style={{color: theme.cardText}} className="mt-4 text-sm">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
                                 </motion.div>
@@ -106,7 +92,7 @@ export default function Skills() {
                                     style={{background: theme.card}}
                                     className="flex-[1_0_30%] flex p-[15px] flex-col shadow-md relative lg:bottom-24 max-w-[350px]"
                                 >
-                                    <img style={{width: '40px',height: '40px'}} src={trend} alt="My Happy SVG"/>
+                                    <SVG key={1} width={40} height={40} viewBox={trend.viewBox}>{trend.svg}</SVG>
                                     <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-2xl" dispText='Trend.' textColor={theme.cardText}/>
                                     <span style={{color: theme.cardText}} className="mt-[15px]">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
                                 </motion.div>

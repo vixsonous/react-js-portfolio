@@ -1,11 +1,12 @@
 
-import {  motion, useIsPresent } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import {  motion, useIsPresent, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 import CoverAnimSubtitleText from './text/CoverAnimSubtitleText';
 import { useAppSelector } from '../store';
 import Skills from "./Skills";
 import ExperienceMain from "./ExperienceMain";
 import Certifications from "./Certifications";
+import MovingText from './text/MovingText';
 
 export default function Main() {    
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
@@ -46,10 +47,23 @@ export default function Main() {
         return () => clearInterval(to);
     },[displayState]);
 
+    const mainRef = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({target: mainRef});
+
+    const [state, setState] = useState({
+        scroll: 0
+    });
+
+    const xx = useTransform(scrollYProgress, [0,1], [0,20]);
+
+    useMotionValueEvent(xx, "change", (latest) => {
+        setState(prev => ({...prev, scroll: latest}));
+    });
+
     return (
             <React.Fragment>
-                <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
-                    <section className="flex flex-wrap max-w-[1160px]">
+                <main  className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative p-[20px] lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
+                    <section ref={mainRef} className="flex flex-wrap max-w-[1160px]">
                         <section className="pt-[100px] flex-[1_0_50%] flex flex-col  ">
                             <motion.h1 
                                 style={{color: theme.primary}} 
@@ -57,8 +71,19 @@ export default function Main() {
                                 initial="hidden"
                                 animate="visible"
                             >
-                                <CoverAnimSubtitleText className="font-light" cover={false} dispText={"Victor"} fontSizeClass="text-9xl" textColor={theme.secondary}/>
-                                <CoverAnimSubtitleText className="font-light" delay={.4} cover={false} dispText={"Chiong"} fontSizeClass="text-9xl" textColor={theme.primary}/>
+                                <MovingText 
+                                    text="Victor" 
+                                    className='font-light text-9xl' 
+                                    style={{color: theme.secondary}} 
+                                    x={state.scroll}
+                                />
+                                <MovingText 
+                                    text="Chiong" 
+                                    className='font-light text-9xl' 
+                                    style={{color: theme.primary}} 
+                                    delay={.4}
+                                    x={state.scroll * 2}
+                                />
                             </motion.h1>
                             
                             <motion.h1
