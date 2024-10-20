@@ -23,27 +23,27 @@ const lightMode = {
   textColor: '#353B3C'
 }
 
-const darkMode = {
-  bg: 'radial-gradient(circle, #121212 0%, #1F1F1F 90%)',
-  card: '#1E272E',
-  cardText: '#2E2E2E',
-  primary: '#4B6584',
-  secondary: '#2C3A47',
-  accentColor: '#F9C74F',
-  linkHoverColor: '#FF6F61',
-  textColor: '#EAEAEA'
-}
+// const darkMode = {
+//   bg: 'radial-gradient(circle, #121212 0%, #1F1F1F 90%)',
+//   card: '#1E272E',
+//   cardText: '#2E2E2E',
+//   primary: '#4B6584',
+//   secondary: '#2C3A47',
+//   accentColor: '#F9C74F',
+//   linkHoverColor: '#FF6F61',
+//   textColor: '#EAEAEA'
+// }
 
-const darkMode2 = {
-  bg: 'radial-gradient(circle, #1E201E 0%, #1E201E 90%)',
-  card: '#D1C5B4',
-  cardText: '#2E2E2E',
-  primary: '#5C6D5A',
-  secondary: '#4B6584',
-  accentColor: '#8D9C81',
-  linkHoverColor: '#FF6F61',
-  textColor: '#EAEAEA'
-}
+// const darkMode2 = {
+//   bg: 'radial-gradient(circle, #1E201E 0%, #1E201E 90%)',
+//   card: '#D1C5B4',
+//   cardText: '#2E2E2E',
+//   primary: '#5C6D5A',
+//   secondary: '#4B6584',
+//   accentColor: '#8D9C81',
+//   linkHoverColor: '#FF6F61',
+//   textColor: '#EAEAEA'
+// }
 
 function App() {
   const dispatch = useDispatch();

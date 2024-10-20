@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {  lg, md, sm, text, xl, xl2 } from "../constants";
 import { motion } from "framer-motion";
 import { getTheme } from "./hooks/theme";
@@ -35,7 +35,7 @@ export default function CardsCarousel({items}: { items: Array<{ text: string, sv
     )
 
     const resizeFunc = () => {
-        let scMode = defineScreenMode();
+        const scMode = defineScreenMode();
 
         if(scMode < 3) {
             setFontSize(text.body)

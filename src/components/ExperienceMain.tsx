@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
 import { useInView, motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { text } from "../constants";
 import { getTheme } from "./hooks/theme";
 import rakuten from '../assets/rakuten.png';
 import tig from '../assets/tig.png';
 import seedtech from '../assets/seedtech.png';
 import TypingText from "./text/TypingText";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
 export default function ExperienceMain() {
 
@@ -101,7 +103,7 @@ export default function ExperienceMain() {
         changeHoverFunc(id);
     }
 
-    const changeHoverFunc = (id: String) => {
+    const changeHoverFunc = (id: string) => {
         const temp = [...state.elements];
         temp[Number(id)].hover = !temp[Number(id)].hover;
 
@@ -146,7 +148,6 @@ export default function ExperienceMain() {
                             <AnimatePresence mode="popLayout">
                             {
                                 state.elements.map( (el, idx) => {
-
                                     const delay = .4;
                                     return el.show && (
                                         <div key={idx} className="relative" style={{top: el.position.top, left: el.position.left}}>
@@ -188,13 +189,13 @@ export default function ExperienceMain() {
                                                         animate={{opacity: 1}} 
                                                         exit={{opacity: 0}} 
                                                         transition={{delay: .4}} 
-                                                        className="text-sm flex flex-nowrap" 
-                                                    >{el.sub}</motion.span>
+                                                        className="text-sm flex flex-nowrap items-center gap-4" 
+                                                    >{el.sub}<FontAwesomeIcon icon={faEye}/></motion.span>
                                                 </>}
                                                 {
                                                     el.hover && <>
                                                     <TypingText delay={delay} style={{color: theme.secondary}} className={`text-2xl absolute top-[-1.1em]`} tx={el.title}/>
-                                                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .2}} className="text-lg flex flex-nowrap" >{el.sub}</motion.span>
+                                                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .2}} className="text-lg flex flex-nowrap items-center gap-4" >{el.sub} <FontAwesomeIcon icon={faEyeSlash}/></motion.span>
                                                         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .4}} className="flex gap-4">
                                                         {
                                                             el.logos.map( (logo, idx) => {
