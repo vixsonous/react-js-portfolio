@@ -19,7 +19,7 @@
 }
 
 .text-shadow {
-  /* text-shadow: 0 13.36px 8.896px #c4b59d,0 5px 5px  */
+  text-shadow: 0 13.36px 8.896px #c4b59d,0 5px 5px 
 }
 html {
   -webkit-overflow-scrolling: touch; /* For smooth scrolling on mobile */

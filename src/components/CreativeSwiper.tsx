@@ -1,10 +1,11 @@
 import { EffectCreative, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { text } from "../constants";
+import React from "react";
 
 export default function CreativeSwiper({items} : {items: Array<{text: string, color: string, textColor: string, svg: React.ReactNode}>}) {
     return (
-        <>
+        <React.Fragment>
         <Swiper
             grabCursor={true}
             effect={'creative'}
@@ -36,6 +37,6 @@ export default function CreativeSwiper({items} : {items: Array<{text: string, co
                 })
             }
         </Swiper>
-        </>
+        </React.Fragment>
     )
 }

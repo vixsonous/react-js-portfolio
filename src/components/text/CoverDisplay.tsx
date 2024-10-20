@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import SlidingCover from "../SlidingCover";
+import React from "react";
 
 export default function CoverDisplay({show, textSize='1em', textColor='#000', delay=0, text}: {show: boolean, textSize?: string, textColor?: string, delay?: number, text: string}) {
     
@@ -21,27 +22,29 @@ export default function CoverDisplay({show, textSize='1em', textColor='#000', de
     }
     
     return (
-        <div className="relative overflow-hidden max-w-max">
-            <AnimatePresence mode="wait">
-                { show && (
-                    <>
-                    <span className='flex ' style={{fontSize: textSize, color: textColor}}>
-                        <motion.span 
-                            className="self-center"
-                            key={1} 
-                            initial="hidden"
-                            animate="visible"
-                            exit={{opacity: 0, transition: {delay:  + .1 + 1 * 0.06}}} 
-                            transition={{ delay: delay + .1 + 1 * 0.05 }} 
-                            variants={anim}>
-                            {text}
-                        </motion.span>
-                        <SlidingCover delay={delay}/>
-                    </span>
-                    </>
-                )}
-                
-            </AnimatePresence>
-        </div>
+        <React.Fragment>
+            <div className="relative overflow-hidden max-w-max">
+                <AnimatePresence mode="wait">
+                    { show && (
+                        <>
+                        <span className='flex ' style={{fontSize: textSize, color: textColor}}>
+                            <motion.span 
+                                className="self-center"
+                                key={1} 
+                                initial="hidden"
+                                animate="visible"
+                                exit={{opacity: 0, transition: {delay:  + .1 + 1 * 0.06}}} 
+                                transition={{ delay: delay + .1 + 1 * 0.05 }} 
+                                variants={anim}>
+                                {text}
+                            </motion.span>
+                            <SlidingCover delay={delay}/>
+                        </span>
+                        </>
+                    )}
+                    
+                </AnimatePresence>
+            </div>
+        </React.Fragment>
     )
 }

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { text } from "../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation, Pagination, Parallax } from "swiper/modules";
@@ -44,7 +44,8 @@ export default function Experience() {
     },[]);
 
     return (
-        <Swiper
+        <React.Fragment>
+            <Swiper
                 speed={600}
                 parallax={true}
                 mousewheel
@@ -144,5 +145,6 @@ export default function Experience() {
                     </div>
                 </SwiperSlide>
             </Swiper>
+        </React.Fragment>
     )
 }
