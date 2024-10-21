@@ -13,7 +13,7 @@ export default function ProjectsMain() {
         <React.Fragment>
             <main className=" min-h-[100vh] w-full relative">
                 <div className="flex flex-wrap justify-center">
-                    <div className="flex-[1_0_100%]">
+                    <div className="flex-[1_0_100%] h-full">
                         <Swiper
                             breakpoints={{
                                 0: {
@@ -25,14 +25,13 @@ export default function ProjectsMain() {
                                 spaceBetween: 40,
                                 },
                             }}
-                            effect={'coverflow'}
                             grabCursor={true}
                             centeredSlides
                             slidesPerView={3}
                             spaceBetween={0}
                             initialSlide={0}
                             loop
-                            className="mySwiper w-[100vw]"
+                            className="mySwiper w-[100vw] h-[450px]"
                         >
                             <SwiperSlide className="h-[400px]">
                                 {({isActive}) => (
@@ -179,7 +178,7 @@ export default function ProjectsMain() {
                                     </>
                                 )}
                             </SwiperSlide>
-                            <SwiperSlide className="w-full h-full">
+                            <SwiperSlide className="h-[400px] relative">
                                 {({isActive}) => (
                                     <React.Fragment>
                                         <motion.div initial={{y: 150, opacity: 0}} transition={{duration: .8,delay: .6, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative">

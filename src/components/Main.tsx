@@ -63,8 +63,8 @@ export default function Main() {
     return (
             <React.Fragment>
                 <main  className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
-                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl">
-                        <section className="pt-[100px] flex-[1_0_50%] flex flex-col  ">
+                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16">
+                        <section className="pt-[100px] flex-[1_0_50%] flex flex-col">
                             <motion.h1 
                                 style={{color: theme.primary}} 
                                 className={`w-[100%] flex gap-[5px] relative flex-col`} 
@@ -84,6 +84,22 @@ export default function Main() {
                                     delay={.4}
                                     x={state.scroll * 2}
                                 />
+                                <motion.div
+                                    initial={false}
+                                    animate={
+                                        isLoaded && isPresent
+                                        ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
+                                        : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
+                                    }
+                                    transition={{ duration: 1, delay:  + 2 }}
+                                    viewport={{once: true}}
+                                    className='absolute top-0 left-0 lg:left-96 w-full'
+                                    >
+                                        <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
+                                            className={`img-circle top-0 left-0 right-0 bottom-0 grayscale w-full h-full object-cover mask-image`}
+                                            onLoad={() => setIsLoaded(true)}
+                                        />
+                                </motion.div>
                             </motion.h1>
                             
                             <motion.h1
@@ -94,6 +110,7 @@ export default function Main() {
                             >
                                 <CoverAnimSubtitleText className="" delay={.6} cover={false} dispText={"I am "} fontSizeClass="text-base" textColor={theme.primary}/>
                                 <CoverAnimSubtitleText className="" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} fontSizeClass="text-base" textColor={theme.primary}/>
+                                
                             </motion.h1>
 
                             <CoverAnimSubtitleText className="" delay={.8} cover={false} dispText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} fontSizeClass="text-base" textColor={theme.primary}/>
@@ -152,22 +169,7 @@ export default function Main() {
                                         </svg>
                                     </figure>
                                 </motion.div> */}
-                                <motion.div
-                                    initial={false}
-                                    animate={
-                                        isLoaded && isPresent
-                                        ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
-                                        : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
-                                    }
-                                    transition={{ duration: 1, delay:  + 2 }}
-                                    viewport={{once: true}}
-                                    className='relative w-[100px] h-[100px]'
-                                    >
-                                        <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
-                                            className={`img-circle absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover mask-image`}
-                                            onLoad={() => setIsLoaded(true)}
-                                        />
-                                </motion.div>
+                                
                             </div>
                         </section>
                     </section>
