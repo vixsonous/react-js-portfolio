@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import {  motion, useIsPresent } from "framer-motion";
 import React, {  useRef, useState } from "react";
 import { getTheme } from "./hooks/theme";
+import MovingText from "./text/MovingText";
 
 export default function Header() {
     const theme = getTheme();
@@ -20,8 +21,22 @@ export default function Header() {
             <motion.header 
                 ref={ref}
                 style={{borderBottomColor: theme.primary}}
-                className="flex top-0 left-0 z-[999] justify-center transition-all p-[1em] items-center w-full"
+                className="flex top-0 left-0 z-[999] justify-between transition-all p-[1em] items-center w-full"
             >
+                <div>
+                    <MovingText 
+                        text="chiong." 
+                        className='font-semibold text-lg' 
+                        style={{color: theme.secondary}} 
+                        x={state.scroll}
+                    />
+                    <MovingText 
+                        text="victor" 
+                        className='font-light text-lg' 
+                        style={{color: theme.primary}} 
+                        x={state.scroll}
+                    />
+                </div>
                 <div className="">
                     <section style={{color: theme.bg}}  className="flex gap-[1em] text-xs font-light items-center">
                         <Link className="relative group" onClick={() => setState(prev => ({...prev, abt: true, exp: false, prj: false}))} to="/">

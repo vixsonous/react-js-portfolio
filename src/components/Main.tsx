@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import ExperienceMain from "./ExperienceMain";
 import MovingText from './text/MovingText';
 import ProjectsMain from './ProjectsMain';
+import OutlinedText from './text/OutlinedText';
 
 export default function Main() {    
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
@@ -93,7 +94,7 @@ export default function Main() {
                                     }
                                     transition={{ duration: 1, delay:  + 2 }}
                                     viewport={{once: true}}
-                                    className='absolute top-0 left-0 lg:left-96 w-full'
+                                    className='absolute top-0 left-0 lg:top-16 lg:left-96 w-full'
                                     >
                                         <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
                                             className={`img-circle top-0 left-0 right-0 bottom-0 grayscale w-full h-full object-cover mask-image`}
@@ -116,60 +117,12 @@ export default function Main() {
                             <CoverAnimSubtitleText className="" delay={.8} cover={false} dispText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} fontSizeClass="text-base" textColor={theme.primary}/>
 
                         </section>
-                        <section className="pt-[100px] flex-[1_0_50%] flex justify-between flex-col items-center">
-                            <div className="flex justify-start flex-col gap-[15px] items-center">
-                                {/* <motion.div
-                                    initial={{ opacity: 0}}
-                                    animate={{ opacity: 1}}
-                                    transition={{duration: 2}}
-                                >
-                                    <figure className="progress relative">
-                                        <svg className='w-[260px] h-[260px] rounded-[260px] z-[99]' id="progress" width="260px" height="260px" viewBox="0 0 100 100">
-                                            <defs>
-                                                <clipPath id="circleClip">
-                                                    <circle cx="50" cy="50" r="49" />
-                                                </clipPath>
-                                            </defs>
-                                            <foreignObject width="100%"
-                                                height="100%"
-                                                clipPath="url(#circleClip)"
-                                                className='relative'
-                                                >
-                                                <motion.div
-                                                    initial={false}
-                                                    animate={
-                                                        isLoaded && isPresent
-                                                        ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
-                                                        : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
-                                                    }
-                                                    transition={{ duration: 1, delay:  + 2 }}
-                                                    viewport={{once: true}}
-                                                    className='relative w-[100px] h-[100px]'
-                                                    >
-                                                        <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
-                                                            className={`img-circle absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover mask-image`}
-                                                            onLoad={() => setIsLoaded(true)}
-                                                        />
-                                                </motion.div>
-                                            </foreignObject>
-                                            <motion.circle
-                                                cx="50"
-                                                cy="50"
-                                                r="49"
-                                                fill="transparent"
-                                                strokeWidth="1"
-                                                pathLength="0"
-                                                style={{stroke: theme.primary}}
-                                                initial={{pathLength: 0}}
-                                                animate={{pathLength: 1.1}}
-                                                transition={{
-                                                    duration: 2,
-                                                }}
-                                            />
-                                        </svg>
-                                    </figure>
-                                </motion.div> */}
-                                
+                        <section className="relative pt-[100px] flex-[1_0_50%] flex justify-between flex-col items-center">
+                            <div className=" w-full h-full flex justify-start flex-col gap-[15px] items-center">
+                                <motion.div className='lg:absolute top-16 w-full lg:right-64 lg:flex max-w-max' initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1, ease: 'easeOut'}}>
+                                    <OutlinedText text='Web Developer' className='text-2xl lg:text-6xl lg:absolute lg:bottom-16 lg:right-32 overflow-visible max-w-max max-h-max' stroke={theme.secondary} strokeWidth='1px'/>
+                                    <OutlinedText text='Software Engineer' className='text-2xl lg:text-6xl overflow-visible max-w-max max-h-max' stroke={theme.primary} strokeWidth='1px'/>
+                                </motion.div>
                             </div>
                         </section>
                     </section>
