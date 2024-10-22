@@ -1,10 +1,25 @@
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { getTheme } from "./hooks/theme";
 
 export default function Footer() {
+
+    const theme = getTheme();
+
     return (
         <React.Fragment>
-            <div className="relative z-[999]">
-                section 3
+            <div className="relative z-50 text-4xl flex gap-8 min-h-48 py-48">
+                <a href="https://github.com/dasdasd443" target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon style={{color: theme.primary}} icon={faGithub}/>
+                </a>
+                <a href="/">
+                    <FontAwesomeIcon style={{color: theme.secondary}} icon={faLinkedin}/>
+                </a>
+                <a href="/">
+                    <FontAwesomeIcon style={{color: theme.primary}} icon={faEnvelope}/>
+                </a>
             </div>
         </React.Fragment>
     )

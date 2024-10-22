@@ -11,8 +11,12 @@ export default function ProjectsMain() {
 
     return (
         <React.Fragment>
-            <main className=" min-h-[100vh] w-full relative">
-                <div className="flex flex-wrap justify-center">
+            <main className=" w-full relative">
+                <div className="flex flex-wrap justify-center relative">
+                    <div className="flex-[1_0_100%] flex justify-end relative">
+                        <span style={{color: theme.primary}} className="text-8xl lg:absolute top-[-.85em] right-8 z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
+                        <motion.div style={{background: theme.primary, width: '100%'}} className="h-1 w-full absolute top-0"></motion.div>
+                    </div>
                     <div className="flex-[1_0_100%] h-full">
                         <Swiper
                             breakpoints={{
@@ -205,10 +209,6 @@ export default function ProjectsMain() {
                                 )}
                             </SwiperSlide>
                         </Swiper>
-                    </div>
-                    
-                    <div style={{color: theme.bg}} className="flex-[1_0_100%] min-h-[100vh] w-full flex justify-center items-center">
-                        asdasd
                     </div>
                 </div>
             </main>

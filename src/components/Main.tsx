@@ -8,6 +8,8 @@ import ExperienceMain from "./ExperienceMain";
 import MovingText from './text/MovingText';
 import ProjectsMain from './ProjectsMain';
 import OutlinedText from './text/OutlinedText';
+import Footer from './Footer';
+import { sm } from '../constants';
 
 export default function Main() {    
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
@@ -64,8 +66,8 @@ export default function Main() {
     return (
             <React.Fragment>
                 <main  className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
-                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16">
-                        <section className="pt-[100px] flex-[1_0_50%] flex flex-col">
+                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16 relative">
+                        <section className="pt-4 lg:pt-24 p-4 flex-[1_0_100%] lg:flex-[1_0_50%] flex flex-col">
                             <motion.h1 
                                 style={{color: theme.primary}} 
                                 className={`w-[100%] flex gap-[5px] relative flex-col`} 
@@ -74,13 +76,13 @@ export default function Main() {
                             >
                                 <MovingText 
                                     text="Victor" 
-                                    className='font-light text-9xl' 
+                                    className='font-light text-6xl lg:text-9xl max-w-max' 
                                     style={{color: theme.secondary}} 
                                     x={state.scroll}
                                 />
                                 <MovingText 
                                     text="Chiong" 
-                                    className='font-light text-9xl' 
+                                    className='font-light text-6xl lg:text-9xl max-w-max' 
                                     style={{color: theme.primary}} 
                                     delay={.4}
                                     x={state.scroll * 2}
@@ -94,7 +96,7 @@ export default function Main() {
                                     }
                                     transition={{ duration: 1, delay:  + 2 }}
                                     viewport={{once: true}}
-                                    className='absolute top-0 left-0 lg:top-16 lg:left-96 w-full'
+                                    className='lg:absolute top-0 left-0 lg:top-16 lg:left-96 w-full'
                                     >
                                         <img src="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg" 
                                             className={`img-circle top-0 left-0 right-0 bottom-0 grayscale w-full h-full object-cover mask-image`}
@@ -117,7 +119,7 @@ export default function Main() {
                             <CoverAnimSubtitleText className="" delay={.8} cover={false} dispText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} fontSizeClass="text-base" textColor={theme.primary}/>
 
                         </section>
-                        <section className="relative pt-[100px] flex-[1_0_50%] flex justify-between flex-col items-center">
+                        <section className={`relative flex-[1_0_50%] ${sm() ? 'hidden' : 'flex'} justify-between flex-col items-center`}>
                             <div className=" w-full h-full flex justify-start flex-col gap-[15px] items-center">
                                 <motion.div className='lg:absolute top-16 w-full lg:right-64 lg:flex max-w-max' initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1, ease: 'easeOut'}}>
                                     <OutlinedText text='Web Developer' className='text-2xl lg:text-6xl lg:absolute lg:bottom-16 lg:right-32 overflow-visible max-w-max max-h-max' stroke={theme.secondary} strokeWidth='1px'/>
@@ -132,8 +134,11 @@ export default function Main() {
                     <section className="flex-[1_0_100%] min-h-[150vh]">
                         <ExperienceMain />
                     </section>
-                    <section className='flex-[1_0_100%] min-h-[100vh]'>
+                    <section className='flex-[1_0_100%]'>
                         <ProjectsMain />
+                    </section>
+                    <section>
+                        <Footer />
                     </section>
                 </main>
             </React.Fragment>

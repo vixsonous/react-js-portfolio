@@ -32,7 +32,7 @@ export const text = {
     small: '0.875em'
 }
 
-export const sm = (size:number) => size <= 640;
+export const sm = (size:number = window.innerWidth) => size <= 640;
 export const md = (size:number) => size <= 768 && size > 640;
 export const lg = (size:number) => size <= 1024 && size > 768;
 export const xl = (size:number) => size <= 1280 && size > 1024;

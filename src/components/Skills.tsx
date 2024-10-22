@@ -45,18 +45,18 @@ export default function Skills() {
 
     return (
         <React.Fragment>
-            <main ref={scrollRef} className="relative flex flex-col gap-[10vh] pt-64">
-                <div className="min-h-[100vh] py-[20px] flex flex-col gap-[10vh]">
-                    <section>
-                        <h1 className="self-center flex flex-col top-36 lg:absolute left-72 z-50 pt-64">
-                            <CoverAnimSubtitleText show={ inView} cover={false} fontSizeClass="text-8xl" dispText='Design and' textColor={theme.secondary}/>
-                            <div className="flex">
-                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='In' textColor={theme.secondary}/>
-                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} fontSizeClass="text-8xl" dispText='novation.' textColor={theme.primary}/>
+            <main ref={scrollRef} className="relative flex flex-col gap-[10vh] pt-16 lg:pt-64">
+                <div className="min-h-[100vh] flex flex-col gap-[10vh]">
+                    <section className="px-4">
+                        <h1 className="self-center flex text-6xl lg:text-8xl flex-col top-36 lg:absolute left-72 z-50 pt-0 lg:pt-64">
+                            <CoverAnimSubtitleText show={ inView} cover={false} dispText='Design and' textColor={theme.secondary}/>
+                            <div className="flex ">
+                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} dispText='In' textColor={theme.secondary}/>
+                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} dispText='novation.' textColor={theme.primary}/>
                             </div>
                         </h1>
                     </section>
-                    <section className="flex flex-[1_0_100%] h-full pt-32">
+                    <section className="flex flex-[1_0_100%] h-full pt-0 lg:pt-32">
                         <div className="flex h-full gap-[1em] w-full flex-wrap justify-between px-6">
                             <motion.div animate={{y: (state.x) * -1}} transition={{duration: 1}}>
                                 <motion.div
@@ -102,10 +102,17 @@ export default function Skills() {
                     <section ref={ref} className="flex flex-[1_0_100%]">
                         <Swiper
                             autoplay
+                            breakpoints={{
+                                0: {
+                                slidesPerView: 3,
+                                },
+                                768: {
+                                slidesPerView: 8,
+                                },
+                            }}
                             loop
-                            slidesPerView={8}
                             modules={[Autoplay]}
-                            className="mySwiper6 m-[100px_auto] w-[80vw] lg:w-[100vw] max-w-screen-2xl h-[150px] rounded-lg"
+                            className="mySwiper6 lg:m-[100px_auto] w-[80vw] lg:w-[100vw] max-w-screen-2xl h-[150px] rounded-lg"
                         >
                             {
                                 state.skills.map( (el, idx) => {

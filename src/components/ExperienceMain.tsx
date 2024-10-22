@@ -9,6 +9,7 @@ import TypingText from "./text/TypingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { sm } from "../constants";
 
 export default function ExperienceMain() {
 
@@ -133,44 +134,39 @@ export default function ExperienceMain() {
     },[state.scrollY]);
 
     return (
-        <section ref={loadingRef} className="min-h-[400vh] relative ">
+        <section ref={loadingRef} className="min-h-[400vh] relative">
             <main className="flex flex-col gap-4 sticky top-0">
-                <div className="min-h-screen flex flex-col gap-20">
+                <div className="lg:min-h-screen flex flex-col lg:gap-20">
                     <section ref={ref} className="relative mb-12 overflow-hidden">
-                        <motion.h1 animate={{x: mm.get()}} className="self-center flex justify-center">
-                            <CoverAnimSubtitleText show={ inView} cover={false} className="" fontSizeClass="text-8xl" dispText='Exp' textColor={theme.secondary}/>
-                            <CoverAnimSubtitleText show={ inView} delay={.1} className="z-50" cover={false} fontSizeClass="text-8xl" dispText='erience.' textColor={theme.primary}/>
+                        <motion.h1 animate={{x: mm.get()}} className=" text-6xl lg:text-8xl self-center flex justify-center">
+                            <CoverAnimSubtitleText show={ inView} cover={false} className="" dispText='Exp' textColor={theme.secondary}/>
+                            <CoverAnimSubtitleText show={ inView} delay={.1} className="z-50" cover={false} dispText='erience.' textColor={theme.primary}/>
                         </motion.h1>
                         <motion.div style={{background: theme.secondary, width: vWidth}} className="h-2 w-full absolute bottom-1 mix-blend-screen"></motion.div>
                     </section>
-                    <div className="w-full relative p-4">
-                        <section className="flex flex-wrap lg:flex-nowrap items-start justify-around h-full gap-4 w-full">
+                    <div className="w-full relative p-4 lg:p-4 min-h-[100vh]">
+                        <section className="flex flex-wrap lg:flex-nowrap items-start lg:justify-around h-full gap-12 w-full ">
                             <AnimatePresence mode="popLayout">
                             {
                                 state.elements.map( (el, idx) => {
                                     const delay = .4;
                                     return el.show && (
-                                        <div key={idx} className="relative" style={{top: el.position.top, left: el.position.left}}>
+                                        <div 
+                                            key={idx} 
+                                            className={`relative ${sm(window.innerWidth) ? 'w-full' : ''} `}
+                                            style={{
+                                                top: sm(window.innerWidth) ? 0 : el.position.top, 
+                                                left: sm(window.innerWidth) ? 0 : el.position.left
+                                            }}>
                                             <motion.div 
                                                 id={`card-` + idx}
                                                 layout
                                                 initial={{opacity: 0}} 
-                                                animate={{opacity: 1, y: mm.get() * el.movement}}
+                                                animate={{opacity: 1, y: sm(window.innerWidth) ? 0 : mm.get() * el.movement}}
                                                 exit={{opacity: 0}}
                                                 onClick={cardMouseOverEvent}
                                                 style={{color: theme.cardText, background: theme.card}}
-                                                className={`relative 
-                                                    flex-[0_1_100%] 
-                                                    lg:flex-[0_1_50%] 
-                                                    z-50 
-                                                    top-0 
-                                                    left-0 
-                                                    flex 
-                                                    p-4 
-                                                    flex-col 
-                                                    ${el.hover ? 'max-w-none' : 'max-w-max'}
-                                                    
-                                                `}
+                                                className={`relative flex-[0_0_100%] lg:flex-[0_1_50%] z-50 top-0 left-0 flex p-4 flex-col ${el.hover || sm() ? 'max-w-none' : 'max-w-max'}`}
                                             >
                                                 {!el.hover && <>
                                                     <motion.span 
@@ -224,10 +220,10 @@ export default function ExperienceMain() {
                                             <motion.div 
                                                 layout
                                                 initial={{opacity: 0}} 
-                                                animate={{opacity: 1, y: mm.get() * el.movement}}
+                                                animate={{opacity: 1, y: sm(window.innerWidth) ? 0 : mm.get() * el.movement}}
                                                 exit={{opacity: 0}} 
                                                 style={{background: theme.secondary}} 
-                                                className="h-full z-0 w-full absolute top-4 left-4"/>
+                                                className={`h-full z-0 w-full absolute top-4 ${sm(window.innerWidth) ? 'left-0' : 'left-4'}`}/>
                                         </div>
                                     )
                                 })
