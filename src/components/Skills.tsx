@@ -2,7 +2,7 @@ import { useInView, motion, useScroll, useTransform, useMotionValueEvent } from 
 import { useAppSelector } from "../store";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
 import React, { useRef, useState } from "react";
-import { text } from "../constants";
+import { sm, text } from "../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import {git, docker, aws, nextjs, nodejs, laravel, scss, bootstrap, html, css3, jquery, js, react, tech, trend, uiux} from "./svg/svg.paths";
@@ -32,8 +32,9 @@ export default function Skills() {
     })
 
     const ref = useRef<HTMLElement>(null);
+    const mobileRef = useRef<HTMLDivElement>(null);
     const scrollRef = useRef<HTMLElement>(null);
-    const inView = useInView(ref, { once: true});
+    const inView = useInView(sm() ? mobileRef : ref, { once: true});
 
     const { scrollYProgress } = useScroll({target: scrollRef});
 
@@ -71,7 +72,7 @@ export default function Skills() {
                                     <span style={{color: theme.cardText}} className="mt-8 text-sm">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
                                 </motion.div>
                             </motion.div>
-                            <motion.div animate={{x: state.x * -1}} transition={{duration: 1}}>
+                            <motion.div ref={mobileRef} animate={{x: state.x * -1}} transition={{duration: 1}}>
                                 <motion.div
                                     initial={{opacity: 0, y: 50}}
                                     animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}

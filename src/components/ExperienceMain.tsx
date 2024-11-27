@@ -37,11 +37,10 @@ export default function ExperienceMain() {
                     tig
                 ],
                 tasks: [
-                    'Conducted meetings and discussion with the project manager',
-                    'Provide suggestions regarding UI related implementations',
-                    'Designed, discussed and implemented a react clone based on an already existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Developed and implemented additional improvement features on the existing project.'
+                    'Collected, defined and translated user requirements into project designs and implementation plans.',
+                    'Designed and implemented the database for the web application that will store information and dental history of a patient.',
+                    'Developed the dental-medical based web application with interactive dental record that keeps track of dental notes/entries of each tooth.',
+                    'Discussed project progress with the project manager, collected feedback on different stages and directly addressed concerns.',
                 ],
                 position: {
                     top: '1em',
@@ -78,14 +77,14 @@ export default function ExperienceMain() {
                     rakuten
                 ],
                 tasks: [
-                    'Conducted meetings and discussion with the project manager',
-                    'Provide suggestions regarding UI related implementations',
-                    'Designed, discussed and implemented a react clone based on an already existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Developed and implemented additional improvement features on the existing project.'
+                    'Developed features on enterprise level project with waterfall model software development life cycle.',
+                    'Facilitated daily scrums with daily progress report to project manager.',
+                    'Training and mentoring junior software engineers.',
+                    'Provided training for an upcoming batch',
+                    'Breakdown, create, assign, and update task to team members.',
+                    'Coordinated with other international team members during project development.',
+                    'Create project documents.',
+                    'Conduct code reviews for other team members.'
                 ],
                 position: {
                     top: '-50px',
@@ -142,7 +141,7 @@ export default function ExperienceMain() {
                             <CoverAnimSubtitleText show={ inView} cover={false} className="" dispText='Exp' textColor={theme.secondary}/>
                             <CoverAnimSubtitleText show={ inView} delay={.1} className="z-50" cover={false} dispText='erience.' textColor={theme.primary}/>
                         </motion.h1>
-                        <motion.div style={{background: theme.secondary, width: vWidth}} className="h-2 w-full absolute bottom-1 mix-blend-screen"></motion.div>
+                        <motion.div style={{background: theme.secondary, width: vWidth}} className="h-2 w-full absolute bottom-0 lg:bottom-1 mix-blend-screen"></motion.div>
                     </section>
                     <div className="w-full relative p-4 lg:p-4 min-h-[100vh]">
                         <section className="flex flex-wrap lg:flex-nowrap items-start lg:justify-around h-full gap-12 w-full ">

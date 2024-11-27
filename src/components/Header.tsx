@@ -3,6 +3,7 @@ import {  motion, useIsPresent } from "framer-motion";
 import React, {  useRef, useState } from "react";
 import { getTheme } from "./hooks/theme";
 import MovingText from "./text/MovingText";
+import { sm } from "../constants";
 
 export default function Header() {
     const theme = getTheme();
@@ -53,13 +54,25 @@ export default function Header() {
                         </Link>
                     </section>
                 </div>
-                <motion.div
-                    initial={{ scaleX: 1 }}
-                    animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
-                    exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
-                    style={{ originX: isPresent ? 0 : 1 , background: theme.primary}}
-                    className="privacy-screen fixed top-0 left-0 right-0 bottom-0 z-[2]"
-                />
+                {
+                    sm() ? (
+                        <motion.div
+                            initial={{ scaleY: 1 }}
+                            animate={{ scaleY: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                            exit={{ scaleY: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                            style={{ originY: isPresent ? 0 : 1 , background: theme.primary}}
+                            className="privacy-screen fixed top-0 left-0 right-0 bottom-0 z-[2]"
+                        />
+                    ) : (
+                        <motion.div
+                            initial={{ scaleX: 1 }}
+                            animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                            exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                            style={{ originX: isPresent ? 0 : 1 , background: theme.primary}}
+                            className="privacy-screen fixed top-0 left-0 right-0 bottom-0 z-[2]"
+                        />
+                    )
+                }
             </motion.header>
         </React.Fragment>
     )

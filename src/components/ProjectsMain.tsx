@@ -14,8 +14,7 @@ export default function ProjectsMain() {
             <main className=" w-full relative">
                 <div className="flex flex-wrap justify-center relative">
                     <div className="flex-[1_0_100%] flex justify-end relative">
-                        <span style={{color: theme.primary}} className="text-8xl lg:absolute top-[-.85em] right-8 z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
-                        <motion.div style={{background: theme.primary, width: '100%'}} className="h-1 w-full absolute top-0"></motion.div>
+                        <span style={{color: theme.primary}} className="text-6xl lg:text-8xl absolute top-[-.85em] right-8 z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
                     </div>
                     <div className="flex-[1_0_100%] h-full">
                         <Swiper
@@ -24,7 +23,7 @@ export default function ProjectsMain() {
                                 slidesPerView: 1,
                                 spaceBetween: 10,
                                 },
-                                768: {
+                                1024: {
                                 slidesPerView: 2,
                                 spaceBetween: 40,
                                 },
@@ -37,11 +36,11 @@ export default function ProjectsMain() {
                             loop
                             className="mySwiper w-[100vw] h-[450px]"
                         >
-                            <SwiperSlide className="h-[400px]">
+                            <SwiperSlide className=" h-[400px]">
                                 {({isActive}) => (
                                     <React.Fragment>
-                                    <motion.div initial={{y: 50, opacity: 0}} transition={{duration: .8,delay: .0, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative overflow-hidden">
-                                        <motion.img className={`${isActive ? 'grayscale-0' : 'grayscale'} h-[400px] bg-transparent w-[100%] object-cover transition-all`} src={'/cards/rakutech-card.png'}  alt="website banner" />
+                                    <motion.div initial={{y: 50, opacity: 0}} transition={{duration: .8,delay: .0, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative overflow-hidden h-full">
+                                        <motion.img className={`${isActive ? 'grayscale-0' : 'grayscale'} h-full bg-transparent w-[100%] object-cover transition-all`} src={'/cards/rakutech-card.png'}  alt="website banner" />
                                         <div 
                                             style={{
                                                 boxSizing: 'border-box', 
@@ -67,11 +66,11 @@ export default function ProjectsMain() {
                                     </React.Fragment>
                                 )}
                             </SwiperSlide>
-                            <SwiperSlide className=" h-[400px]">
+                            <SwiperSlide className="h-[400px]">
                                 {({isActive}) => (
                                     <React.Fragment>
-                                        <motion.div initial={{y: 100, opacity: 0}} transition={{duration: .8,delay: .3, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative overflow-hidden">
-                                            <motion.img className={`${isActive ? 'grayscale-0' : 'grayscale'} h-[400px] bg-transparent w-[100%] object-cover transition-all`} src={'/cards/rfresh-card.png'} alt="website banner" />
+                                        <motion.div initial={{y: 100, opacity: 0}} transition={{duration: .8,delay: .3, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative overflow-hidden h-full">
+                                            <motion.img className={`${isActive ? 'grayscale-0' : 'grayscale'} h-full bg-transparent w-[100%] object-cover transition-all`} src={'/cards/rfresh-card.png'} alt="website banner" />
                                             <div 
                                                 style={{
                                                     boxSizing: 'border-box', 
@@ -100,9 +99,9 @@ export default function ProjectsMain() {
                             <SwiperSlide className="h-[400px]">
                                 {({isActive}) => (
                                     <React.Fragment>
-                                        <div className="relative overflow-hidden">
+                                        <div className="relative overflow-hidden h-full">
                                             {/* <motion.img viewport={{once:true}} src={'/cards/web5d-card.png'} className={` h-[400px] ${isActive ? 'p-[5px]' : 'p-[5px]'} bg-transparent w-[100%] object-cover transition-all`}  alt="website banner" /> */}
-                                            <video muted loop autoPlay controls playsInline src="/web5d.webm"  className={`${isActive ? 'grayscale-0' : 'grayscale'} h-[400px] w-[100%] object-cover transition-all`}>
+                                            <video muted loop autoPlay controls playsInline src="/web5d.webm"  className={`${isActive ? 'grayscale-0' : 'grayscale'}  h-full w-[100%] object-cover transition-all`}>
                                             </video>
                                             <div 
                                                 style={{
@@ -132,8 +131,8 @@ export default function ProjectsMain() {
                             <SwiperSlide className="h-[400px]">
                                 {({isActive}) => (
                                     <React.Fragment>
-                                        <div className="relative">
-                                            <motion.img viewport={{once:true}} src={'/cards/wangohan-card.png'} className={`${isActive ? 'grayscale-0' : 'grayscale'} h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
+                                        <div className="relative h-full">
+                                            <motion.img viewport={{once:true}} src={'/cards/wangohan-card.png'} className={`${isActive ? 'grayscale-0' : 'grayscale'} h-full w-[100%] object-cover transition-all`}  alt="website banner" />
                                             <div 
                                                 style={{
                                                     boxSizing: 'border-box', 
@@ -163,8 +162,8 @@ export default function ProjectsMain() {
                             <SwiperSlide className="h-[400px] relative">
                                 {({isActive}) => (
                                     <>
-                                    <div className="relative overflow-hidden">
-                                        <motion.img viewport={{once:true}} src={'/cards/gvo-card.png'} className={`${isActive ? 'grayscale-0' : 'grayscale'} h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
+                                    <div className="relative overflow-hidden h-full">
+                                        <motion.img viewport={{once:true}} src={'/cards/gvo-card.png'} className={`${isActive ? 'grayscale-0' : 'grayscale'} h-full w-[100%] object-cover transition-all`}  alt="website banner" />
                                         <div 
                                             style={{background: theme.card}}
                                             className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0.3]'} bg-black w-full h-full`}></div>
@@ -185,8 +184,8 @@ export default function ProjectsMain() {
                             <SwiperSlide className="h-[400px] relative">
                                 {({isActive}) => (
                                     <React.Fragment>
-                                        <motion.div initial={{y: 150, opacity: 0}} transition={{duration: .8,delay: .6, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative">
-                                            <motion.img src={'/cards/jtb-card.png'} className={` h-[400px] w-[100%] object-cover transition-all ${isActive ? 'grayscale-0' : 'grayscale'}`}  alt="website banner" />
+                                        <motion.div initial={{y: 150, opacity: 0}} transition={{duration: .8,delay: .6, ease: 'easeOut'}} whileInView={{y: 0, opacity: 1}} viewport={{once:true}} className="relative h-full">
+                                            <motion.img src={'/cards/jtb-card.png'} className={` h-full w-[100%] object-cover transition-all ${isActive ? 'grayscale-0' : 'grayscale'}`}  alt="website banner" />
                                             <div style={{background: theme.card}} className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0.3]'} bg-black w-full h-full`}></div>
                                             <div className="absolute top-0 w-full h-full overflow-hidden">
                                                 <div className="absolute bottom-0 p-4">
