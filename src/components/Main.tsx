@@ -21,7 +21,7 @@ export default function Main() {
 
     const [displayState, setDisplayState] = useState([
         {show: false, text: "Web Developer"},
-        {show: false, text: "UI/UX Design"},
+        {show: false, text: "UI/UX Designer"},
         {show: false, text: "Fullstack Engineer"},
         {show: false, text: "Frontend Engineer"},
         {show: false, text: "Backend Engineer"},
@@ -109,7 +109,7 @@ export default function Main() {
                                 initial="hidden"
                                 animate="visible"
                             >
-                                <CoverAnimSubtitleText className="" delay={.6} cover={false} dispText={"I am "} fontSizeClass="text-base" textColor={theme.primary}/>
+                                <CoverAnimSubtitleText className="" delay={.6} cover={false} dispText={"I am a "} fontSizeClass="text-base" textColor={theme.primary}/>
                                 <CoverAnimSubtitleText className="" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} fontSizeClass="text-base" textColor={theme.primary}/>
                                 
                             </motion.h1>
