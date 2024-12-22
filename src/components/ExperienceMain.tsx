@@ -143,7 +143,7 @@ export default function ExperienceMain() {
                             <CoverAnimSubtitleText show={ inView} cover={false} className="" dispText='Exp' textColor={theme.secondary}/>
                             <CoverAnimSubtitleText show={ inView} delay={.1} className="z-50" cover={false} dispText='erience.' textColor={theme.primary}/>
                         </motion.h1>
-                        <motion.div style={{background: theme.secondary, width: vWidth}} className="h-2 w-full absolute bottom-1 mix-blend-screen"></motion.div>
+                        <motion.div style={{background: theme.secondary, width: vWidth}} className="h-2 w-full absolute bottom-0 lg:bottom-1 mix-blend-screen"></motion.div>
                     </section>
                     <div className="w-full relative p-4 lg:p-4 min-h-[100vh]">
                         <section className="flex flex-wrap lg:flex-nowrap items-start lg:justify-around h-full gap-12 w-full ">
