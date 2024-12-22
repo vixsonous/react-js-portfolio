@@ -52,20 +52,18 @@ export default function Main() {
 
     const mainRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({target: mainRef});
-
     const [state, setState] = useState({
-        scroll: 0
+        scrollMainSection: 0,
     });
-
     const xx = useTransform(scrollYProgress, [0,1], [0,20]);
 
     useMotionValueEvent(xx, "change", (latest) => {
-        setState(prev => ({...prev, scroll: latest}));
+        setState(prev => ({...prev, scrollMainSection: latest}));
     });
 
     return (
             <React.Fragment>
-                <main  className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
+                <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
                     <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16 relative">
                         <section className="pt-4 lg:pt-24 p-4 flex-[1_0_100%] lg:flex-[1_0_50%] flex flex-col">
                             <motion.h1 
@@ -78,14 +76,14 @@ export default function Main() {
                                     text="Victor" 
                                     className='font-light text-6xl lg:text-9xl max-w-max' 
                                     style={{color: theme.secondary}} 
-                                    x={state.scroll}
+                                    x={state.scrollMainSection}
                                 />
                                 <MovingText 
                                     text="Chiong" 
                                     className='font-light text-6xl lg:text-9xl max-w-max' 
                                     style={{color: theme.primary}} 
                                     delay={.4}
-                                    x={state.scroll * 2}
+                                    x={state.scrollMainSection * 2}
                                 />
                                 <motion.div
                                     initial={false}
@@ -116,7 +114,7 @@ export default function Main() {
                                 
                             </motion.h1>
 
-                            <CoverAnimSubtitleText className="" delay={.8} cover={false} dispText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum a eligendi voluptatibus dolores tenetur atque repudiandae aliquid eos, nemo suscipit, harum incidunt rerum in magni eum exercitationem animi! Suscipit, fugiat."} fontSizeClass="text-base" textColor={theme.primary}/>
+                            <CoverAnimSubtitleText className="" delay={.8} cover={false} dispText={"Software Engineer with experience in web development, programming, and mentoring junior developers. Skilled in creating web applications using diverse technologies, guiding team members, and working collaboratively. Focused on improving technical expertise and delivering practical solutions through continuous learning."} fontSizeClass="text-base" textColor={theme.primary}/>
 
                         </section>
                         <section className={`relative flex-[1_0_50%] ${sm() ? 'hidden' : 'flex'} justify-between flex-col items-center`}>

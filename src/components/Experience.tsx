@@ -71,13 +71,7 @@ export default function Experience() {
                             </div>
                             <div style={{fontSize: text.small}} className="text" data-swiper-parallax="-100">
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                I worked with a small startup to transform user needs into actionable project designs and implementation strategies. My contributions included designing and developing a secure database to manage patient information and dental histories. I also built a dynamic web application with an interactive dental record system, enabling detailed tracking of notes for each tooth. Collaborating closely with the project manager, I provided regular updates, gathered feedback at critical stages, and addressed concerns to ensure the project aligned with the startup's goals.
                                 </p>
                             </div>
                         </div>
@@ -98,13 +92,7 @@ export default function Experience() {
                             </div>
                             <div style={{fontSize: text.small}} className="text" data-swiper-parallax="-100">
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                I collaborated with a small Japanese startup in the real estate sector, working closely with the project manager to align on objectives and track progress. My role involved identifying and resolving issues in an existing project to improve its functionality and quality. In parallel, I designed, developed, and implemented a new React-based clone of the project, reimagining it in a modern tech stack. Additionally, I provided suggestions for UI improvements to enhance the user experience and contributed new features to both the old and new versions of the project.
                                 </p>
                             </div>
                         </div>
@@ -117,20 +105,14 @@ export default function Experience() {
                     <div className="flex flex-wrap">
                         <div className="flex-[1_0_50%] flex flex-col gap-[10px]">
                             <div style={{fontSize: text.logo}} className="leading-[55px]" data-swiper-parallax="-300">
-                                Mid-Level Software Engineer / <br/><span className="text-[.5em] font-light">September 2021 - Present</span>
+                                Senior Software Engineer / <br/><span className="text-[.5em] font-light">September 2021 - Present</span>
                             </div>
                             <div style={{fontSize: text.body}} className="subtitle font-bold" data-swiper-parallax="-200">
                                 Seed Tech Philippines
                             </div>
                             <div style={{fontSize: text.small}} className="text" data-swiper-parallax="-100">
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                As an offshore developer for a large enterprise company, I contributed to an enterprise-level project by developing features within the framework of the waterfall software development lifecycle. I led daily scrum meetings, reporting progress to the project manager and ensuring alignment across the team. I supported team growth by mentoring junior engineers, delivering training sessions for new hires, and managing task distribution, including creating, assigning, and updating tasks. Collaborating with an international team, I maintained smooth project development, prepared and managed project documentation, and conducted code reviews to ensure quality and adherence to standards.
                                 </p>
                             </div>
                         </div>

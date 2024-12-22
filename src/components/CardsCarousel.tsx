@@ -9,7 +9,7 @@ const defineScreenMode = () => {
     md(window.innerWidth) ? 1 :
     lg(window.innerWidth) ? 2 :
     xl(window.innerWidth) ? 3 :
-    xl2(window.innerWidth) ? 4 : -1
+    xl2(window.innerWidth) ? 4 : 5
 }
 
 const anim = {
@@ -27,6 +27,7 @@ export default function CardsCarousel({items}: { items: Array<{ text: string, sv
 
     // 3 or more zoom is enabled
     const scMode = defineScreenMode();
+    console.log(scMode);
     const theme = getTheme();
     const refArr = useRef<HTMLDivElement[]>([]);
     const [transZ, setTransZ] = useState(scMode < 3 ? scMode === 0 ? '150px' : '250px' : '750px');

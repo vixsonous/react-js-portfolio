@@ -5,6 +5,7 @@ import { getTheme } from "./hooks/theme";
 import rakuten from '../assets/rakuten.png';
 import tig from '../assets/tig.png';
 import seedtech from '../assets/seedtech.png';
+import jtb from '../assets/jtb.webp';
 import TypingText from "./text/TypingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -37,11 +38,10 @@ export default function ExperienceMain() {
                     tig
                 ],
                 tasks: [
-                    'Conducted meetings and discussion with the project manager',
-                    'Provide suggestions regarding UI related implementations',
-                    'Designed, discussed and implemented a react clone based on an already existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Developed and implemented additional improvement features on the existing project.'
+                    'Collected, defined and translated user requirements into project designs and implementation plans.',
+                    'Designed and implemented a database for the web application to store information and dental history.',
+                    'Developed a dental-medical web application with an interactive dental record system to track dental notes and entries for each tooth.',
+                    'Discussed project progress with the project manager, gathered feedback at various stages and addressed concerns directly.'
                 ],
                 position: {
                     top: '1em',
@@ -56,10 +56,10 @@ export default function ExperienceMain() {
                 sub: 'Yazaki Real Estate / July 2021 – December 2022',
                 logos: [],
                 tasks: [
-                    'Conducted meetings and discussion with the project manager',
-                    'Provide suggestions regarding UI related implementations',
-                    'Designed, discussed and implemented a react clone based on an already existing project.',
-                    'Provide solutions to the problems on the existing project.',
+                    'Conducted meetings and discussions with the project manager to align on project goals and progress.',
+                    'Provided suggestions for UI-related improvements to enhance user experience.',
+                    'Designed, developed, and implemented a React clone based on an existing project to reimplement it in a different stack.',
+                    'Identified and addressed issues within the existing project to ensure quality and functionality.',
                     'Developed and implemented additional improvement features on the existing project.'
                 ],
                 position: {
@@ -71,21 +71,22 @@ export default function ExperienceMain() {
             {
                 show: false, 
                 hover: false,
-                title: 'Mid-Level Software Engineer.', 
+                title: 'Senior Software Engineer.', 
                 sub: 'Seed Tech Philippines / Rakuten / September 2021 – Present',
                 logos: [
                     seedtech,
-                    rakuten
+                    rakuten,
+                    jtb
                 ],
                 tasks: [
-                    'Conducted meetings and discussion with the project manager',
-                    'Provide suggestions regarding UI related implementations',
-                    'Designed, discussed and implemented a react clone based on an already existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Provide solutions to the problems on the existing project.',
-                    'Developed and implemented additional improvement features on the existing project.'
+                    'Developed features for an enterprise-level project following the waterfall model software development life cycle.',
+                    'Led daily scrum meetings and reported progress to the project manager.',
+                    'Trained and mentored junior software engineers to support their professional growth.',
+                    'Delivered training sessions for new team members.',
+                    'Managed task distribution, including creating, assigning, and updating tasks for team members.',
+                    'Collaborated with international team members to ensure smooth project development.',
+                    'Prepared and maintained project documentation.',
+                    'Reviewed code written by team members to ensure quality and adherence to project standards.'
                 ],
                 position: {
                     top: '-50px',
@@ -153,7 +154,7 @@ export default function ExperienceMain() {
                                     return el.show && (
                                         <div 
                                             key={idx} 
-                                            className={`relative ${sm(window.innerWidth) ? 'w-full' : ''} `}
+                                            className={`relative max-w-[100%] lg:max-w-[45%] ${sm(window.innerWidth) ? 'w-full' : ''} `}
                                             style={{
                                                 top: sm(window.innerWidth) ? 0 : el.position.top, 
                                                 left: sm(window.innerWidth) ? 0 : el.position.left
@@ -192,7 +193,7 @@ export default function ExperienceMain() {
                                                     el.hover && <>
                                                     <TypingText delay={delay} style={{color: theme.secondary}} className={`text-2xl absolute top-[-1.1em]`} tx={el.title}/>
                                                     <motion.span initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .2}} className="text-lg flex flex-nowrap items-center gap-4" >{el.sub} <FontAwesomeIcon icon={faEyeSlash}/></motion.span>
-                                                        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .4}} className="flex gap-4">
+                                                        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .4}} className="flex justify-center items-center gap-4 flex-wrap">
                                                         {
                                                             el.logos.map( (logo, idx) => {
                                                                 return (
@@ -203,11 +204,11 @@ export default function ExperienceMain() {
                                                             })
                                                         }
                                                         </motion.div>
-                                                        <motion.ul initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .6}} className="list-inside pt-6">
+                                                        <motion.ul initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .6}} className="list-outside pt-6 px-4">
                                                             {
                                                                 el.tasks.map( (t, idx) => {
                                                                     return (
-                                                                        <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: delay + idx * .03}} className="list-disc text-sm" key={idx}>
+                                                                        <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: delay + idx * .03}} className="list-disc mt-1 text-sm" key={idx}>
                                                                             <span>{t}</span>
                                                                         </motion.li>
                                                                     )
