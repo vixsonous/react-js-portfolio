@@ -1,12 +1,10 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { getTheme } from "./hooks/theme";
-import { useInView, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
+import { useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
 
 export default function ProjectsMain() {
 
     const theme = getTheme();
-    const ref = useRef<HTMLElement>(null);
-    const inView = useInView(ref, { once: true});
 
     const loadingRef = useRef<HTMLDivElement>(null);
     const {scrollYProgress} = useScroll({
@@ -36,22 +34,24 @@ export default function ProjectsMain() {
   
     return (
         <React.Fragment>
-            <main ref={loadingRef} className="min-h-[400vh] w-full relative">
-                <div className="sticky top-0 flex flex-wrap h-full justify-center overflow-hidden">
-                    <div className="flex-[1_0_100%] flex justify-end relative">
-                        <span style={{color: theme.primary}} className="text-8xl right-8 z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
-                    </div>
-                    <div style={{transform: `translate(${scrollY * 1.5}%, 0%)`}} className="flex-[1_0_100%] transform flex gap-[4vmin] relative left-3/4 h-full">
-                      {
-                        imgSrc.map((img, idx) => {
-                          return (
-                            <img style={{objectPosition: `${scrollY * -1}% 50%`}} key={idx} draggable={false} className="w-[25vw] drop-shadow-lg h-[500px] object-cover grayscale" src={img} alt="" />
-                          )
-                        })
-                      }
-                    </div>
-                </div>
-            </main>
+          <main ref={loadingRef} className="min-h-[400vh] w-full relative">
+            <div className="sticky top-0 flex flex-wrap h-full justify-center overflow-hidden">
+              <div className="flex-[1_0_100%] flex justify-end relative">
+                  <span style={{color: theme.primary}} className="text-8xl right-8 z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
+              </div>
+              <div style={{transform: `translate(${scrollY * 1.5}%, 0%)`}} className="flex-[1_0_100%] h-screen transform flex gap-[4vmin] relative left-3/4">
+              {
+                imgSrc.map((img, idx) => {
+                  return (
+                    <>
+                    <img style={{objectPosition: `${scrollY * -1}% 50%`}} key={idx} draggable={false} className="w-[25vw] drop-shadow-lg h-[500px] object-cover grayscale" src={img} alt="" />
+                    </>
+                  )
+                })
+              }
+              </div>
+            </div>
+          </main>
         </React.Fragment>
     )
 }

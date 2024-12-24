@@ -10,7 +10,7 @@ export default function Footer() {
 
     return (
         <React.Fragment>
-            <div className="relative z-50 text-4xl flex gap-8 min-h-48 py-48">
+            <div className="relative z-50 text-4xl h-screen flex gap-8 justify-center items-center">
                 <a href="https://github.com/dasdasd443" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon style={{color: theme.primary}} icon={faGithub}/>
                 </a>

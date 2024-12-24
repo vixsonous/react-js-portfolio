@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { text } from "../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation, Pagination, Parallax } from "swiper/modules";
@@ -37,6 +37,84 @@ export default function Experience() {
     useEffect(() => {
         window.dispatchEvent(new Event('resize'))
     },[]);
+
+    // Third experience
+    const exp3 = [
+      {text: 'HTML', color: '#6C88A6', textColor: '#fff', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
+      {text: 'CSS', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>},
+      {text: 'JavaScript', color: '#9DBCC5', textColor: '#fff', svg: <SVG key={4} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG>},
+      {text: 'Jquery', color: '#D2E0E9', textColor: '#3A3A3A', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>},
+      {text: 'PHP', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={3} width={30} height={30} viewBox={php.viewBox} preserveAspectRatio={php.preserveAspectRatio}>{php.svg}</SVG>},
+      {text: 'Laravel', color: '#F1F4F9', textColor: '#3A3A3A', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
+      {text: 'MySQL', color: '#A9C6D9', textColor: '#fff', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{mysql.svg}</SVG>},
+      {text: 'ReactJS', color: '#D0D9E2', textColor: '#3A3A3A', svg: <SVG key={5} width={40} height={40} viewBox="0 0 100 100">{react.svg}</SVG>},
+    ] 
+
+    const animateItem = (t: HTMLHeadingElement | HTMLDivElement | HTMLSpanElement, activeItem: number) => {
+      t.style.opacity = '0';
+      t.style.transform = 'translateX(100px)';
+      t.style.transition = 'all 1s';
+      setTimeout(() => {
+        t.style.transition = 'all 0s';
+        t.style.transform = 'translateX(-100px)';
+      },1000);
+      setTimeout(() => {
+        t.style.transition = 'all 1s';
+        t.style.transform = 'translateX(0px)';
+        setActiveItem(activeItem);
+        t.style.opacity = '1';
+      },1100);
+    }
+
+    const [activeItem, setActiveItem] = useState(0);
+    const [animating, setAnimating] = useState(false);
+    const h1Item = useRef<HTMLHeadingElement>(null);
+    const divItem = useRef<HTMLDivElement>(null);
+    const spanItem = useRef<HTMLSpanElement>(null);
+
+    const nextItem = (e:React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      if(!h1Item || !h1Item.current) return;
+      if(!divItem || !divItem.current) return;
+      if(!spanItem || !spanItem.current) return;
+      if(animating) return;
+      setAnimating(true);
+      const t = h1Item.current;
+      const d = divItem.current;
+      const s = spanItem.current;
+      animateItem(t, activeItem + 1 === exp3.length ? 0 : activeItem + 1);
+      setTimeout(() => {
+        animateItem(s, activeItem + 1 === exp3.length ? 0: activeItem + 1);
+      }, 100);
+      setTimeout(() => {
+        animateItem(d, activeItem + 1 === exp3.length ? 0: activeItem + 1);
+      },200);
+      setTimeout(() => {
+        setAnimating(false);
+      },1000);
+    }
+
+    const prevItem = (e:React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      if(!h1Item || !h1Item.current) return;
+      if(!divItem || !divItem.current) return;
+      if(!spanItem || !spanItem.current) return;
+      if(animating) return;
+      setAnimating(true);
+      const t = h1Item.current;
+      const d = divItem.current;
+      const s = spanItem.current;
+      animateItem(t, activeItem - 1 === -1 ? exp3.length - 1: activeItem - 1);
+      setTimeout(() => {
+        animateItem(s, activeItem - 1 === -1 ? exp3.length - 1: activeItem - 1);
+      },100);
+      setTimeout(() => {
+        animateItem(d, activeItem - 1 === -1 ? exp3.length - 1: activeItem - 1);
+      },200);
+      setTimeout(() => {
+        setAnimating(false);
+      },1000);
+    }
 
     return (
         <React.Fragment>
@@ -116,8 +194,28 @@ export default function Experience() {
                                 </p>
                             </div>
                         </div>
-                        <div className="flex-[1_0_50%]">
-                            asd
+                        <div className="flex-[1_0_50%] w-full h-full flex justify-center items-center">
+                          <div style={{background: `radial-gradient(circle, #353B3C 0%, #1F1F1F 90%)`}} className="relative w-full h-[500px] flex justify-between items-center">
+                            <div className="w-full flex flex-col justify-center items-center">
+                              <h1 ref={h1Item} className="text-white text-8xl">
+                                {
+                                  exp3[activeItem].text
+                                }
+                              </h1>
+                              <span ref={spanItem}>
+                                {exp3[activeItem].svg}
+                              </span>
+                              <div ref={divItem} className="text-white">
+                                <span>Description</span>
+                              </div>
+                              <div style={{background: theme.primary}} className=" -z-10 absolute w-full h-full top-1 left-1 opacity-80"></div>
+                            </div>
+                            
+                            <div className="absolute bottom-16 w-full flex justify-between">
+                              <button style={{background: theme.primary}} onClick={prevItem} className="text-white w-12 h-12 -left-6 md:w-20 md:h-20 relative md:-left-10 opacity-80 circle-path transition-all">-</button>
+                              <button style={{background: theme.primary}} onClick={nextItem} className="text-white w-12 h-12 -right-6 md:w-20 md:h-20 relative md:-right-10 opacity-80 circle-path transition-all">+</button>
+                            </div>
+                          </div>
                         </div>
                     </div>
                 </SwiperSlide>

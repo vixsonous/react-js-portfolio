@@ -64,3 +64,10 @@ figure:hover .img-circle {
 .project-slick .slick-slide div{
   height: 100px;
 }
+
+.circle-path {
+  clip-path: circle(75%);
+}
+.circle-path:hover {
+  clip-path: circle(45%);
+}

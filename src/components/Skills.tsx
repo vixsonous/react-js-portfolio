@@ -119,7 +119,7 @@ export default function Skills() {
                                 state.skills.map( (el, idx) => {
                                     return (
                                         <SwiperSlide key={idx} style={{fontSize: text.logo}} className="flex items-center justify-center gap-[10px] text-white relative">
-                                            <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} style={{background: theme.secondary}} className="transition-all hover:scale-150 shadow-md p-[10px] rounded-full">
+                                            <motion.div initial={{opacity: 0}} animate={{opacity: inView ? 1 : 0}} transition={{delay: (idx * .13)}} style={{background: theme.primary}} className="transition-all hover:scale-150 shadow-md p-[10px] rounded-full">
                                                 {el}
                                             </motion.div>
                                         </SwiperSlide>
