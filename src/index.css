@@ -81,7 +81,7 @@ figure:hover .img-circle {
 .split-image-effect--container > img, .split-image-effect--container > div {
   --_p: calc(-1*var(--g));
   grid-area: 1/1;
-  aspect-ratio: 1;
+  aspect-ratio: 3/4;
   cursor: pointer;
   transition: .4s .1s clip-path, .4s .1s filter;
 }

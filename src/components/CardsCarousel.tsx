@@ -4,7 +4,7 @@ import {  lg, md, sm, text, xl, xl2 } from "../constants";
 import { motion } from "framer-motion";
 import { getTheme } from "./hooks/theme";
 
-const defineScreenMode = () => {
+export const defineScreenMode = () => {
     return sm(window.innerWidth) ? 0 :
     md(window.innerWidth) ? 1 :
     lg(window.innerWidth) ? 2 :
