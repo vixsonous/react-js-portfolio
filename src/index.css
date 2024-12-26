@@ -71,3 +71,35 @@ figure:hover .img-circle {
 .circle-path:hover {
   clip-path: circle(45%);
 }
+
+.split-image-effect--container {
+  --g: 5px;
+  display: grid;
+  clip-path: inset(1px);
+}
+
+.split-image-effect--container > img, .split-image-effect--container > div {
+  --_p: calc(-1*var(--g));
+  grid-area: 1/1;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: .4s .1s clip-path, .4s .1s filter;
+}
+
+.split-image-effect--container > div {
+  clip-path: polygon(0 0, calc(100% + var(--_p)) 0, 0 calc(100% + var(--_p)));
+}
+
+.split-image-effect--container > img:first-child {
+  clip-path: polygon(100% 100%, 100% calc(0% - var(--_p)), calc(0% - var(--_p)) 100%);
+}
+
+.split-image-effect--container:hover > div,
+.split-image-effect--container:hover > img:first-child:hover {
+  --_p: calc(50% - var(--g));
+}
+
+.split-image-effect--container:hover > img:first-child,
+.split-image-effect--container:hover > img:first-child:hover + div {
+  --_p: calc(-50% - var(--g));
+}

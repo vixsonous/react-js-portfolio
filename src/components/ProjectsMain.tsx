@@ -25,6 +25,15 @@ export default function ProjectsMain() {
       '/cards/wangohan-card.png',
       '/cards/gvo-card.png',
       '/cards/jtb-card.png'
+    ];
+
+    const content = [
+      {title: <h1 className="text-white text-2xl">Rakuten Fresh</h1>},
+      {title: <h1 className="text-white text-2xl">Rakutech</h1>},
+      {title: <h1 className="text-white text-2xl">Web5D</h1>},
+      {title: <h1 className="text-white text-2xl">Wangohan</h1>},
+      {title: <h1 className="text-white text-2xl">GVO</h1>},
+      {title: <h1 className="text-white text-2xl">JTB Australia</h1>},
     ]
     const [scrollY, setScrollY] = useState(0);
 
@@ -35,17 +44,22 @@ export default function ProjectsMain() {
     return (
         <React.Fragment>
           <main ref={loadingRef} className="min-h-[400vh] w-full relative">
-            <div className="sticky top-0 flex flex-wrap h-full justify-center overflow-hidden">
+            <div className="sticky top-0 flex flex-wrap h-full justify-center w-screen">
               <div className="flex-[1_0_100%] flex justify-end relative">
-                  <span style={{color: theme.primary}} className="text-8xl right-8 z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
+                  <span style={{color: theme.primary}} className="text-8xl text-right w-full z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
               </div>
-              <div style={{transform: `translate(${scrollY * 1.5}%, 0%)`}} className="flex-[1_0_100%] h-screen transform flex gap-[4vmin] relative left-3/4">
+              <div style={{transform: `translate(${scrollY}%, 0%)`}} className="flex-[1_0_100%] h-screen transform flex left-full gap-[10vw] relative">
               {
                 imgSrc.map((img, idx) => {
                   return (
-                    <>
-                    <img style={{objectPosition: `${scrollY * -1}% 50%`}} key={idx} draggable={false} className="w-[25vw] drop-shadow-lg h-[500px] object-cover grayscale" src={img} alt="" />
-                    </>
+                    <a key={idx} className="split-image-effect--container w-[25vw] h-[500px]">
+                      <img style={{objectPosition: `${scrollY * -.5}% 50%`}} className="w-full h-full cursor-pointer object-cover grayscale hover:grayscale-0" src={img} alt="" />
+                      <div style={{background: `radial-gradient(circle, #353B3C 0%, #1F1F1F 90%)`}} className="w-full h-full cursor-pointer object-cover grayscale hover:grayscale-0">
+                        <div className="flex flex-col p-4">
+                          {content[idx].title}
+                        </div>
+                      </div>
+                    </a>
                   )
                 })
               }

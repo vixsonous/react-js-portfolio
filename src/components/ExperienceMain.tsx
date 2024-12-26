@@ -166,7 +166,7 @@ export default function ExperienceMain() {
                                                 animate={{opacity: 1, y: sm(window.innerWidth) ? 0 : mm.get() * el.movement}}
                                                 exit={{opacity: 0}}
                                                 onClick={cardMouseOverEvent}
-                                                style={{color: theme.cardText, background: theme.card}}
+                                                style={{color: theme.cardText, background: theme.primary}}
                                                 className={`relative flex-[0_0_100%] lg:flex-[0_1_50%] z-50 top-0 left-0 flex p-4 flex-col ${el.hover || sm() ? 'max-w-none' : 'max-w-max'}`}
                                             >
                                                 {!el.hover && <>
