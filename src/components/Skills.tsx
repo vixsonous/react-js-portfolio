@@ -25,7 +25,7 @@ export default function Skills() {
             <SVG key={9} width={40} height={40} viewBox="0 0 256 282">{nodejs.svg}</SVG>,
             <SVG key={10} width={40} height={40} viewBox="0 -.11376601 49.74245785 51.31690859">{laravel.svg}</SVG>,
             <SVG key={11} width={40} height={40} viewBox="0 0 256 108">{git.svg}</SVG>,
-            <SVG key={12} width={40} height={40} viewBox="-.557 117.607 598.543 423.631">{docker.svg}</SVG>,
+            <SVG key={12} width={40} height={40} viewBox={docker.viewBox}>{docker.svg}</SVG>,
             <SVG key={13} width={40} height={40} viewBox="-.1 1.1 304.9 179.8">{aws.svg}</SVG>,
         ],
         x: 0,

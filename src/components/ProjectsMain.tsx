@@ -1,7 +1,6 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { getTheme } from "./hooks/theme";
 import { useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
-import TypingText from "./text/TypingText";
 import { md } from "../constants";
 import { defineScreenMode } from "./CardsCarousel";
 import ImageItem from "./elements/ImageItem";
@@ -77,8 +76,6 @@ export default function ProjectsMain() {
     useMotionValueEvent(y, "change", (latest) => {
       setScrollY(latest);
     });
-
-    console.log(defineScreenMode())
 
     return (
         <React.Fragment>

@@ -5,13 +5,14 @@ import { getTheme } from "./hooks/theme";
 import MovingText from "./text/MovingText";
 import { sm } from "../constants";
 
+// Projects section is TODO
 export default function Header() {
     const theme = getTheme();
     const isPresent = useIsPresent();
     const [state, setState] = useState({
         abt: !window.location.href.includes("/experience") && !window.location.href.includes("/project") ? true : false,
         exp: window.location.href.includes("/experience") ? true : false,
-        prj: window.location.href.includes("/project") ? true : false,
+        // prj: window.location.href.includes("/project") ? true : false,
         scroll: 0
     });
 
@@ -48,10 +49,10 @@ export default function Header() {
                             <span style={{color: theme.primary}} className={` px-[10px] py-[5px] transition-all`}>Experience</span>
                             <div style={{background: theme.primary}} className={`absolute transition-all ${state.exp ? 'w-full' : 'w-0'} group-hover:w-full h-[2px] bottom-[-8px]`}></div>
                         </Link>
-                        <Link className="relative group" onClick={() => setState(prev => ({...prev, abt: false, exp: false, prj: true}))} to="/projects">
+                        {/* <Link className="relative group" onClick={() => setState(prev => ({...prev, abt: false, exp: false, prj: true}))} to="/projects">
                             <span style={{color: theme.primary}} className={` px-[10px] py-[5px] transition-all`}>Projects</span>
                             <div style={{background: theme.primary}} className={`absolute transition-all ${state.prj ? 'w-full' : 'w-0'} group-hover:w-full h-[2px] bottom-[-8px]`}></div>
-                        </Link>
+                        </Link> */}
                     </section>
                 </div>
                 {

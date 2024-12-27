@@ -5,7 +5,7 @@ import { Mousewheel, Navigation, Pagination, Parallax } from "swiper/modules";
 import CardsCarousel from "./CardsCarousel";
 import CreativeSwiper from "./CreativeSwiper";
 import { getTheme } from "./hooks/theme";
-import { css3, html, javaLm, jquery, js, mysqlLm, php, react } from "./svg/svg.paths";
+import { css3, docker, html, javaLm, jquery, js, mysqlDm, mysqlLm, php, react, wpLm } from "./svg/svg.paths";
 import SVG from "./svg/SVG";
 
 export default function Experience() {
@@ -19,8 +19,8 @@ export default function Experience() {
         {text: 'CSS', svg: <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>},
         {text: 'HTML', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
         {text: 'Jquery', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>},
-        {text: 'PHP', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{php.svg}</SVG>},
-        {text: 'MySQL', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{mysqlLm.svg}</SVG>},
+        {text: 'PHP', svg: <SVG key={3} width={40} height={40} viewBox={php.viewBox}>{php.svg}</SVG>},
+        {text: 'MySQL', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{mysqlDm.svg}</SVG>},
     ]
     
     const exp2 = [
@@ -40,14 +40,14 @@ export default function Experience() {
 
     // Third experience
     const exp3 = [
-      {text: 'HTML', description: 'Used in multiple projects that I worked on', color: '#6C88A6', textColor: '#fff', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
-      {text: 'CSS', description: 'Used in multiple projects that I worked on', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>},
-      {text: 'JavaScript', description: 'Used in multiple projects that I worked on', color: '#9DBCC5', textColor: '#fff', svg: <SVG key={4} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG>},
-      {text: 'Jquery', description: 'Used in multiple projects that I worked on', color: '#D2E0E9', textColor: '#3A3A3A', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>},
-      {text: 'PHP', description: 'Used in multiple projects that I worked on', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={3} width={30} height={30} viewBox={php.viewBox} preserveAspectRatio={php.preserveAspectRatio}>{php.svg}</SVG>},
-      {text: 'Java', description: 'Used in multiple projects that I worked on', color: '#F1F4F9', textColor: '#3A3A3A', svg: <SVG key={1} width={40} height={40} viewBox={javaLm.viewBox}>{javaLm.svg}</SVG>},
-      {text: 'MySQL', description: 'Used in multiple projects that I worked on', color: '#A9C6D9', textColor: '#fff', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{mysqlLm.svg}</SVG>},
-      {text: 'ReactJS', description: 'Used in multiple projects that I worked on', color: '#D0D9E2', textColor: '#3A3A3A', svg: <SVG key={5} width={40} height={40} viewBox="0 0 100 100">{react.svg}</SVG>},
+      {text: 'HTML', description: 'Used throughout web application development', color: '#6C88A6', textColor: '#fff', svg: <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>},
+      {text: 'CSS', description: 'Stylesheet language for web development', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>},
+      {text: 'JavaScript', description: 'Main programming language throughout multiple web projects', color: '#9DBCC5', textColor: '#fff', svg: <SVG key={4} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG>},
+      {text: 'Jquery', description: 'JavaScript library used throughout multiple projects', color: '#D2E0E9', textColor: '#3A3A3A', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>},
+      {text: 'WordPress', description: 'Content management system used in a project', color: '#A4B8C8', textColor: '#fff', svg: <SVG key={3} width={30} height={30} viewBox={wpLm.viewBox} preserveAspectRatio={wpLm.preserveAspectRatio}>{wpLm.svg}</SVG>},
+      {text: 'Java', description: 'General programming language used in multiple projects', color: '#F1F4F9', textColor: '#3A3A3A', svg: <SVG key={1} width={40} height={40} viewBox={javaLm.viewBox}>{javaLm.svg}</SVG>},
+      {text: 'MySQL', description: 'Management system for relational databases in multiple projects', color: '#A9C6D9', textColor: '#fff', svg: <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{mysqlLm.svg}</SVG>},
+      {text: 'Docker', description: 'Containerized the application on a project', color: '#D0D9E2', textColor: '#3A3A3A', svg: <SVG key={5} width={40} height={40} viewBox={docker.viewBox}>{docker.svg}</SVG>},
     ] 
 
     const animateItem = (t: HTMLHeadingElement | HTMLDivElement | HTMLSpanElement, activeItem: number) => {
@@ -122,9 +122,6 @@ export default function Experience() {
                 speed={600}
                 parallax={true}
                 mousewheel
-                pagination={{
-                clickable: true,
-                }}
                 navigation={true}
                 modules={[Parallax, Pagination, Navigation, Mousewheel]}
                 style={{color: theme.textColor}}
@@ -195,9 +192,9 @@ export default function Experience() {
                             </div>
                         </div>
                         <div className="flex-[1_0_50%] w-full h-full flex justify-center items-center">
-                          <div style={{background: `radial-gradient(circle, #353B3C 0%, #1F1F1F 90%)`}} className="relative w-full h-[500px] flex justify-between items-center">
-                            <div className="w-full flex flex-col justify-center items-center">
-                              <h1 ref={h1Item} className="text-white text-8xl">
+                          <div style={{background: `radial-gradient(circle, #353B3C 0%, #1F1F1F 90%)`}} className="relative w-full h-[350px] md:h-[500px] flex justify-between items-center">
+                            <div className="w-full flex flex-col gap-2 justify-center items-center">
+                              <h1 ref={h1Item} className="text-white text-4xl md:text-8xl">
                                 {
                                   exp3[activeItem].text
                                 }
@@ -205,8 +202,8 @@ export default function Experience() {
                               <span ref={spanItem}>
                                 {exp3[activeItem].svg}
                               </span>
-                              <div ref={divItem} className="text-white">
-                                <span>Description</span>
+                              <div ref={divItem} className="text-white px-4">
+                                <span className="text-sm font-extralight">{exp3[activeItem].description}</span>
                               </div>
                               <div style={{background: theme.primary}} className=" -z-10 absolute w-full h-full top-1 left-1 opacity-80"></div>
                             </div>
