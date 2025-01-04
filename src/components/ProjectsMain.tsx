@@ -34,12 +34,12 @@ export default function ProjectsMain() {
       {
         title: <h1 className="text-[#EF4C00] text-2xl">Rakuten Fresh</h1>,
         url: 'https://nifty-kare-5a278e.netlify.app/',
-        description: `A project served as our final frontend project on our bootcamp. This project uses HTML, CSS, JS and SCSS. It takes on the challenges of session storage utilization, management of session, event listeners, and DOM manipulation. `
+        description: `A project for our frontend development practice with Bootstrap CSS. `
       },
       {
         title: <h1 className="text-white text-2xl">RAKU<span className="text-[#FD2E2E]">TECH</span></h1>,
-        url: 'https://dasdasd443.github.io/final-frontend-exercise/',
-        description: `A project served as our final frontend project on our bootcamp. This project uses HTML, CSS, JS and SCSS. It takes on the challenges of session storage utilization, management of session, event listeners, and DOM manipulation. `
+        url: 'https://react-app-mocha.vercel.app/',
+        description: `A project served as our final frontend project on our bootcamp. This project uses HTML, CSS, JS and SCSS. It takes on the challenges of session storage utilization, management of session, event listeners, and DOM manipulation. Combined with Fakestore API, it is a frontend application simulating a full stack application behavior.`
       },
       {
         title: <h1 style={{
