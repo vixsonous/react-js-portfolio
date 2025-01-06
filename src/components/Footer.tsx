@@ -17,7 +17,7 @@ export default function Footer() {
                 <a href="https://www.linkedin.com/in/victor-chiong/" target="_blank" rel="noreferrer">
                     <FontAwesomeIcon style={{color: theme.secondary}} icon={faLinkedin}/>
                 </a>
-                <a href="/">
+                <a href="mailto:chiong.vict@gmail.com">
                     <FontAwesomeIcon style={{color: theme.primary}} icon={faEnvelope}/>
                 </a>
             </div>

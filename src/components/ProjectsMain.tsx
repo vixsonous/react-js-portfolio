@@ -85,7 +85,7 @@ export default function ProjectsMain() {
                   <span style={{color: theme.primary}} className="text-8xl text-right w-full z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
               </div>
               <div className="w-screen overflow-hidden">
-                <div style={{transform: `translate(${scrollY * (defineScreenMode() >= 2 ? 2 : 4.5)}%, ${md(window.innerWidth) ? '0' : '10'}%)`}} className="flex-[1_0_100%] h-screen transform flex left-1/2 gap-[10vw] relative">
+                <div style={{transform: `translate(${scrollY * (defineScreenMode() >= 2 ? 1.5 : window.innerWidth * .013)}%, ${md(window.innerWidth) ? '0' : '10'}%)`}} className="flex-[1_0_100%] h-screen transform flex left-1/2 gap-8 relative">
                 {
                   imgSrc.map((img, idx) => {
                     return (

@@ -24,7 +24,7 @@ export default memo(function ImageItem({
   },[]);
 
   return (
-    <a target="_blank" href={url} className="split-image-effect--container w-[300px] md:w-[25vw] h-[400px] md:h-[500px]">
+    <a target="_blank" href={url} className="split-image-effect--container min-w-[375px] h-[500px]">
       <img style={{objectPosition: `${scrollY * -.5}% 50%`}} className="w-full h-full cursor-pointer object-cover grayscale hover:grayscale-0" src={img} alt="" />
       <div onMouseOver={setMouseOver} onMouseLeave={setMouseLeave} style={{background: `radial-gradient(circle, #353B3C 0%, #1F1F1F 90%)`}} className="w-full h-full cursor-pointer object-cover grayscale hover:grayscale-0">
         <div className="flex flex-col p-4">
