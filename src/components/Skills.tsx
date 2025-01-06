@@ -95,7 +95,7 @@ export default function Skills() {
                                 >
                                     <SVG key={1} width={30} height={30} viewBox={trend.viewBox}>{trend.svg}</SVG>
                                     <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-xl" dispText='Trend.' textColor={theme.cardText}/>
-                                    <span style={{color: theme.cardText}} className="mt-8">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
+                                    <span style={{color: theme.cardText}} className="mt-8 text-sm">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
                                 </motion.div>
                             </motion.div>
                         </div>
