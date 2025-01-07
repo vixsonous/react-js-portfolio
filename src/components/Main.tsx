@@ -85,7 +85,7 @@ export default function Main() {
                                     delay={.4}
                                     x={state.scrollMainSection * 2}
                                 />
-                                <motion.div
+                                {/* <motion.div
                                     initial={false}
                                     animate={
                                         isLoaded && isPresent
@@ -100,7 +100,7 @@ export default function Main() {
                                             className={`img-circle top-0 left-0 right-0 bottom-0 grayscale w-full h-full object-cover mask-image`}
                                             onLoad={() => setIsLoaded(true)}
                                         />
-                                </motion.div>
+                                </motion.div> */}
                             </motion.h1>
                             
                             <motion.h1
