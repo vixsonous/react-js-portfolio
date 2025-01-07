@@ -47,7 +47,7 @@ export default function ProjectsMain() {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text'
         }} className="text-transparent text-2xl">Web5D</h1>,
-        url: 'https://nifty-kare-5a278e.netlify.app/',
+        url: 'https://web5d.vercel.app/',
         description: `Personal project to learn about 3D in web applications. This project utilizies the three.js library to animate 3d objects into a canvas. As I was interested in outer space, animating the solar system came into my mind. This project is also used as a portfolio of upcoming personal projects.`
       },
       {
