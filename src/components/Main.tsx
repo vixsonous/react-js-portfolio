@@ -1,5 +1,5 @@
 
-import {  motion, useIsPresent, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import {  motion, /*useIsPresent,*/ useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import CoverAnimSubtitleText from './text/CoverAnimSubtitleText';
 import { useAppSelector } from '../store';
@@ -12,12 +12,12 @@ import Footer from './Footer';
 import { sm } from '../constants';
 
 export default function Main() {    
-    const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
-    const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
+    // const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
+    // const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
     const theme = useAppSelector(state => state.theme.theme);
 
-    const [isLoaded, setIsLoaded] = useState(false);
-    const isPresent = useIsPresent();
+    // const [isLoaded, setIsLoaded] = useState(false);
+    // const isPresent = useIsPresent();
 
     const [displayState, setDisplayState] = useState([
         {show: false, text: "Web Developer"},
