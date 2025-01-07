@@ -48,12 +48,12 @@ export default function ProjectsMain() {
           backgroundClip: 'text'
         }} className="text-transparent text-2xl">Web5D</h1>,
         url: 'https://web5d.vercel.app/',
-        description: `Personal project to learn about 3D in web applications. This project utilizies the three.js library to animate 3d objects into a canvas. As I was interested in outer space, animating the solar system came into my mind. This project is also used as a portfolio of upcoming personal projects.`
+        description: `Personal project to learn about 3D in web applications. This project utilizies the three.js library to animate 3d objects into a canvas. As I was interested in outer space, animating the solar system came into my mind.`
       },
       {
         title: <h1 className="text-[#FFE9C9] text-2xl font-extralight">わんごはん <small className="font-extralight">Wangohan</small></h1>,
         url: 'https://wangohanjp.com/',
-        description: `A project planned to turn into a big social media for pet lovers and those who loves to cook. It is an intermediately complex project using the technologies Next JS, Postgres, Kysely, and other Javascript libraries. This project also tackles on the challenge of secure authentication of the users, along with Google OAuth, hashing and salting, JWTs, etc. Very ambitious project to take on.`
+        description: `A project planned to turn into a big social media for pet lovers and those who loves to cook. A project using the technologies Next JS, Postgres, Kysely, and other Javascript libraries. This project also tackles on the challenge of secure authentication of the users, along with Google OAuth and in the future Apple Authentication.`
       },
       {
         title: <h1 className="text-white text-2xl font-extralight">Good Vibes Only</h1>,
