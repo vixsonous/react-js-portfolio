@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Main from './components/Main'
@@ -11,6 +11,7 @@ import { useLocation, useRoutes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setTheme } from './slice/theme';
 import { useAppSelector } from './store';
+import ParticlesElement from './components/elements/Particles';
 
 const lightMode = {
   bg: '#EEF0F2',
@@ -56,21 +57,21 @@ function App() {
   const element = useRoutes([
     {
       path: '/',
-      element: <div ref={divRef} style={{background: theme.bg, backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
+      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
         <Header />
         <Main />
       </div>
     },
     {
       path: '/experience',
-      element: <div ref={divRef} style={{background: theme.bg, backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
+      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
       <Header />
       <Experience/>
     </div>
     },
     {
       path: '/projects',
-      element: <div ref={divRef} style={{background: theme.bg, backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
+      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
       <Header />
       <Projects />
     </div>
@@ -83,7 +84,8 @@ function App() {
 
   return (
     <AnimatePresence mode="wait">
-        {React.cloneElement(element, {key: location.pathname})}
+      <ParticlesElement />
+      {React.cloneElement(element, {key: location.pathname})}
     </AnimatePresence>
   )
 }
