@@ -1,41 +1,21 @@
 import { useInView, motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useAppSelector } from "../store";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
-import React, { useEffect, useRef, useState } from "react";
-import { sm } from "../constants";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import {git, docker, aws, nextjs, nodejs, laravel, scss, bootstrap, html, css3, jquery, js, react, tech, trend, uiux, tsLm, php, javaLm, cppLm, cLm, pythonLm} from "./svg/svg.paths";
-import SVG from "./svg/SVG";
-import { BracketsCurly, Code, Database, Eye, EyeClosed, EyeSlash, FileCode, GitBranch, Layout, RocketLaunch } from "@phosphor-icons/react";
+import React, { useRef, useState } from "react";
+import { Eye, EyeSlash } from "@phosphor-icons/react";
+import { content } from "../constants";
 
 export default function Skills() {
 
     const theme = useAppSelector(state => state.theme.theme);
 
     const [state, setState] = useState({
-        skills: [
-            <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-            <SVG key={2} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>,
-            <SVG key={3} width={40} height={40} viewBox="0 0 50 50">{jquery.svg}</SVG>,
-            <SVG key={4} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG>,
-            <SVG key={5} width={40} height={40} viewBox="0 0 100 100">{react.svg}</SVG>,
-            <SVG key={6} width={40} height={40} viewBox="0 0 48 48">{bootstrap.svg}</SVG>,
-            <SVG key={7} width={40} height={40} viewBox="0 0 32 32">{scss.svg}</SVG>,
-            <SVG key={8} width={40} height={40} viewBox="0 0 394.00000000000006 79.433">{nextjs.svg}</SVG>,
-            <SVG key={9} width={40} height={40} viewBox="0 0 256 282">{nodejs.svg}</SVG>,
-            <SVG key={10} width={40} height={40} viewBox="0 -.11376601 49.74245785 51.31690859">{laravel.svg}</SVG>,
-            <SVG key={11} width={40} height={40} viewBox="0 0 256 108">{git.svg}</SVG>,
-            <SVG key={12} width={40} height={40} viewBox={docker.viewBox}>{docker.svg}</SVG>,
-            <SVG key={13} width={40} height={40} viewBox="-.1 1.1 304.9 179.8">{aws.svg}</SVG>,
-        ],
         x: 0,
     })
 
     const ref = useRef<HTMLDivElement>(null);
-    const mobileRef = useRef<HTMLDivElement>(null);
     const scrollRef = useRef<HTMLElement>(null);
-    const inView = useInView(sm() ? mobileRef : ref, { once: true});
+    const inView = useInView(ref, { once: true});
 
     const { scrollYProgress } = useScroll({target: scrollRef});
 
@@ -45,83 +25,7 @@ export default function Skills() {
         setState(prev => ({...prev, x: latest}));
     });
 
-    const content = [
-      {
-        svg: <Code color="white" size={24} />, 
-        title: 'Programming Languages', 
-        content: 'TypeScript, JavaScript, HTML, CSS, PHP, Java, C++, C, Python, Assembly.',
-        children: [
-          <SVG key={1} width={40} height={40} viewBox={tsLm.viewBox}>{tsLm.svg}</SVG>,
-          <div className="scale-125"><SVG key={1} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG></div>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox={php.viewBox} preserveAspectRatio={php.preserveAspectRatio}>{php.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox={javaLm.viewBox}>{javaLm.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox={cppLm.viewBox} preserveAspectRatio={cppLm.preserveAspectRatio}>{cppLm.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox={cLm.viewBox}>{cLm.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox={pythonLm.viewBox} preserveAspectRatio={pythonLm.preserveAspectRatio}>{pythonLm.svg}</SVG>,
-          <FileCode size={40} color="white"/>,
-        ]
-      },
-      {
-        svg: <Layout size={24} color="white"/>, 
-        title: 'Frontend', 
-        content: 'React, NextJs, VueJs, Tailwind, Redux, SEO, Bootstrap, jQuery.',
-        children: [
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>
-        ]
-      },
-      {
-        svg: <BracketsCurly size={24} color="white"/>, 
-        title: 'Backend', 
-        content: 'NodeJs, Express, Laravel, RESTful API, Spring Boot, Django.',
-        children: [
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-        ]
-      },
-      {
-        svg: <Database size={24} color="white"/>, 
-        title: 'Database', 
-        content: 'MySQL, Postgres, Oracle.',
-        children: [
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-        ]
-      },
-      {svg: <RocketLaunch 
-        size={24} color="white"/>, 
-        title: 'Deployment', 
-        content: 'Linux, AWS, Docker, FTP, Firebase.',
-        children: [
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-        ]
-      },
-      {
-        svg: <GitBranch size={24} color="white"/>, 
-        title: 'Version Control', 
-        content: 'Git.',
-        children: [
-          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
-        ]
-      },
-    ]
+    
 
     return (
         <React.Fragment>
@@ -144,11 +48,14 @@ export default function Skills() {
                                 const [mouseOver, setMouseOver] = useState(false);
                                 const [init, setInit] = useState(false);
                                 const [viewSkills, setViewSkills] = useState(false);
+                                const [viewMouseOver, setViewMouseOver] = useState(false);
 
                                 const isMouseOver = () => setMouseOver(true);
                                 const notMouseOver = () => setMouseOver(false);
                                 const isViewSkills = () => setViewSkills(true);
                                 const notViewSkills = () => setViewSkills(false);
+                                const isViewMouseOver = () => setViewMouseOver(true);
+                                const notViewMouseOver = () => setViewMouseOver(false);
 
                                 const parent = useRef<HTMLDivElement>(null);
                                 
@@ -188,8 +95,8 @@ export default function Skills() {
                                           <div ref={parent} className="relative flex justify-center">
                                             {
                                               viewSkills ? 
-                                                <EyeSlash className="cursor-pointer" size={24} onClick={notViewSkills} color="white"/> :
-                                                <Eye className="cursor-pointer" size={24} onClick={isViewSkills} color="white"/>
+                                                <EyeSlash onMouseOver={isViewMouseOver} onMouseLeave={notViewMouseOver} className="cursor-pointer transition" size={24} onClick={notViewSkills} color={viewMouseOver ? theme.secondary : "white"}/> :
+                                                <Eye onMouseOver={isViewMouseOver} onMouseLeave={notViewMouseOver} className="cursor-pointer transition" size={24} onClick={isViewSkills} color={viewMouseOver ? theme.secondary : "white"}/>
                                             }
                                             {
                                               c.children.map( (x, _idx) => {
@@ -197,7 +104,10 @@ export default function Skills() {
                                                   <div 
                                                     style={{background: theme.secondary, height: '65px', width: '65px', zIndex: viewSkills ? 100 : -100, opacity: viewSkills ? 1 : 0}} 
                                                     id={`container-${idx}-${_idx}`} 
-                                                    className="transition absolute flex justify-center items-center rounded-full aspect-square z-[9999]">
+                                                    className="transition absolute shadow-lg flex justify-center items-center rounded-full aspect-square z-50
+                                                    after:content-[''] after:absolute after:-top-0.5 after:-left-0.5 after:bg-[#353B3C] after:w-[69px] after:h-[69px] after:opacity-50
+                                                    after:rounded-full after:-z-10
+                                                    ">
                                                     {x}
                                                   </div>
                                                 )

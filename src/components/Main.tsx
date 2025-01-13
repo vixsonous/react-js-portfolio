@@ -64,7 +64,7 @@ export default function Main() {
     return (
             <React.Fragment>
                 <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
-                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16 relative min-h-[150vh]">
+                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16 relative min-h-[125vh]">
                         <section className="pt-4 lg:pt-24 p-4 flex-[1_0_100%] lg:flex-[1_0_50%] flex flex-col">
                             <motion.h1 
                                 style={{color: theme.primary}} 
@@ -126,10 +126,10 @@ export default function Main() {
                             </div>
                         </section>
                     </section>
-                    <section className="flex-[1_0_100%] min-h-[150vh]">
+                    <section className="flex-[1_0_100%] min-h-[125vh]">
                         <Skills />
                     </section>
-                    <section className="flex-[1_0_100%] min-h-[150vh]">
+                    <section className="flex-[1_0_100%] min-h-[125vh]">
                         <ExperienceMain />
                     </section>
                     <section className='flex-[1_0_100%]'>
