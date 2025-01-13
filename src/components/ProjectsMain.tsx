@@ -81,7 +81,7 @@ export default function ProjectsMain() {
         <React.Fragment>
           <main ref={loadingRef} className="min-h-[400vh] w-full relative">
             <div className="sticky top-0 flex flex-wrap h-full justify-center w-screen">
-              <div className="flex-[1_0_100%] flex justify-end relative">
+              <div className="flex-[1_0_100%] max-w-screen-xl mx-auto flex justify-end relative">
                   <span style={{color: theme.primary}} className="text-8xl text-right w-full z-50"><span style={{color:theme.secondary}}>Pro</span>jects</span>
               </div>
               <div className="w-screen overflow-hidden">

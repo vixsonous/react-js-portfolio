@@ -103,3 +103,11 @@ figure:hover .img-circle {
 .split-image-effect--container:hover > img:first-child:hover + div {
   --_p: calc(-50% - var(--g));
 }
+
+.div2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #ac5;
+  border-radius: 100px;
+}

@@ -64,7 +64,7 @@ export default function Main() {
     return (
             <React.Fragment>
                 <main className=" min-h-[100vh] flex flex-wrap flex-[1_0_100%] relative lg:pb-[100px] xl:pb-[0px] lg:p-[0px] items-center justify-center font-light">
-                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16 relative">
+                    <section ref={mainRef} className="flex flex-wrap max-w-screen-xl pt-16 relative min-h-[150vh]">
                         <section className="pt-4 lg:pt-24 p-4 flex-[1_0_100%] lg:flex-[1_0_50%] flex flex-col">
                             <motion.h1 
                                 style={{color: theme.primary}} 
@@ -109,8 +109,8 @@ export default function Main() {
                                 initial="hidden"
                                 animate="visible"
                             >
-                                <CoverAnimSubtitleText className="" delay={.6} cover={false} dispText={"I am a "} fontSizeClass="text-base" textColor={theme.primary}/>
-                                <CoverAnimSubtitleText className="" show={displayState[curDisplay].show} dispText={displayState[curDisplay].text} fontSizeClass="text-base" textColor={theme.primary}/>
+                                <CoverAnimSubtitleText className="" delay={.6} cover={false} dispText={"Hello! I am a "} fontSizeClass="text-base" textColor={theme.primary}/>
+                                <CoverAnimSubtitleText className="" show={displayState[curDisplay].show} dispText={`${displayState[curDisplay].text}.`} fontSizeClass="text-base" textColor={theme.primary}/>
                                 
                             </motion.h1>
 

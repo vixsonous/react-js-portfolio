@@ -1,12 +1,13 @@
 import { useInView, motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useAppSelector } from "../store";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
-import React, { useRef, useState } from "react";
-import { sm, text } from "../constants";
+import React, { useEffect, useRef, useState } from "react";
+import { sm } from "../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import {git, docker, aws, nextjs, nodejs, laravel, scss, bootstrap, html, css3, jquery, js, react, tech, trend, uiux} from "./svg/svg.paths";
+import {git, docker, aws, nextjs, nodejs, laravel, scss, bootstrap, html, css3, jquery, js, react, tech, trend, uiux, tsLm, php, javaLm, cppLm, cLm, pythonLm} from "./svg/svg.paths";
 import SVG from "./svg/SVG";
+import { BracketsCurly, Code, Database, Eye, EyeClosed, EyeSlash, FileCode, GitBranch, Layout, RocketLaunch } from "@phosphor-icons/react";
 
 export default function Skills() {
 
@@ -31,7 +32,7 @@ export default function Skills() {
         x: 0,
     })
 
-    const ref = useRef<HTMLElement>(null);
+    const ref = useRef<HTMLDivElement>(null);
     const mobileRef = useRef<HTMLDivElement>(null);
     const scrollRef = useRef<HTMLElement>(null);
     const inView = useInView(sm() ? mobileRef : ref, { once: true});
@@ -44,63 +45,176 @@ export default function Skills() {
         setState(prev => ({...prev, x: latest}));
     });
 
+    const content = [
+      {
+        svg: <Code color="white" size={24} />, 
+        title: 'Programming Languages', 
+        content: 'TypeScript, JavaScript, HTML, CSS, PHP, Java, C++, C, Python, Assembly.',
+        children: [
+          <SVG key={1} width={40} height={40} viewBox={tsLm.viewBox}>{tsLm.svg}</SVG>,
+          <div className="scale-125"><SVG key={1} width={40} height={40} viewBox="0 0 48 48">{js.svg}</SVG></div>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{css3.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox={php.viewBox} preserveAspectRatio={php.preserveAspectRatio}>{php.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox={javaLm.viewBox}>{javaLm.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox={cppLm.viewBox} preserveAspectRatio={cppLm.preserveAspectRatio}>{cppLm.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox={cLm.viewBox}>{cLm.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox={pythonLm.viewBox} preserveAspectRatio={pythonLm.preserveAspectRatio}>{pythonLm.svg}</SVG>,
+          <FileCode size={40} color="white"/>,
+        ]
+      },
+      {
+        svg: <Layout size={24} color="white"/>, 
+        title: 'Frontend', 
+        content: 'React, NextJs, VueJs, Tailwind, Redux, SEO, Bootstrap, jQuery.',
+        children: [
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>
+        ]
+      },
+      {
+        svg: <BracketsCurly size={24} color="white"/>, 
+        title: 'Backend', 
+        content: 'NodeJs, Express, Laravel, RESTful API, Spring Boot, Django.',
+        children: [
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+        ]
+      },
+      {
+        svg: <Database size={24} color="white"/>, 
+        title: 'Database', 
+        content: 'MySQL, Postgres, Oracle.',
+        children: [
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+        ]
+      },
+      {svg: <RocketLaunch 
+        size={24} color="white"/>, 
+        title: 'Deployment', 
+        content: 'Linux, AWS, Docker, FTP, Firebase.',
+        children: [
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+        ]
+      },
+      {
+        svg: <GitBranch size={24} color="white"/>, 
+        title: 'Version Control', 
+        content: 'Git.',
+        children: [
+          <SVG key={1} width={40} height={40} viewBox="0 0 48 48">{html.svg}</SVG>,
+        ]
+      },
+    ]
+
     return (
         <React.Fragment>
-            <main ref={scrollRef} className="relative flex flex-col gap-[10vh] pt-16 lg:pt-64">
+            <main ref={scrollRef} className="relative flex flex-col gap-[10vh]">
                 <div className="min-h-[100vh] flex flex-col gap-[10vh]">
-                    <section className="px-4">
-                        <h1 className="self-center flex text-6xl lg:text-8xl flex-col top-36 lg:absolute left-72 z-50 pt-0 lg:pt-64">
-                            <CoverAnimSubtitleText show={ inView} cover={false} dispText='Design and' textColor={theme.secondary}/>
+                    <section ref={ref} className="px-4">
+                        <h1 className="self-center max-w-screen-xl mx-auto flex text-6xl lg:text-8xl flex-col left-72 z-50 pt-0">
+                            <CoverAnimSubtitleText show={ inView} cover={false} dispText='Skills and' textColor={theme.secondary}/>
                             <div className="flex ">
-                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} dispText='In' textColor={theme.secondary}/>
-                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} dispText='novation.' textColor={theme.primary}/>
+                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} dispText='To' textColor={theme.secondary}/>
+                                <CoverAnimSubtitleText delay={.2} show={ inView} cover={false} dispText='ols.' textColor={theme.primary}/>
                             </div>
                         </h1>
                     </section>
-                    <section className="flex flex-[1_0_100%] h-full pt-0 lg:pt-32">
-                        <div className="flex h-full gap-[1em] w-full flex-wrap justify-between px-6">
-                            <motion.div animate={{y: (state.x) * -1}} transition={{duration: 1}}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 50}}
-                                    animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
-                                    transition={{delay: .5, ease: 'easeOut'}}
-                                    style={{background: theme.card}}
-                                    className="flex-[1_0_30%] flex p-4 flex-col shadow-lg max-w-[350px]"
-                                >
-                                    <SVG key={1} width={30} height={30} viewBox="0 0 2050 2050">{uiux.svg}</SVG>
-                                    <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText='UI/UX Design.' textColor={theme.cardText}/>
-                                    <span style={{color: theme.cardText}} className="mt-8 text-sm">I design with function and elegance in mind. Adjusted with the purpose intended for, whether the design is to spark awe, or to design with practicality. </span>
-                                </motion.div>
-                            </motion.div>
-                            <motion.div ref={mobileRef} animate={{x: state.x * -1}} transition={{duration: 1}}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 50}}
-                                    animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
-                                    transition={{delay: 1, ease: 'easeOut'}}
-                                    style={{background: theme.card}}
-                                    className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:top-24 max-w-[350px]"
-                                >
-                                    <SVG key={1} width={30} height={30} viewBox="0 0 1069 1069">{tech.svg}</SVG>
-                                    <CoverAnimSubtitleText delay={1} show={inView} fontSizeClass="text-xl" dispText='Latest Technology.' textColor={theme.cardText}/>
-                                    <span style={{color: theme.cardText}} className="mt-8 text-sm">Technology is ever changing. I desire to keep up and learn new technologies, making my arsenal in development versatile and adaptive.</span>
-                                </motion.div>
-                            </motion.div>
-                            <motion.div animate={{y: state.x}} transition={{duration: 1}}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 50}}
-                                    animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
-                                    transition={{delay: 1.5, ease: 'easeOut'}}
-                                    style={{background: theme.card}}
-                                    className="flex-[1_0_30%] flex p-4 flex-col shadow-md relative lg:bottom-24 max-w-[350px]"
-                                >
-                                    <SVG key={1} width={30} height={30} viewBox={trend.viewBox}>{trend.svg}</SVG>
-                                    <CoverAnimSubtitleText delay={1.5} show={inView} fontSizeClass="text-xl" dispText='Trend.' textColor={theme.cardText}/>
-                                    <span style={{color: theme.cardText}} className="mt-8 text-sm">Keeping up with the trend in technological and design aspect when it comes to web development or software development in general</span>
-                                </motion.div>
-                            </motion.div>
+                    <section className="flex flex-[1_0_100%] h-full pt-0">
+                        <div className="flex h-full gap-8 max-w-screen-xl mx-auto w-full flex-wrap justify-center px-6">
+                            {
+                              content.map( (c, idx) => {
+
+                                const [mouseOver, setMouseOver] = useState(false);
+                                const [init, setInit] = useState(false);
+                                const [viewSkills, setViewSkills] = useState(false);
+
+                                const isMouseOver = () => setMouseOver(true);
+                                const notMouseOver = () => setMouseOver(false);
+                                const isViewSkills = () => setViewSkills(true);
+                                const notViewSkills = () => setViewSkills(false);
+
+                                const parent = useRef<HTMLDivElement>(null);
+                                
+                                var div = 360 / c.children.length;
+                                var radius = c.children.length * 17;
+                                if(parent && parent.current && !init) {
+                                  var offsetToParentCenter = parent.current.offsetWidth / 2; //assumes parent is square
+                                  var offsetToChildCenter = 30;
+                                  var totalOffset = offsetToParentCenter - offsetToChildCenter;
+                                  console.log(totalOffset);
+                                  for (var i = 0; i < c.children.length; ++i) {
+                                    var y = Math.sin((div * i) * (Math.PI / 180)) * radius;
+                                    var x = Math.cos((div * i) * (Math.PI / 180)) * radius;
+                                    const childdiv = document.querySelector(`#container-${idx}-${i}`) as HTMLDivElement;
+                                    if(childdiv) {
+                                      childdiv.style.top = (y + totalOffset).toString() + "px";
+                                      childdiv.style.left = c.children.length === 1 ? "40px" : (x + totalOffset).toString() + "px";
+                                    }
+                                    
+                                  }
+                                  setInit(true);
+                                }
+                                
+                                return (
+                                  <motion.div key={idx} animate={{y: (state.x) * 0}} className="max-w-max w-full " transition={{duration: 1}}>
+                                    <motion.div
+                                        onMouseOver={isMouseOver}
+                                        onMouseLeave={notMouseOver}
+                                        initial={{opacity: 0, y: 50}}
+                                        animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
+                                        transition={{delay: .5 + (.25 * idx), ease: 'easeOut'}}
+                                        style={{background: theme.card, scale: mouseOver && !viewSkills ? 1.05 : 1}}
+                                        className=" flex p-4 flex-col shadow-lg w-full transition"
+                                    >
+                                        <div className="relative flex justify-between w-full items-center">
+                                          {c.svg}
+                                          <div ref={parent} className="relative flex justify-center">
+                                            {
+                                              viewSkills ? 
+                                                <EyeSlash className="cursor-pointer" size={24} onClick={notViewSkills} color="white"/> :
+                                                <Eye className="cursor-pointer" size={24} onClick={isViewSkills} color="white"/>
+                                            }
+                                            {
+                                              c.children.map( (x, _idx) => {
+                                                return (
+                                                  <div 
+                                                    style={{background: theme.secondary, height: '65px', width: '65px', zIndex: viewSkills ? 100 : -100, opacity: viewSkills ? 1 : 0}} 
+                                                    id={`container-${idx}-${_idx}`} 
+                                                    className="transition absolute flex justify-center items-center rounded-full aspect-square z-[9999]">
+                                                    {x}
+                                                  </div>
+                                                )
+                                              })
+                                            }
+                                          </div>
+                                        </div>
+                                        <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText={c.title} textColor={theme.cardText}/>
+                                        <span style={{color: theme.cardText}} className="mt-8 text-sm">{c.content}</span>
+                                    </motion.div>
+                                  </motion.div>
+                                )
+                              })
+                            }
                         </div>
                     </section>
-                    <section ref={ref} className="flex flex-[1_0_100%]">
+                    {/* <section ref={ref} className="flex flex-[1_0_100%]">
                         <Swiper
                             autoplay
                             breakpoints={{
@@ -127,7 +241,7 @@ export default function Skills() {
                                 })
                             }
                         </Swiper>
-                    </section>
+                    </section> */}
                 </div>
             </main>
         </React.Fragment>
