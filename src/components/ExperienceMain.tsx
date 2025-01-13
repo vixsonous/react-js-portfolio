@@ -7,9 +7,6 @@ import tig from '../assets/tig.png';
 import seedtech from '../assets/seedtech.png';
 import jtb from '../assets/jtb.webp';
 import TypingText from "./text/TypingText";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { sm } from "../constants";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 
