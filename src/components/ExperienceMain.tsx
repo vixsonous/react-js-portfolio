@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { sm } from "../constants";
+import { Eye, EyeSlash } from "@phosphor-icons/react";
 
 export default function ExperienceMain() {
 
@@ -186,13 +187,13 @@ export default function ExperienceMain() {
                                                         animate={{opacity: 1}} 
                                                         exit={{opacity: 0}} 
                                                         transition={{delay: .4}} 
-                                                        className="text-sm flex flex-nowrap items-center gap-4" 
-                                                    >{el.sub}<FontAwesomeIcon icon={faEye}/></motion.span>
+                                                        className="text-sm cursor-pointer flex flex-nowrap items-center gap-4" 
+                                                    >{el.sub}<Eye className="cursor-pointer" size={24} color="white"/></motion.span>
                                                 </>}
                                                 {
                                                     el.hover && <>
                                                     <TypingText delay={delay} style={{color: theme.secondary}} className={`text-2xl absolute top-[-1.1em]`} tx={el.title}/>
-                                                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .2}} className="text-lg flex flex-nowrap items-center gap-4" >{el.sub} <FontAwesomeIcon icon={faEyeSlash}/></motion.span>
+                                                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .2}} className="text-lg flex flex-nowrap items-center gap-4" >{el.sub} <EyeSlash className="cursor-pointer" size={24} color="white"/></motion.span>
                                                         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: delay + .4}} className="flex justify-center items-center gap-4 flex-wrap">
                                                         {
                                                             el.logos.map( (logo, idx) => {

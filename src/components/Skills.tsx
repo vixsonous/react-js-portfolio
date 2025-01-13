@@ -29,9 +29,9 @@ export default function Skills() {
 
     return (
         <React.Fragment>
-            <main ref={scrollRef} className="relative flex flex-col gap-[10vh]">
+            <main ref={ref} className="relative flex flex-col gap-[10vh]">
                 <div className="min-h-[100vh] flex flex-col gap-[10vh]">
-                    <section ref={ref} className="px-4">
+                    <section  className="px-4">
                         <h1 className="self-center max-w-screen-xl mx-auto flex text-6xl lg:text-8xl flex-col left-72 z-50 pt-0">
                             <CoverAnimSubtitleText show={ inView} cover={false} dispText='Skills and' textColor={theme.secondary}/>
                             <div className="flex ">
@@ -88,7 +88,7 @@ export default function Skills() {
                                         animate={{opacity: inView ? 1 : 0, y: inView ? 0 : 50}}
                                         transition={{delay: .5 + (.25 * idx), ease: 'easeOut'}}
                                         style={{background: theme.card, scale: mouseOver && !viewSkills ? 1.05 : 1}}
-                                        className=" flex p-4 flex-col shadow-lg w-full transition"
+                                        className=" flex p-4 flex-col gap-2 shadow-lg w-full transition"
                                     >
                                         <div className="relative flex justify-between w-full items-center">
                                           {c.svg}
@@ -116,7 +116,7 @@ export default function Skills() {
                                           </div>
                                         </div>
                                         <CoverAnimSubtitleText delay={.5} show={inView} fontSizeClass="text-xl" dispText={c.title} textColor={theme.cardText}/>
-                                        <span style={{color: theme.cardText}} className="mt-8 text-sm">{c.content}</span>
+                                        <span style={{color: theme.cardText}} className="mt-4 text-sm">{c.content}</span>
                                     </motion.div>
                                   </motion.div>
                                 )
