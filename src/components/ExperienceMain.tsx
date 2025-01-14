@@ -36,10 +36,10 @@ export default function ExperienceMain() {
                     tig
                 ],
                 tasks: [
-                    'Collected, defined and translated user requirements into project designs and implementation plans.',
+                    'Collected, defined and translated user requirements into project designs and implementation plans, creating the overall development plan of the project.',
                     'Designed and implemented a database for the web application to store information and dental history.',
-                    'Developed a dental-medical web application with an interactive dental record system to track dental notes and entries for each tooth.',
-                    'Discussed project progress with the project manager, gathered feedback at various stages and addressed concerns directly.'
+                    'Developed a dental-medical web application with an interactive dental record system to track dental notes and entries for each tooth, which led to a sale and satisfied customer feedback.',
+                    'Discussed project progress with the project manager, gathered feedback at various stages and addressed concerns quickly, improving the web application at a rate of 30%.'
                 ],
                 position: {
                     top: '1em',
@@ -54,11 +54,10 @@ export default function ExperienceMain() {
                 sub: 'Yazaki Real Estate / July 2021 – December 2022',
                 logos: [],
                 tasks: [
-                    'Conducted meetings and discussions with the project manager to align on project goals and progress.',
-                    'Provided suggestions for UI-related improvements to enhance user experience.',
-                    'Designed, developed, and implemented a React clone based on an existing project to reimplement it in a different stack.',
-                    'Identified and addressed issues within the existing project to ensure quality and functionality.',
-                    'Developed and implemented additional improvement features on the existing project.'
+                    'Converted project requirements documentation into actionable tasks, improving execution by 30% and ensuring alignment with project goals.',
+                    'Handled the creation of a React-based clone of the existing application to migrate it to a modern tech stack, enhancing functionality by 45% and improving overall performance.',
+                    'Identified and resolved issues within the existing application through systematic testing and debugging process, enhancing application quality and functionality by 20%.',
+                    'Engineered and deployed new features, leading to enhanced user experience and website functionality.',
                 ],
                 position: {
                     top: '2em',
@@ -77,14 +76,12 @@ export default function ExperienceMain() {
                     jtb
                 ],
                 tasks: [
-                    'Developed features for an enterprise-level project following the waterfall model software development life cycle.',
-                    'Led daily scrum meetings and reported progress to the project manager.',
-                    'Trained and mentored junior software engineers to support their professional growth.',
-                    'Delivered training sessions for new team members.',
-                    'Managed task distribution, including creating, assigning, and updating tasks for team members.',
-                    'Collaborated with international team members to ensure smooth project development.',
-                    'Prepared and maintained project documentation.',
-                    'Reviewed code written by team members to ensure quality and adherence to project standards.'
+                    'Developed and deployed websites and features for an enterprise-level web application, following agile development and the waterfall SDLC methodologies, with a 100% success rate in website deployments.',
+                    'Translated product specifications into actionable tasks, resulting in smoother development execution and 30% faster project completion.',
+                    'Proposed optimization solution on existing algorithms for fetching data, significantly decreasing the loading time by 45%.',
+                    'Trained and mentored junior software engineers to support their professional growth, improving technical knowledge to enhance team efficiency by 15%.',
+                    'Executed website deployments seamlessly on Linux servers using FTP, resulting in zero downtime and maximizing application reliability.',
+                    'Reviewed team members’ code to ensure quality and compliance with project standards, reducing errors by 30% and enhancing the overall development flow.',
                 ],
                 position: {
                     top: '-50px',

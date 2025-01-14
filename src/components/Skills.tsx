@@ -60,19 +60,19 @@ export default function Skills() {
                                 const parent = useRef<HTMLDivElement>(null);
                                 
                                 var div = 360 / c.children.length;
-                                var radius = c.children.length * 17;
+                                var radius = (c.children.length * 17) < 70 ? 70 : c.children.length * 17;
                                 if(parent && parent.current && !init) {
                                   var offsetToParentCenter = parent.current.offsetWidth / 2; //assumes parent is square
                                   var offsetToChildCenter = 30;
                                   var totalOffset = offsetToParentCenter - offsetToChildCenter;
-                                  console.log(totalOffset);
+                                  console.log(radius);
                                   for (var i = 0; i < c.children.length; ++i) {
                                     var y = Math.sin((div * i) * (Math.PI / 180)) * radius;
                                     var x = Math.cos((div * i) * (Math.PI / 180)) * radius;
                                     const childdiv = document.querySelector(`#container-${idx}-${i}`) as HTMLDivElement;
                                     if(childdiv) {
                                       childdiv.style.top = (y + totalOffset).toString() + "px";
-                                      childdiv.style.left = c.children.length === 1 ? "40px" : (x + totalOffset).toString() + "px";
+                                      childdiv.style.left = (x + totalOffset).toString() + "px"
                                     }
                                     
                                   }
@@ -107,6 +107,7 @@ export default function Skills() {
                                                     className="transition absolute shadow-lg flex justify-center items-center rounded-full aspect-square z-50
                                                     after:content-[''] after:absolute after:-top-0.5 after:-left-0.5 after:bg-[#353B3C] after:w-[69px] after:h-[69px] after:opacity-50
                                                     after:rounded-full after:-z-10
+                                                    hover:scale-125
                                                     ">
                                                     {x}
                                                   </div>
