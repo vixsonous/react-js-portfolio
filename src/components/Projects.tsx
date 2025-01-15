@@ -169,7 +169,7 @@ export default function Projects() {
                                 {({isActive}) => (
                                     <>
                                     <div className="relative">
-                                        <motion.img viewport={{once:true}} src={'/cards/gvo-card.png'} className={`rounded-md h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
+                                        <motion.img viewport={{once:true}} src={'/cards/gvo-card.webp'} className={`rounded-md h-[400px] w-[100%] object-cover transition-all`}  alt="website banner" />
                                         <div className={`transition-all duration-500 absolute top-0 left-0 ${isActive ? 'opacity-[0.7]' : 'opacity-[0]'} bg-black w-full h-full`}></div>
                                         <div className="absolute top-0 w-full h-full overflow-hidden">
                                             <div className="absolute bottom-0 p-[20px]">
