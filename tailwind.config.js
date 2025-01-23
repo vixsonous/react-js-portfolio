@@ -10,7 +10,7 @@ export default {
         'spin': 'spin 1s linear infinite'
       },
       keyframes: {
-        'spin' : {
+        'spin': {
           from: { transform: 'scale(1) rotate(0deg)' },
           to: { transform: 'scale(1) rotate(360deg)' },
         },

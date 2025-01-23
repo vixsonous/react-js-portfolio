@@ -48,13 +48,13 @@ const lightMode = {
 function App() {
   const dispatch = useDispatch();
   dispatch(setTheme(lightMode));
-  
+
   const divRef = useRef<HTMLDivElement>(null);
 
   const element = useRoutes([
     {
       path: '/',
-      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
+      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed' }} className=' min-h-[100vh] flex flex-col items-center relative'>
         <Header />
         <ParticlesElement />
         <Main />
@@ -62,29 +62,29 @@ function App() {
     },
     {
       path: '/experience',
-      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
-      <Header />
-      <ParticlesElement />
-      <Experience/>
-    </div>
+      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed' }} className=' min-h-[100vh] flex flex-col items-center relative'>
+        <Header />
+        <ParticlesElement />
+        <Experience />
+      </div>
     },
     {
       path: '/projects',
-      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed'}} className=' min-h-[100vh] flex flex-col items-center relative'>
-      <Header />
-      <ParticlesElement />
-      <Projects />
-    </div>
+      element: <div ref={divRef} style={{ backgroundAttachment: 'fixed' }} className=' min-h-[100vh] flex flex-col items-center relative'>
+        <Header />
+        <ParticlesElement />
+        <Projects />
+      </div>
     }
   ]);
 
   const location = useLocation();
 
-  if(!element) return null;
+  if (!element) return null;
 
   return (
     <AnimatePresence mode="wait">
-      {React.cloneElement(element, {key: location.pathname})}
+      {React.cloneElement(element, { key: location.pathname })}
     </AnimatePresence>
   )
 }

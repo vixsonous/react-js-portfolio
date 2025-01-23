@@ -1,9 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*,::before, ::after {
+
+*,
+::before,
+::after {
   border-color: transparent;
 }
+
 :root {
   /* font-family: "Lato", sans-serif; */
   font-family: "DM Sans", sans-serif;
@@ -19,8 +23,9 @@
 }
 
 .text-shadow {
-  text-shadow: 0 13.36px 8.896px #c4b59d,0 5px 5px 
+  text-shadow: 0 13.36px 8.896px #c4b59d, 0 5px 5px
 }
+
 html {
   /* -webkit-overflow-scrolling: touch;  */
   /* scrollbar-width: none; */
@@ -61,17 +66,19 @@ circle {
 .img-circle {
   transition: transform 1s ease 0s;
 }
+
 figure:hover .img-circle {
   transform: rotateY(7deg);
 }
 
-.project-slick .slick-slide div{
+.project-slick .slick-slide div {
   height: 100px;
 }
 
 .circle-path {
   clip-path: circle(75%);
 }
+
 .circle-path:hover {
   clip-path: circle(45%);
 }
@@ -82,7 +89,8 @@ figure:hover .img-circle {
   clip-path: inset(1px);
 }
 
-.split-image-effect--container > img, .split-image-effect--container > div {
+.split-image-effect--container>img,
+.split-image-effect--container>div {
   --_p: calc(-1*var(--g));
   grid-area: 1/1;
   aspect-ratio: 3/4;
@@ -90,21 +98,21 @@ figure:hover .img-circle {
   transition: .4s .1s clip-path, .4s .1s filter;
 }
 
-.split-image-effect--container > div {
+.split-image-effect--container>div {
   clip-path: polygon(0 0, calc(100% + var(--_p)) 0, 0 calc(100% + var(--_p)));
 }
 
-.split-image-effect--container > img:first-child {
+.split-image-effect--container>img:first-child {
   clip-path: polygon(100% 100%, 100% calc(0% - var(--_p)), calc(0% - var(--_p)) 100%);
 }
 
-.split-image-effect--container:hover > div,
-.split-image-effect--container:hover > img:first-child:hover {
+.split-image-effect--container:hover>div,
+.split-image-effect--container:hover>img:first-child:hover {
   --_p: calc(50% - var(--g));
 }
 
-.split-image-effect--container:hover > img:first-child,
-.split-image-effect--container:hover > img:first-child:hover + div {
+.split-image-effect--container:hover>img:first-child,
+.split-image-effect--container:hover>img:first-child:hover+div {
   --_p: calc(-50% - var(--g));
 }
 

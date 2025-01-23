@@ -72,7 +72,7 @@ export default function Experience() {
     const divItem = useRef<HTMLDivElement>(null);
     const spanItem = useRef<HTMLSpanElement>(null);
 
-    const nextItem = (e:React.MouseEvent<HTMLButtonElement>) => {
+    const nextItem = (e:React.MouseEvent<HTMLButtonElement>) : void => {
       e.preventDefault();
       if(!h1Item || !h1Item.current) return;
       if(!divItem || !divItem.current) return;
@@ -177,8 +177,8 @@ export default function Experience() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className={swiperSlideClass}>
-                    <div className="flex flex-wrap">
-                        <div className="flex-[1_0_50%] flex flex-col gap-[10px]">
+                    <div className="flex flex-wrap gap-8 md:gap-0 h-full">
+                        <div className="flex-[1_0_50%] flex flex-col gap-2 md:pr-16">
                             <div style={{fontSize: text.logo}} className="leading-[55px]" data-swiper-parallax="-300">
                                 Senior Software Engineer / <br/><span className="text-[.5em] font-light">September 2021 - Present</span>
                             </div>
@@ -192,7 +192,10 @@ export default function Experience() {
                             </div>
                         </div>
                         <div className="flex-[1_0_50%] w-full h-full flex justify-center items-center">
-                          <div style={{background: `radial-gradient(circle, #353B3C 0%, #1F1F1F 90%)`}} className="relative w-full h-[350px] md:h-[500px] flex justify-between items-center">
+                          <div 
+                            style={{background: `radial-gradient(circle, #353B3C 0%, #1F1F1F 90%)`}} 
+                            className="relative w-full h-[250px] md:h-[350px] flex justify-between items-center "
+                          >
                             <div className="w-full flex flex-col gap-2 justify-center items-center">
                               <h1 ref={h1Item} className="text-white text-4xl md:text-8xl">
                                 {

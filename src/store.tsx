@@ -3,9 +3,9 @@ import { theme } from "./slice/theme";
 import { useDispatch, useSelector } from "react-redux";
 
 export const store = configureStore({
-    reducer: {
-        theme: theme.reducer
-    }
+  reducer: {
+    theme: theme.reducer
+  }
 });
 
 type RootState = ReturnType<typeof store.getState>;

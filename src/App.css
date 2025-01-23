@@ -1,40 +1,43 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --thumb: #000
+  --thumb: #000
 }
+
 .no-scroll {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-}
-.no-scroll::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-}
-
-.img-shine { 
-    transform: perspective(800px) rotate3d(1, -1, 0, 5deg);
-    mask: 
-        linear-gradient(135deg, #000c 40%, #000, #000c 60%) 
-        100% 100%/
-        240% 240%;
-    transition: all .5s;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-.img-shine:hover { 
-    transform: perspective(800px) rotate3d(1, -1, 0, -5deg);
-    mask-position: 0 0;
+.no-scroll::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+.img-shine {
+  transform: perspective(800px) rotate3d(1, -1, 0, 5deg);
+  mask:
+    linear-gradient(135deg, #000c 40%, #000, #000c 60%) 100% 100%/ 240% 240%;
+  transition: all .5s;
+}
+
+.img-shine:hover {
+  transform: perspective(800px) rotate3d(1, -1, 0, -5deg);
+  mask-position: 0 0;
 }
 
 .mask-image {
-    mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);
+  mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);
 }
 
 canvas {
-	position: absolute;
-	top: 0;
-	left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
