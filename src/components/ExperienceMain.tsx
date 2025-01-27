@@ -29,7 +29,6 @@ export default function ExperienceMain() {
   });
   const vWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const dVar = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const mm = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
   const [state, setState] = useState({
     elements: [
