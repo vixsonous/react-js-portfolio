@@ -1,10 +1,4 @@
-import {
-  useInView,
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-} from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import { useAppSelector } from "../store";
 import CoverAnimSubtitleText from "./text/CoverAnimSubtitleText";
 import React, { useRef, useState } from "react";
@@ -14,21 +8,8 @@ import { content } from "../constants";
 export default function Skills() {
   const theme = useAppSelector((state) => state.theme.theme);
 
-  const [state, setState] = useState({
-    x: 0,
-  });
-
   const ref = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true });
-
-  const { scrollYProgress } = useScroll({ target: scrollRef });
-
-  const x = useTransform(scrollYProgress, [0, 1], [0, 20]);
-
-  useMotionValueEvent(x, "change", (latest) => {
-    setState((prev) => ({ ...prev, x: latest }));
-  });
 
   return (
     <React.Fragment>
