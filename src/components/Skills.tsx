@@ -32,7 +32,7 @@ export default function Skills() {
 
   return (
     <React.Fragment>
-      <main ref={ref} className="relative flex flex-col gap-[10vh]">
+      <main className="relative flex flex-col gap-[10vh]">
         <div className="min-h-[100vh] flex flex-col gap-[10vh]">
           <section className="flex flex-[1_0_100%] h-full items-center pt-0">
             <div className="flex h-full gap-8 max-w-screen-xl mx-auto w-full flex-wrap justify-center px-6">
@@ -58,7 +58,6 @@ export default function Skills() {
                   var offsetToParentCenter = parent.current.offsetWidth / 2; //assumes parent is square
                   var offsetToChildCenter = 30;
                   var totalOffset = offsetToParentCenter - offsetToChildCenter;
-                  console.log(radius);
                   for (var i = 0; i < c.children.length; ++i) {
                     var y = Math.sin(div * i * (Math.PI / 180)) * radius;
                     var x = Math.cos(div * i * (Math.PI / 180)) * radius;
@@ -74,23 +73,26 @@ export default function Skills() {
                 }
 
                 return (
-                  <motion.div
-                    key={idx}
-                    animate={{ y: state.x * 0 }}
-                    className="max-w-max w-full "
-                    transition={{ duration: 1 }}
+                  <motion.section
+                    ref={ref}
+                    onMouseOver={isMouseOver}
+                    onMouseLeave={notMouseOver}
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{
+                      opacity: inView ? 1 : 0,
+                      x: inView ? 0 : -100,
+                    }}
+                    transition={{
+                      delay: 0.5 + 0.15 * idx,
+                      ease: [0.39, 0.24, 0.3, 1],
+                      duration: 0.5,
+                    }}
                   >
                     <motion.div
-                      onMouseOver={isMouseOver}
-                      onMouseLeave={notMouseOver}
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-                      transition={{ delay: 0.5 + 0.25 * idx, ease: "easeOut" }}
                       style={{
-                        background: theme.card,
                         scale: mouseOver && !viewSkills ? 1.05 : 1,
                       }}
-                      className=" flex p-4 flex-col gap-2 shadow-lg w-full transition"
+                      className="transition flex p-4 flex-col gap-2 shadow-lg w-full max-w-max"
                     >
                       <div className="relative flex justify-between w-full items-center">
                         {c.svg}
@@ -105,7 +107,9 @@ export default function Skills() {
                               className="cursor-pointer transition"
                               size={24}
                               onClick={notViewSkills}
-                              color={viewMouseOver ? theme.secondary : "white"}
+                              color={
+                                viewMouseOver ? theme.secondary : theme.primary
+                              }
                             />
                           ) : (
                             <Eye
@@ -114,7 +118,9 @@ export default function Skills() {
                               className="cursor-pointer transition"
                               size={24}
                               onClick={isViewSkills}
-                              color={viewMouseOver ? theme.secondary : "white"}
+                              color={
+                                viewMouseOver ? theme.secondary : theme.primary
+                              }
                             />
                           )}
                           {c.children.map((x, _idx) => {
@@ -145,16 +151,16 @@ export default function Skills() {
                         show={inView}
                         fontSizeClass="text-xl"
                         dispText={c.title}
-                        textColor={theme.cardText}
+                        textColor={theme.primary}
                       />
                       <span
-                        style={{ color: theme.cardText }}
+                        style={{ color: theme.primary }}
                         className="mt-4 text-sm"
                       >
                         {c.content}
                       </span>
                     </motion.div>
-                  </motion.div>
+                  </motion.section>
                 );
               })}
             </div>

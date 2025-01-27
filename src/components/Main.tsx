@@ -7,18 +7,11 @@ import ExperienceMain from "./ExperienceMain";
 import MovingText from "./text/MovingText";
 import ProjectsMain from "./ProjectsMain";
 import Footer from "./Footer";
-import { sm } from "../constants";
 import SVG from "./svg/SVG";
 import { js, reactDm, tsLm } from "./svg/svg.paths";
 
 export default function Main() {
-  // const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
-  // const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
   const theme = useAppSelector((state) => state.theme.theme);
-
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const isPresent = useIsPresent();
-
   const [displayState, setDisplayState] = useState([
     { show: false, text: "Web Developer" },
     { show: false, text: "UI/UX Designer" },
