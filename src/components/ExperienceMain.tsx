@@ -131,9 +131,12 @@ export default function ExperienceMain() {
   return (
     <section ref={loadingRef} className="min-h-[300vh] relative">
       <main className="flex flex-col gap-4 sticky top-0 pt-16">
-        <div className="lg:min-h-screen flex flex-col lg:gap-20">
-          <section ref={ref} className="relative mb-6 overflow-hidden">
-            <h1 className=" text-6xl self-center flex justify-center">
+        <div className="lg:min-h-screen flex flex-col">
+          <section
+            ref={ref}
+            className="relative max-w-screen-xl w-full mx-auto mb-6 overflow-hidden"
+          >
+            <h1 className=" text-6xl self-center flex justify-end">
               <CoverAnimSubtitleText
                 show={inView}
                 cover={false}
