@@ -17,7 +17,9 @@ export default function Skills() {
               className="flex h-full gap-8 max-w-screen-xl mx-auto w-full flex-wrap justify-center px-6"
             >
               {content.map((c, idx) => (
-                <SkillCard skill={c} skillIdx={idx} inView={inView} />
+                <React.Fragment key={idx}>
+                  <SkillCard skill={c} skillIdx={idx} inView={inView} />
+                </React.Fragment>
               ))}
             </div>
           </section>

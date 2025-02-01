@@ -93,6 +93,7 @@ export default function SkillCard({
             {skill.children.map((x, _idx) => {
               return (
                 <div
+                  key={_idx}
                   style={{
                     background: hook.theme.secondary,
                     height: "65px",

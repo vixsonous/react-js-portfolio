@@ -112,14 +112,14 @@ export default function Main() {
             className={`relative flex-[1_0_50%] flex justify-between flex-col items-center`}
           >
             <div className=" w-full h-full flex justify-center flex-row items-center">
-              <SVG key={1} width={80} height={80} viewBox={tsLm.viewBox}>
+              <SVG width={80} height={80} viewBox={tsLm.viewBox}>
                 {tsLm.svg}
               </SVG>
-              <SVG key={1} width={120} height={120} viewBox={reactDm.viewBox}>
+              <SVG width={120} height={120} viewBox={reactDm.viewBox}>
                 {reactDm.svg}
               </SVG>
               <div className="scale-125">
-                <SVG key={1} width={80} height={80} viewBox="0 0 48 48">
+                <SVG width={80} height={80} viewBox="0 0 48 48">
                   {js.svg}
                 </SVG>
               </div>
