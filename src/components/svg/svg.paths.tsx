@@ -348,7 +348,7 @@ export const php = {
 export const javaLm = {
   viewBox: "0 0 192.756 192.756",
   svg: (
-    <g fill-rule="evenodd" clip-rule="evenodd">
+    <g fillRule="evenodd" clipRule="evenodd">
       <path
         d="M80.372 101.729s-4.604 2.679 3.28 3.584c9.554 1.091 14.434.934 24.959-1.057 0 0 2.771 1.735 6.639 3.236-23.601 10.113-53.413-.585-34.878-5.763zM77.487 88.532s-5.165 3.823 2.726 4.639c10.206 1.054 18.262 1.14 32.211-1.544 0 0 1.926 1.955 4.957 3.023-28.531 8.345-60.307.657-39.894-6.118z"
         fill="#E0E0E0"
@@ -380,7 +380,7 @@ export const javaLm = {
 export const javaDm = {
   viewBox: "0 0 192.756 192.756",
   svg: (
-    <g fill-rule="evenodd" clip-rule="evenodd">
+    <g fillRule="evenodd" clipRule="evenodd">
       <path
         d="M80.372 101.729s-4.604 2.679 3.28 3.584c9.554 1.091 14.434.934 24.959-1.057 0 0 2.771 1.735 6.639 3.236-23.601 10.113-53.413-.585-34.878-5.763zM77.487 88.532s-5.165 3.823 2.726 4.639c10.206 1.054 18.262 1.14 32.211-1.544 0 0 1.926 1.955 4.957 3.023-28.531 8.345-60.307.657-39.894-6.118z"
         fill="#3174b9"
@@ -503,8 +503,8 @@ export const pythonLm = {
           y2="78.201%"
           id="a"
         >
-          <stop stop-color="#353B3C" offset="0%" />
-          <stop stop-color="#353B3C" offset="100%" />
+          <stop stopColor="#353B3C" offset="0%" />
+          <stop stopColor="#353B3C" offset="100%" />
         </linearGradient>
         <linearGradient
           x1="19.128%"
@@ -513,8 +513,8 @@ export const pythonLm = {
           y2="88.429%"
           id="b"
         >
-          <stop stop-color="#E0E0E0" offset="0%" />
-          <stop stop-color="#E0E0E0" offset="100%" />
+          <stop stopColor="#E0E0E0" offset="0%" />
+          <stop stopColor="#E0E0E0" offset="100%" />
         </linearGradient>
       </defs>
       <path
@@ -556,8 +556,8 @@ export const tailwindLm = {
   svg: (
     <>
       <linearGradient id="a" x1="-2.778%" y1="32%" y2="67.556%">
-        <stop offset="0" stop-color="#fff" />
-        <stop offset="1" stop-color="#fff" />
+        <stop offset="0" stopColor="#fff" />
+        <stop offset="1" stopColor="#fff" />
       </linearGradient>
       <path
         d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8z"
@@ -730,13 +730,13 @@ export const firebaseLm = {
         d="M0 282.998l2.123-2.972L102.527 89.512l.212-2.017L58.48 4.358C54.77-2.606 44.33-.845 43.114 6.951L0 282.998z"
         fill="#FFC24A"
       />
-      <use fill="#FFA712" fill-rule="evenodd" xlinkHref="#a" />
+      <use fill="#FFA712" fillRule="evenodd" xlinkHref="#a" />
       <use filter="url(#b)" xlinkHref="#a" />
       <path
         d="M135.005 150.38l32.955-33.75-32.965-62.93c-3.129-5.957-11.866-5.975-14.962 0L102.42 87.287v2.86l32.584 60.233z"
         fill="#F4BD62"
       />
-      <use fill="#FFA50E" fill-rule="evenodd" xlinkHref="#c" />
+      <use fill="#FFA50E" fillRule="evenodd" xlinkHref="#c" />
       <use filter="url(#d)" xlinkHref="#c" />
       <path
         fill="#F6820C"
@@ -763,7 +763,7 @@ export const linuxLm = {
   viewBox: "0 0 192.756 192.756",
   svg: (
     <>
-      <g fill="#E0E0E0" fill-rule="evenodd" clip-rule="evenodd">
+      <g fill="#E0E0E0" fillRule="evenodd" clipRule="evenodd">
         <path fill="#E0E0E0" fillOpacity={0} d="M0 0h192.756v192.756H0V0z" />
         <path
           fill="#E0E0E0"
